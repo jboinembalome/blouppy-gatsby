@@ -18,12 +18,14 @@ function Navbar(props) {
   useEffect(() => {
     if (toggleTheme) {
       document.body.classList.add('dark')
-      localStorage.theme = 'dark'
+      if (typeof window !== 'undefined')
+        localStorage.theme = 'dark'
     }
 
     else {
       document.body.classList.remove('dark')
-      localStorage.theme = 'light'
+      if (typeof window !== 'undefined')
+        localStorage.theme = 'light'
     }
 
   }, [toggleTheme]);
@@ -34,13 +36,16 @@ function Navbar(props) {
 
   function loadTheme() {
     // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-    if (localStorage.theme === 'light' || (!('theme' in localStorage))) {
-      document.body.classList.remove('dark')
+    if (typeof window !== 'undefined')
+      if (localStorage.theme === 'light' || (!('theme' in localStorage))) {
+        document.body.classList.remove('dark')
+        return false;
+      } else {
+        document.body.classList.add('dark')
+        return true;
+      }
+    else
       return false;
-    } else {
-      document.body.classList.add('dark')
-      return true;
-    }
   }
 
   const classNames = (...classes) => {
