@@ -1,0 +1,222 @@
+.btn {
+  @apply inline-flex gap-x-2 items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-violet-600 dark:bg-violet-400 hover:bg-violet-700 dark:hover:bg-violet-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500;
+}
+
+.btn-white-sm {
+  @apply inline-flex items-center px-3 py-2 border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500;
+}
+
+// override style for prismjs
+
+/* Additional styling from Gatsby -
+
+ * Remove the default PrismJS theme background-color, border-radius, margin, padding and overflow.
+ * 1. Make the element just wide enough to fit its content.
+ * 2. Always fill the visible space in .gatsby-highlight.
+ * 3. Adjust the position of the line numbers
+ */
+
+.gatsby-highlight {
+  overflow-x: auto;
+  max-width: 88vw;
+  min-width: 300px;
+  @apply rounded-md rounded-tr-none mb-8;
+}
+.gatsby-highlight pre[class*="language-"] {
+  @apply bg-gray-900 dark:bg-gray-800 m-0 p-0 float-left min-w-full rounded-md rounded-tr-none;
+}
+
+.gatsby-highlight {
+  /* PrismJS Theme styles */
+  pre[class*="language-"] {
+    @apply overflow-auto;
+  }
+}
+
+.gatsby-highlight pre[class*="language-"].line-numbers {
+  @apply pl-16;
+}
+
+// override style for gatsby-remark-code-buttons
+.gatsby-code-button-container {
+  max-width: 88vw;
+  min-width: 300px;
+  @apply touch-none flex justify-end top-0 z-[100] pointer-events-none;
+}
+
+.gatsby-code-button {
+  @apply flex gap-x-2 p-1 border border-transparent text-sm font-medium rounded-md rounded-b-none shadow-sm text-white bg-violet-600 hover:bg-violet-700 dark:bg-violet-400 dark:hover:bg-violet-500;
+
+  &:after {
+    @apply absolute whitespace-nowrap hidden rounded-md text-xs p-1 text-white bg-gray-900 dark:bg-gray-700;
+    content: attr(data-tooltip);
+  }
+
+  &[data-tooltip] {
+    &:after {
+      top: 40px;
+      right: 0;
+    }
+  }
+}
+.gatsby-code-button-icon {
+  @apply w-4;
+  fill: white;
+}
+
+.gatsby-code-button-toaster-text {
+  @apply w-auto rounded-md text-white bg-violet-600 dark:bg-violet-400;
+}
+
+// unreset class is used to define a default style for pages with markdown
+.unreset {
+  a {
+    @apply text-blue-700 dark:text-blue-500 underline;
+  }
+  p {
+    @apply my-4;
+  }
+
+  blockquote,
+  figure {
+    @apply my-4 mx-10;
+  }
+
+  hr {
+    @apply border;
+  }
+
+  h1 {
+    @apply text-2xl font-bold my-2 text-violet-600 dark:text-violet-400;
+  }
+
+  h2 {
+    @apply text-xl dark:text-gray-100 font-bold my-4 border-b-2 border-violet-600 dark:border-violet-400;
+  }
+
+  h3 {
+    @apply text-lg font-bold text-violet-500 dark:text-violet-300 my-4;
+  }
+
+  h4 {
+    @apply text-base dark:text-gray-100 font-bold my-5;
+  }
+
+  h5 {
+    @apply text-sm dark:text-gray-100 font-bold my-6;
+  }
+
+  h6 {
+    @apply text-xs dark:text-gray-100 font-bold my-10;
+  }
+
+  article,
+  aside,
+  nav,
+  section {
+    h1 {
+      @apply text-2xl dark:text-gray-100 font-bold my-3;
+    }
+
+    article,
+    aside,
+    nav,
+    section {
+      h1 {
+        @apply text-lg dark:text-gray-100 font-bold my-4;
+      }
+
+      article,
+      aside,
+      nav,
+      section {
+        h1 {
+          @apply text-base dark:text-gray-100 font-bold my-5;
+        }
+
+        article,
+        aside,
+        nav,
+        section {
+          h1 {
+            @apply text-sm dark:text-gray-100 font-bold my-6;
+          }
+
+          article,
+          aside,
+          nav,
+          section {
+            h1 {
+              @apply text-xs dark:text-gray-100 font-bold my-10;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  ul,
+  menu {
+    // should be my-4 for proper reset, but thats ugly af
+    @apply list-disc my-1 pl-10;
+  }
+
+  ol {
+    @apply list-decimal my-4 pl-10;
+  }
+
+  ul,
+  ol {
+    ul {
+      list-style-type: circle;
+    }
+
+    ul,
+    ol {
+      ul {
+        list-style-type: square;
+      }
+    }
+  }
+
+  dd {
+    @apply pl-10;
+  }
+
+  dl {
+    @apply my-4;
+  }
+
+  ul,
+  ol,
+  menu,
+  dl {
+    ul,
+    ol,
+    menu,
+    dl {
+      margin: 0;
+    }
+  }
+
+  legend {
+    @apply py-0 px-1;
+  }
+
+  fieldset {
+    @apply my-0 mx-1 pt-0 px-1 pb-2;
+  }
+
+  b,
+  strong {
+    font-weight: bold;
+  }
+
+  pre {
+    @apply my-4;
+  }
+
+  code::before, code::after {
+    @apply content-none;
+  }
+}

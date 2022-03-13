@@ -1,0 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// Contains global classes that can be used anywhere
+@import "/src/components/all.scss";
