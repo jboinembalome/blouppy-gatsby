@@ -2,7 +2,7 @@
 templateKey: 'about-page'
 path: /about
 title: About
-aboutimage: /img/jimmy2.jpeg
+aboutimage: /img/jimmy2.jpg
 ---
 ### Beginning of Programmation
 I started programming when I was working at ETAI as an apprentice. With only a few purely theoretical principles, I asked myself how a developer could create software. And it was here that I created my first... "Hello World!". For an experienced developer, a simple "Hello World!" is not a revolutionary thing.
