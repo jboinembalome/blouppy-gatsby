@@ -7,22 +7,25 @@ import { HTMLContent } from '../components/Content'
 import { Helmet } from 'react-helmet'
 
 const AboutPage = ({ data }) => {
-  const { markdownRemark: post } = data
+  const { frontmatter, html } = data.markdownRemark
 
   return (
     <Layout>
       <Helmet title={`Blouppy | About`} />
       <AboutPageTemplate
         contentComponent={HTMLContent}
-        title={post.frontmatter.title}
-        content={post.html}
+        title={frontmatter.title}
+        aboutimage={frontmatter.aboutimage}
+        content={html}
       />
     </Layout>
   )
 }
 
 AboutPage.propTypes = {
-  data: PropTypes.object.isRequired,
+  data: PropTypes.shape({
+    markdownRemark: PropTypes.object,
+  }),
 }
 
 export default AboutPage
@@ -33,6 +36,11 @@ export const aboutPageQuery = graphql`
       html
       frontmatter {
         title
+        aboutimage {
+          childImageSharp {
+            gatsbyImageData(width: 1200, quality: 100, layout: CONSTRAINED)
+          }
+        }
       }
     }
   }

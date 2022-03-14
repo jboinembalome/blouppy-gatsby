@@ -2,8 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Content from '../components/Content'
 import { CameraIcon } from '@heroicons/react/solid'
+import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
 
-export const AboutPageTemplate = ({ title, content, contentComponent }) => {
+export const AboutPageTemplate = ({ title, aboutimage, content, contentComponent }) => {
   const PageContent = contentComponent || Content
 
   return (
@@ -43,11 +44,11 @@ export const AboutPageTemplate = ({ title, content, contentComponent }) => {
             <div className="relative text-base mx-auto max-w-prose lg:max-w-none">
               <figure>
                 <div className="aspect-w-12 aspect-h-7 lg:aspect-none">
-                  <img
-                    className="rounded-lg shadow-lg object-cover object-center"
-                    src="img/jimmy2.jpeg"
-                    alt=""
-                    
+                  <PreviewCompatibleImage className="rounded-lg shadow-lg object-cover object-center lg:relative"
+                    imageInfo={{
+                      image: aboutimage,
+                      alt: `about image`,
+                    }}
                   />
                 </div>
                 <figcaption className="mt-3 flex text-sm text-gray-500 dark:text-gray-400">
@@ -68,6 +69,7 @@ export const AboutPageTemplate = ({ title, content, contentComponent }) => {
 
 AboutPageTemplate.propTypes = {
   title: PropTypes.string.isRequired,
+  aboutimage: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   content: PropTypes.string,
   contentComponent: PropTypes.func,
 }
