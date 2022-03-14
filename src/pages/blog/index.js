@@ -7,7 +7,7 @@ import { Helmet } from 'react-helmet'
 export default class BlogIndexPage extends React.Component {
   render() {
     function HeaderCard() {
-      return <div className="bg-violet-700 dark:bg-violet-500 rounded-lg shadow-xl overflow-hidden lg:grid lg:grid-cols-2 lg:gap-4">
+      return <div className="bg-violet-700 dark:bg-violet-500 rounded-lg shadow-xl overflow-hidden">
         <div className="pt-10 pb-12 px-6 sm:pt-16 sm:px-16 lg:py-16 lg:pr-0 xl:py-20 xl:px-20">
           <div className="lg:self-center">
             <h2 className="text-3xl font-extrabold text-white sm:text-4xl">
