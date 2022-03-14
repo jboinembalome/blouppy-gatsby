@@ -30,7 +30,7 @@ export const IndexPageTemplate = ({
               >
                 <PreviewCompatibleImage className="w-full"
                   imageInfo={{
-                    image: !!image.childImageSharp ? getSrc(image.childImageSharp.gatsbyImageData) : image,
+                    image: !!image.childImageSharp ? getSrc(image.childImageSharp.fluid) : image,
                     alt: "",
                   }}
                 />

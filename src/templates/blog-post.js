@@ -61,13 +61,17 @@ export const pageQuery = graphql`
         tags
         featuredimage {
           childImageSharp {
-            gatsbyImageData(layout: FULL_WIDTH)
+            fluid(maxWidth: 450, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
           }
         }
         author
         authorimage {
           childImageSharp {
-            gatsbyImageData(layout: FULL_WIDTH)
+            fluid(maxWidth: 450, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
           }
         }
       }

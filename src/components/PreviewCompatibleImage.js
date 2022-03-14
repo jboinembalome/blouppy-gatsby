@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+
 import Img from 'gatsby-image'
 import { GatsbyImage } from "gatsby-plugin-image"
 
@@ -8,12 +9,12 @@ const PreviewCompatibleImage = ({ className, imageInfo }) => {
 
   if (!!image && !!image.childImageSharp) {
     return (
-      <GatsbyImage className={`${className}`} image={image.childImageSharp.gatsbyImageData} alt={alt}/>
+      <Img className={`${className}`} fluid={image.childImageSharp.fluid} alt={alt} />
     )
   }
 
   if (!!childImageSharp) {
-    return <GatsbyImage className={`${className}`} image={childImageSharp.gatsbyImageData} alt={alt}/>
+    return <Img className={`${className}`} fluid={childImageSharp.fluid} alt={alt} />
   }
 
   if (!!image && typeof image === 'string')
