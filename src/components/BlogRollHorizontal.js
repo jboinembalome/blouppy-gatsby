@@ -27,7 +27,7 @@ class BlogRollHorizontal extends React.Component {
 
     function CardContent(props) {
       const { post } = props
-      return <div className="flex-1 bg-white dark:bg-gray-800 pt-6 pr-6 flex flex-col justify-between">
+      return <div className="flex-1 dark:bg-gray-800 pt-6 pr-6 flex flex-col justify-between">
         <div className="flex-1">
           <span className={`inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium ${post.frontmatter.categorycolor}`}>
             {post.frontmatter.category}
