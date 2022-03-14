@@ -13,6 +13,7 @@ const ResumePage = ({ data }) => {
         contentComponent={HTMLContent}
         title={frontmatter.title}
         subtitle={frontmatter.subtitle}
+        resumeimage={frontmatter.resumeimage}
         content={html}
       />
     </Layout>
@@ -21,9 +22,7 @@ const ResumePage = ({ data }) => {
 
 ResumePage.propTypes = {
   data: PropTypes.shape({
-    markdownRemark: PropTypes.shape({
-      frontmatter: PropTypes.object,
-    }),
+    markdownRemark: PropTypes.object,
   }),
 }
 
@@ -36,6 +35,11 @@ export const resumePageQuery = graphql`
       frontmatter {
         title
         subtitle
+        resumeimage {
+          childImageSharp {
+            gatsbyImageData(width: 450, quality: 100, layout: CONSTRAINED)
+          }
+        }
       }
     }
   }

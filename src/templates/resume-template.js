@@ -2,8 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Content from '../components/Content'
 import { Helmet } from 'react-helmet'
+import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
 
-export const ResumePageTemplate = ({ title, subtitle, content, contentComponent }) => {
+export const ResumePageTemplate = ({ title, subtitle, resumeimage, content, contentComponent }) => {
   const PageContent = contentComponent || Content
   const skills = {
     specifics: [
@@ -30,8 +31,8 @@ export const ResumePageTemplate = ({ title, subtitle, content, contentComponent 
   }
   return (
     <div className="overflow-hidden">
-       <Helmet title={`Blouppy | Resume`} />
-       <div className="relative max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+      <Helmet title={`Blouppy | Resume`} />
+      <div className="relative max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
         <div className="hidden lg:block lg:absolute lg:inset-y-0 lg:h-full lg:w-full">
           <div className="relative h-full text-lg max-w-prose mx-auto" aria-hidden="true">
             <svg
@@ -109,7 +110,12 @@ export const ResumePageTemplate = ({ title, subtitle, content, contentComponent 
                 </h1>
                 <div className="py-8 px-6 bg-gray-800 text-center rounded-lg">
                   <div className="space-y-6">
-                    <img className="mx-auto h-24 w-24 rounded-full" src="img/jimmy.jpg" alt="" />
+                    <PreviewCompatibleImage className="mx-auto h-24 w-24 rounded-full"
+                      imageInfo={{
+                        image: resumeimage,
+                        alt: `resume image`,
+                      }}
+                    />
                     <div className="space-y-2">
                       <div className="font-medium text-lg leading-6 space-y-1">
                         <h3 className="text-white">Jimmy Boinembalome</h3>
@@ -143,7 +149,7 @@ export const ResumePageTemplate = ({ title, subtitle, content, contentComponent 
                 </div>
               </div>
 
-              
+
             </div>
             <PageContent className="unreset prose dark:prose-invert prose-indigo md:prose-lg" content={content} />
           </div>
@@ -175,6 +181,7 @@ export const ResumePageTemplate = ({ title, subtitle, content, contentComponent 
 ResumePageTemplate.propTypes = {
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired,
+  resumeimage: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   content: PropTypes.string,
   contentComponent: PropTypes.func,
 }
