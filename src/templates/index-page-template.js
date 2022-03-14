@@ -13,8 +13,8 @@ export const IndexPageTemplate = ({
   <div>
     <section className="flex justify-center pt-10 pb-20 px-4 sm:px-6 lg:pt-14 lg:pb-28 lg:px-8">
       <div className="container">
-        <div className="max-w-7xl mx-auto mb-20 lg:grid lg:grid-cols-12 lg:gap-x-8">
-          <div className="text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left lg:place-self-center">
+        <div className="flex-row mb-20 lg:flex lg:justify-between lg:items-center">
+          <div className="text-center mx-auto sm:mx-0 lg:text-left">
             <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 dark:text-gray-100 sm:text-5xl md:text-6xl">
               <span className="block xl:inline">{title}</span>
             </h1>
@@ -22,8 +22,8 @@ export const IndexPageTemplate = ({
               {subheading}
             </h3>
           </div>
-          <div className="mt-12 relative sm:max-w-lg sm:mx-auto lg:mt-0 lg:max-w-none lg:mx-0 lg:col-span-6 lg:flex lg:items-center">
-            <div className="relative mx-auto w-full lg:max-w-md">
+          <div className="mt-12 relative sm:max-w-lg sm:mx-auto lg:mt-0 lg:max-w-none lg:mx-0">
+            <div className="relative w-full lg:max-w-md">
               <div
                 className="relative block w-full rounded-lg overflow-hidden"
               >
