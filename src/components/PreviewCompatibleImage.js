@@ -1,26 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { GatsbyImage } from "gatsby-plugin-image";
+import Img from 'gatsby-image'
 
 const PreviewCompatibleImage = ({ className, imageInfo }) => {
   const { alt = '', childImageSharp, image } = imageInfo
 
   if (!!image && !!image.childImageSharp) {
     return (
-      <GatsbyImage
-        image={image.childImageSharp.gatsbyImageData}
-        className={`${className}`}
-        alt={alt} />
+      <Img className={`${className}`} fluid={image.childImageSharp.fluid} alt={alt} />
     );
   }
 
   if (!!childImageSharp) {
     return (
-      <GatsbyImage
-        image={childImageSharp.gatsbyImageData}
-        className={`${className}`}
-        alt={alt} />
+      <Img className={`${className}`} fluid={childImageSharp.fluid} alt={alt} />
     );
   }
 

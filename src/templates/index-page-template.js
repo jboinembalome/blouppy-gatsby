@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import BlogRoll from '../components/BlogRoll'
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
-import { getSrc } from "gatsby-plugin-image"
 
 export const IndexPageTemplate = ({
   image,
@@ -30,7 +29,7 @@ export const IndexPageTemplate = ({
               >
                 <PreviewCompatibleImage className="w-full"
                   imageInfo={{
-                    image: !!image.childImageSharp ? getSrc(image.childImageSharp.gatsbyImageData) : image,
+                    image: !!image.childImageSharp ? image.childImageSharp.fluid.src : image,
                     alt: "",
                   }}
                 />
