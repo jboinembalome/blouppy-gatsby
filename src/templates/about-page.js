@@ -38,7 +38,7 @@ export const aboutPageQuery = graphql`
         title
         aboutimage {
           childImageSharp {
-            gatsbyImageData(width: 1200, quality: 100, layout: CONSTRAINED)
+            gatsbyImageData(width: 800, quality: 100, layout: CONSTRAINED)
           }
         }
       }
