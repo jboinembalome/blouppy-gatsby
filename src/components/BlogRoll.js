@@ -75,50 +75,45 @@ BlogRoll.propTypes = {
 
 export default () => (
   <StaticQuery
-    query={graphql`
-      query BlogRollQuery {
-        allMarkdownRemark(
-          sort: { order: DESC, fields: [frontmatter___date] }
-          filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
-        ) {
-          edges {
-            node {
-              excerpt(pruneLength: 200)
-              id
-              fields {
-                slug
-                readingTime {
-                  text
-                }
-              }
-              frontmatter {
-                title
-                templateKey
-                date(formatString: "MMMM DD, YYYY")
-                category
-                categorycolor
-                featuredpost
-                featuredimage {
-                  childImageSharp {
-                    fluid(maxWidth: 1200, quality: 100) {
-                      ...GatsbyImageSharpFluid
-                    }
-                  }
-                }
-                author
-                authorimage {
-                  childImageSharp {
-                    fluid(maxWidth: 450, quality: 100) {
-                      ...GatsbyImageSharpFluid
-                    }
-                  }
-                }
-              }
+    query={graphql`query BlogRollQuery {
+  allMarkdownRemark(
+    sort: {order: DESC, fields: [frontmatter___date]}
+    filter: {frontmatter: {templateKey: {eq: "blog-post"}}}
+  ) {
+    edges {
+      node {
+        excerpt(pruneLength: 200)
+        id
+        fields {
+          slug
+          readingTime {
+            text
+          }
+        }
+        frontmatter {
+          title
+          templateKey
+          date(formatString: "MMMM DD, YYYY")
+          category
+          categorycolor
+          featuredpost
+          featuredimage {
+            childImageSharp {
+              gatsbyImageData(quality: 100, layout: FULL_WIDTH)
+            }
+          }
+          author
+          authorimage {
+            childImageSharp {
+              gatsbyImageData(width: 450, quality: 100, layout: CONSTRAINED)
             }
           }
         }
       }
-    `}
+    }
+  }
+}
+`}
     render={(data, count) => <BlogRoll data={data} count={count} />}
   />
 )

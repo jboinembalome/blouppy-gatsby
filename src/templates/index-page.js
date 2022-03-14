@@ -30,25 +30,22 @@ IndexPage.propTypes = {
 
 export default IndexPage
 
-export const pageQuery = graphql`
-  query IndexPageTemplate {
-    markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
-      frontmatter {
+export const pageQuery = graphql`query IndexPageTemplate {
+  markdownRemark(frontmatter: {templateKey: {eq: "index-page"}}) {
+    frontmatter {
+      title
+      image {
+        childImageSharp {
+          gatsbyImageData(width: 450, quality: 100, layout: CONSTRAINED)
+        }
+      }
+      heading
+      subheading
+      mainpitch {
         title
-        image {
-          childImageSharp {
-            fluid(maxWidth: 450, quality: 100) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-        heading
-        subheading
-        mainpitch {
-          title
-          description
-        }
+        description
       }
     }
   }
+}
 `

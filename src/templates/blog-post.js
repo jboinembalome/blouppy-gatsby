@@ -44,37 +44,32 @@ BlogPost.propTypes = {
 
 export default BlogPost
 
-export const pageQuery = graphql`
-  query BlogPostByID($id: String!) {
-    markdownRemark(id: { eq: $id }) {
-      id
-      html
-      fields {
-        readingTime {
-          text
+export const pageQuery = graphql`query BlogPostByID($id: String!) {
+  markdownRemark(id: {eq: $id}) {
+    id
+    html
+    fields {
+      readingTime {
+        text
+      }
+    }
+    frontmatter {
+      date(formatString: "MMMM DD, YYYY")
+      title
+      description
+      tags
+      featuredimage {
+        childImageSharp {
+          gatsbyImageData(quality: 100, layout: FULL_WIDTH)
         }
       }
-      frontmatter {
-        date(formatString: "MMMM DD, YYYY")
-        title
-        description
-        tags
-        featuredimage {
-          childImageSharp {
-            fluid(maxWidth: 1200, quality: 100) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-        author
-        authorimage {
-          childImageSharp {
-            fluid(maxWidth: 450, quality: 100) {
-              ...GatsbyImageSharpFluid
-            }
-          }
+      author
+      authorimage {
+        childImageSharp {
+          gatsbyImageData(width: 450, quality: 100, layout: CONSTRAINED)
         }
       }
     }
   }
+}
 `
