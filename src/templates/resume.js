@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import { ResumePageTemplate } from './resume-template'
-import Content, { HTMLContent } from '../components/Content'
+import { HTMLContent } from '../components/Content'
 
 const ResumePage = ({ data }) => {
   const { frontmatter, html } = data.markdownRemark
