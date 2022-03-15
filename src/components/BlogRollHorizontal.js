@@ -12,7 +12,7 @@ class BlogRollHorizontal extends React.Component {
     function CardImage(props) {
       const { post } = props
       return <Link className="relative h-full" to={post.fields.slug}>
-        <div className="relative h-full pt-24 sm:48 md:pt-64 pb-10 rounded-2xl overflow-hidden">
+        <div className="relative h-full pt-24 sm:pt-48 md:pt-64 pb-10 rounded-lg overflow-hidden">
           {post.frontmatter.featuredimage ? (
             <PreviewCompatibleImage className="absolute inset-0 h-full w-full object-cover"
               imageInfo={{
