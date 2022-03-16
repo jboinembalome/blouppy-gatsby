@@ -53,6 +53,28 @@ function Navbar(props) {
   };
 
   const navigation = {
+    link: [
+      {
+        name: 'Home',
+        href: '/'
+      },
+      {
+        name: 'Blog',
+        href: '/blog'
+      },
+      {
+        name: 'Resume',
+        href: '/resume'
+      },
+      {
+        name: 'About',
+        href: '/about'
+      },
+      {
+        name: 'Contact',
+        href: '/contact'
+      },
+    ],
     social: [
       {
         name: 'GitHub',
@@ -70,11 +92,17 @@ function Navbar(props) {
     ],
   }
 
+  const isActive = ({ isCurrent }) =>
+    isCurrent ? { className: "text-gray-900 dark:text-gray-100 border-violet-500 text-gray-500 border-transparent hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" } : {};
+
   const isPartiallyActive = ({ isPartiallyCurrent }) =>
-    isPartiallyCurrent ? { className: "text-gray-900 dark:text-gray-100 border-violet-500 text-gray-500 border-transparent hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" } : null;
+    isPartiallyCurrent ? { className: "text-gray-900 dark:text-gray-100 border-violet-500 text-gray-500 border-transparent hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium" } : {};
+
+  const isActiveForMobile = ({ isCurrent }) =>
+    isCurrent ? { className: "bg-violet-50 border-violet-500 text-violet-700 border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium" } : {};
 
   const isPartiallyActiveForMobile = ({ isPartiallyCurrent }) =>
-    isPartiallyCurrent ? { className: "bg-violet-50 border-violet-500 text-violet-700 border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium" } : null;
+    isPartiallyCurrent ? { className: "bg-violet-50 border-violet-500 text-violet-700 border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium" } : {};
 
   return (
     <Disclosure as="nav" className="shadow">
@@ -104,21 +132,11 @@ function Navbar(props) {
                   </Link>
                 </div>
                 <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
-                  <Link to="/" activeClassName="text-gray-900 dark:text-gray-100 border-violet-500" className="text-gray-500 border-transparent hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
-                    Home
-                  </Link>
-                  <Link to="/blog" getProps={isPartiallyActive} className="text-gray-500 border-transparent hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
-                    Blog
-                  </Link>
-                  <Link to="/resume" activeClassName="text-gray-900 dark:text-gray-100 border-violet-500" className="text-gray-500 border-transparent hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
-                    Resume
-                  </Link>
-                  <Link to="/about" activeClassName="text-gray-900 dark:text-gray-100 border-violet-500" className="text-gray-500 border-transparent hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
-                    About
-                  </Link>
-                  <Link to="/contact" activeClassName="text-gray-900 dark:text-gray-100 border-violet-500" className="text-gray-500 border-transparent hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
-                    Contact
-                  </Link>
+                  {navigation.link.map((item) => (
+                    <Link to={item.href} getProps={item.name == "Home" ? isActive : isPartiallyActive} className="text-gray-500 border-transparent hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                      {item.name}
+                    </Link>
+                  ))}
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center space-x-6 pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
@@ -141,46 +159,16 @@ function Navbar(props) {
           {/* sm Menu */}
           <Disclosure.Panel className="sm:hidden">
             <div className="pt-2 pb-4 space-y-1">
-              <Disclosure.Button
-                as={Link}
-                to="/"
-                activeClassName="bg-violet-50 border-violet-500 text-violet-700"
-                className="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block mb-0 pl-3 pr-4 py-2 border-l-4 text-base font-medium"
-              >
-                Home
-              </Disclosure.Button>
-              <Disclosure.Button
-                as={Link}
-                to="/blog"
-                getProps={isPartiallyActiveForMobile}
-                className="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
-              >
-                Blog
-              </Disclosure.Button>
-              <Disclosure.Button
-                as={Link}
-                to="/resume"
-                activeClassName="bg-violet-50 border-violet-500 text-violet-700"
-                className="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block mb-0 pl-3 pr-4 py-2 border-l-4 text-base font-medium"
-              >
-                Resume
-              </Disclosure.Button>
-              <Disclosure.Button
-                as={Link}
-                to="/about"
-                activeClassName="bg-violet-50 border-violet-500 text-violet-700"
-                className="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block mb-0 pl-3 pr-4 py-2 border-l-4 text-base font-medium"
-              >
-                About
-              </Disclosure.Button>
-              <Disclosure.Button
-                as={Link}
-                to="/contact"
-                activeClassName="bg-violet-50 border-violet-500 text-violet-700"
-                className="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
-              >
-                Contact
-              </Disclosure.Button>
+              {navigation.link.map((item) => (
+                <Disclosure.Button
+                  as={Link}
+                  to={item.href}
+                  getProps={ item.name == "Home" ? isActiveForMobile : isPartiallyActiveForMobile}
+                  className="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
+                >
+                  {item.name}
+                </Disclosure.Button>
+              ))}
             </div>
           </Disclosure.Panel>
         </>
