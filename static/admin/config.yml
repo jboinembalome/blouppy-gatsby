@@ -24,10 +24,25 @@ collections:
       - {label: "Author", name: "author", widget: "string"}
       - {label: "Author Image", name: "authorimage", widget: "image"}
       - {label: "Description", name: "description", widget: "text"}
+      - {label: "Category", name: "category", widget: "text"}
+      - {label: "Category Color", name: "categorycolor", widget: "text"}
       - {label: "Featured Post", name: "featuredpost", widget: "boolean"}
       - {label: "Featured Image", name: "featuredimage", widget: image}
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Tags", name: "tags", widget: "list"}
+
+  - name: "portfolio"
+    label: "Portfolio"
+    folder: "src/pages/portfolio"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "portfolio-post"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Project Image", name: "projectimage", widget: image}
+      - {label: "Tags", name: "tags", widget: "list"}
+      - {label: "Link", name: "link", widget: "text"}
 
   - name: "pages"
     label: "Pages"
