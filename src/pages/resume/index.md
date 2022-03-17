@@ -19,6 +19,9 @@ Over the years, I have helped various companies in the development and maintenan
 ## Apside (2020 - present)
 ### .NET Design and Development Engineer
 #### WhiteSpace - SwissTiming (04/2021 - 03/2022)
+Whitespace is a global leader in enterprise user experience.
+Whitespace designs and builds customer and employee experiences that create business and social value. Its mission is to help you achieve a greater return on your human investment.
+
 SwissTiming is a company active in the domain of sports timekeeping for international events such as the Olympic Games, the Asian Games, the European Games and many others.
 As a member of the team located in Leipzig (Germany), my role is to add features and maintain WPF applications and plugins to generate sets of messages. These contain information about matches such as player lists, results, team rankings, and so on. From scripting with Roslyn to step-by-step debugging between multiple applications, the activities are very exciting.
 
@@ -68,23 +71,6 @@ Rare are the days without listening to music. I like a lot of styles like electr
 If you are curious, here is my music of the moment: <a href="https://www.youtube.com/watch?v=6FoQ1-qy2h4" target="_blank">Sofiane Pamart - Berlin</a>
 ## Open Source
 I love contributing to open source projects. In general, I help folks when I can. It's even better when it comes to helping developers. At the moment, I contribute to the <a href="https://github.com/roslynpad/roslynpad" target="_blank">RoslynPad</a> project whenever possible.
-
-</br>
-
-# Personal Projects
-## Blouppy
-Blouppy is the current website. It was created with Gatsby and deployed with Netifly. I wanted to have my own personal blog site and <a href="https://ardalis.com/" target="_blank">Steve Smith aka Ardalis</a>, whom I thank, had shared an <a href="https://ilyana.dev/blog/2020-06-17-creating-gatsby-blog-netlify/" target="_blank">article</a> about it. All the conditions were there for me to get started and it allowed me to do a little React and discover Gatsby and Netifly. TailwindCSS, TaiwindUI and Headless UI were used for styling.
-## Scrumboard
-Scrumboard is a Trello clone built with Angular 12 and ASP.NET Core 5. This project was made to provide an example of an enterprise project that changes from the "Todo" application we often see. 
-The front end is made with Angular Material and TaiwindCSS and the back end Scrumboard is based on Clean Architecture, MediatR, Entity Framework Core, Identity Server and AutoMapper.
-## News Application
-Small project developed with Angular 12, Angular Material and TailwindCSS to discover the <a href="https://newsapi.org/" target="_blank">News API</a>. This project was built with the idea of offering a starter kit for future Angular projects.
-## World Cities Application
-Project allowing me to improve my knowledge in Angular 12 and ASP.NET Core 5. WordCities allows to have a CRUD on a list of countries and cities which are stored in a CSV file then inserted in a database. A pagination system is also included and a form with back end and front end validation. For the back end the project is also based on MediatR, Entity Framework Core, Identity Server and AutoMapper.
-## C# Editor Application
-Creation of a C# editor in WPF with .NET 4.8 based on RoslynPad.Roslyn.Windows, AvalonEdit and Microsoft.Toolkit.Mvvm. The purpose of this project is to improve my knowledge in WPF and especially to work with the Roslyn .NET compiler.
-## Memory Game
-A simple memory game makes with Angular 12 and TailwindCSS for fun. At the beginning, all cards are shuffled and placed face down. The player turns over two cards, if the cards do not match, it is not a pair. Otherwise, it is a pair and the cards stay visible. When the player has found all the pairs, the game is over.
 
 </br>
 
