@@ -4,6 +4,7 @@ import { kebabCase } from 'lodash'
 import { Link } from 'gatsby'
 import Content from '../components/Content'
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
+import { DiscussionEmbed } from 'disqus-react'
 
 export const BlogPostTemplate = ({
   content,
@@ -15,15 +16,27 @@ export const BlogPostTemplate = ({
   tags,
   title,
   featuredimage,
+  slug,
   readingTime,
   helmet,
+  isCmsPreview
 }) => {
   const PostContent = contentComponent || Content
-
+  const siteUrl = 'https://blouppy.com' + slug
+  const disqusprops = {
+    shortname: `blouppy`,
+    config: {
+      url: siteUrl,
+      identifier: slug,
+      title: title,
+    },
+    theme:'dark'
+  };
   return (
-    
+
     <section>
-      {helmet || ''}
+      {helmet || ''
+      }
       <div className="relative py-8 overflow-hidden">
         <div className="hidden lg:block lg:absolute lg:inset-y-0 lg:h-full lg:w-full">
           <div className="relative h-full text-lg max-w-prose mx-auto" aria-hidden="true">
@@ -151,10 +164,17 @@ export const BlogPostTemplate = ({
                 </ul>
               </div>
             ) : null}
+            <div className="bg-gray-900 dark:bg-gray-800 px-4 pt-2  rounded-md mt-8 prose dark:prose-invert prose-indigo md:prose-lg lg:prose-xl">
+              {isCmsPreview ? (
+                ''
+              ) : (
+                <DiscussionEmbed {...disqusprops} />
+              )}
+            </div>
           </div>
         </div>
       </div>
-    </section>
+    </section >
   )
 }
 
@@ -167,6 +187,7 @@ BlogPostTemplate.propTypes = {
   author: PropTypes.string,
   authorimage: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   featuredimage: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  slug: PropTypes.string,
   readingTime: PropTypes.string,
   helmet: PropTypes.object,
 }

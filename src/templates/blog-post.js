@@ -19,6 +19,7 @@ const BlogPost = ({ data }) => {
         authorimage={post.frontmatter.authorimage}
         date={post.frontmatter.date}
         featuredimage={post.frontmatter.featuredimage}
+        slug={post.fields.slug}
         readingTime={post.fields.readingTime.text}
         helmet={
           <Helmet titleTemplate="%s | Blog">
@@ -49,6 +50,7 @@ export const pageQuery = graphql`query BlogPostByID($id: String!) {
     id
     html
     fields {
+      slug
       readingTime {
         text
       }
