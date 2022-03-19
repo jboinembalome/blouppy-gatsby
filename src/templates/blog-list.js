@@ -39,12 +39,18 @@ const BlogList = ({ data, pageContext }) => {
             data={data}
           />
         </section>
-
-        <div className="mt-8 flex-1 flex justify-between sm:justify-end">
-          {pageContext.previousPagePath ? (
-            <Link to={pageContext.previousPagePath} className="btn">Previous</Link>) : null}
-          {pageContext.nextPagePath ? (
-            <Link to={pageContext.nextPagePath} className="btn ml-3 ">Next</Link>) : null}
+        <div className="py-4 flex items-center justify-between">
+          <div class="w-0 flex-1 flex">
+            {pageContext.previousPagePath ? (
+              <Link to={pageContext.previousPagePath} className="btn">Previous</Link>) : null}
+          </div>
+          <div class="flex">
+            <span className="text-gray-500 text-sm font-medium">Page {pageContext.humanPageNumber} of {pageContext.numberOfPages}</span>
+          </div>
+          <div className="flex-1 flex justify-end">
+            {pageContext.nextPagePath ? (
+              <Link to={pageContext.nextPagePath} className="btn ml-3 ">Next</Link>) : null}
+          </div>
         </div>
       </div>
     </Layout>
