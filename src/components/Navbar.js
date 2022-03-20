@@ -6,6 +6,8 @@ import { MenuIcon, XIcon } from '@heroicons/react/outline'
 import logo from "../img/logo.svg";
 import logoWithTextRow from "../img/logo-text-row.svg";
 import logoWithTextRowWhite from "../img/logo-text-row-white.svg";
+import Search from "./search"
+import { SearchIcon } from '@heroicons/react/solid'
 
 import Toggle from './Toggle';
 
@@ -33,6 +35,17 @@ function Navbar(props) {
   const toggleChange = (event) => {
     setToggleTheme(event);
   }
+
+  const [toggleSearch, setToggleSearch] = useState(false)
+
+  const toggleSearchChange = (event) => {
+    setToggleSearch(event);
+  }
+
+  const searchClick = () => {
+    setToggleSearch(true);
+  }
+
 
   function loadTheme() {
     // On page load or when changing themes, best to add inline in `head` to avoid FOUC
@@ -108,6 +121,8 @@ function Navbar(props) {
   const isPartiallyActiveForMobile = ({ isPartiallyCurrent }) =>
     isPartiallyCurrent ? { className: "bg-violet-50 border-violet-500 text-violet-700 text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium" } : {};
 
+  const searchIndices = [{ name: `Pages`, title: `Pages` }]
+
   return (
     <Disclosure as="nav" className="shadow">
       {({ open }) => (
@@ -143,18 +158,16 @@ function Navbar(props) {
                   ))}
                 </div>
               </div>
-              <div className="absolute inset-y-0 right-0 flex items-center space-x-6 pr-2 md:static md:inset-auto md:ml-6 md:pr-0">
-                <div className="flex space-x-6 md:order-2">
-                  {navigation.social.map((item) => (
-                    <a key={item.name} href={item.href} target="_blank" className="text-gray-500 hover:text-gray-700">
-                      <span className="sr-only">{item.name}</span>
-                      <item.icon className="h-10 w-10" aria-hidden="true" />
-                    </a>
-                  ))}
-                </div>
+              <div className="absolute inset-y-0 right-0 flex items-center space-x-3 pr-2 md:static md:inset-auto md:ml-6 md:pr-0">
+                <button onClick={searchClick}>
+                  <SearchIcon className="h-8 w-8 text-gray-400 hover:text-gray-500" />
+                </button>
+                <Search indices={searchIndices} openModal={toggleSearch} modalClosed={toggleSearchChange} />
+
                 <div className="order-last">
                   <Toggle enabled={toggleTheme} onChange={toggleChange} />
                 </div>
+
               </div>
             </div>
           </div>
@@ -167,7 +180,7 @@ function Navbar(props) {
                   key={item.name}
                   as={Link}
                   to={item.href}
-                  getProps={ item.name == "Home" ? isActiveForMobile : isPartiallyActiveForMobile}
+                  getProps={item.name == "Home" ? isActiveForMobile : isPartiallyActiveForMobile}
                   className="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
                 >
                   {item.name}
