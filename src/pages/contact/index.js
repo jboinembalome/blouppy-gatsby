@@ -38,9 +38,9 @@ export default class Index extends React.Component {
   render() {
     return (
       <Layout>
-        <div className="bg-gray-100 dark:bg-gray-800">
+        <div className="bg-gray-100 dark:bg-gray-900">
           <div className="max-w-7xl mx-auto py-8 px-4 sm:py-8 sm:px-6 lg:px-8">
-            <div className="relative bg-white dark:bg-gray-900 border border-transparent rounded-lg shadow">
+            <div className="relative bg-white dark:bg-gray-800 border border-transparent rounded-lg shadow">
               <h2 className="sr-only">Contact us</h2>
 
               <div className="grid grid-cols-1 lg:grid-cols-3">
@@ -222,7 +222,7 @@ export default class Index extends React.Component {
                           autoComplete="given-name"
                           onChange={this.handleChange}
                           required={true}
-                          className="py-3 px-4 block w-full shadow-sm dark:bg-gray-900 text-gray-900 dark:text-gray-100 focus:ring-indigo-500 focus:border-violet-500 border-gray-300 rounded-md"
+                          className="py-3 px-4 block w-full shadow-sm dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-indigo-500 focus:border-violet-500 border-gray-300 rounded-md"
                         />
                       </div>
                     </div>
@@ -238,7 +238,7 @@ export default class Index extends React.Component {
                           autoComplete="family-name"
                           onChange={this.handleChange}
                           required={true}
-                          className="py-3 px-4 block w-full shadow-sm dark:bg-gray-900 text-gray-900 dark:text-gray-100 focus:ring-indigo-500 focus:border-violet-500 border-gray-300 rounded-md"
+                          className="py-3 px-4 block w-full shadow-sm dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-indigo-500 focus:border-violet-500 border-gray-300 rounded-md"
                         />
                       </div>
                     </div>
@@ -254,7 +254,7 @@ export default class Index extends React.Component {
                           autoComplete="email"
                           onChange={this.handleChange}
                           required={true}
-                          className="py-3 px-4 block w-full shadow-sm dark:bg-gray-900 text-gray-900 dark:text-gray-100 focus:ring-indigo-500 focus:border-violet-500 border-gray-300 rounded-md"
+                          className="py-3 px-4 block w-full shadow-sm dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-indigo-500 focus:border-violet-500 border-gray-300 rounded-md"
                         />
                       </div>
                     </div>
@@ -275,7 +275,7 @@ export default class Index extends React.Component {
                           autoComplete="tel"
                           onChange={this.handleChange}
                           required={false}
-                          className="py-3 px-4 block w-full shadow-sm dark:bg-gray-900 text-gray-900 dark:text-gray-100 focus:ring-indigo-500 focus:border-violet-500 border-gray-300 rounded-md"
+                          className="py-3 px-4 block w-full shadow-sm dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-indigo-500 focus:border-violet-500 border-gray-300 rounded-md"
                           aria-describedby="phone-optional"
                         />
                       </div>
@@ -292,7 +292,7 @@ export default class Index extends React.Component {
                           onChange={this.handleChange}
                           required={true}
                           // autocomplete="off"
-                          className="py-3 px-4 block w-full shadow-sm dark:bg-gray-900 text-gray-900 dark:text-gray-100 focus:ring-indigo-500 focus:border-violet-500 border-gray-300 rounded-md"
+                          className="py-3 px-4 block w-full shadow-sm dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-indigo-500 focus:border-violet-500 border-gray-300 rounded-md"
                         />
                       </div>
                     </div>
@@ -311,7 +311,7 @@ export default class Index extends React.Component {
                           name={'message'}
                           onChange={this.handleChange}
                           required={true}
-                          className="py-3 px-4 block w-full shadow-sm dark:bg-gray-900 text-gray-900 dark:text-gray-100 focus:ring-indigo-500 focus:border-violet-500 border border-gray-300 rounded-md"
+                          className="py-3 px-4 block w-full shadow-sm dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-indigo-500 focus:border-violet-500 border border-gray-300 rounded-md"
                           aria-describedby="message-max"
                           maxLength="500"
                           defaultValue={''}
