@@ -58,6 +58,14 @@ function Footer(props) {
             </p>
           </div>
         </div>
+        <div className="mt-8 flex space-x-6 md:order-2">
+            {navigation.social.map((item) => (
+              <a key={item.name} href={item.href} target="_blank" className="text-gray-400 hover:text-gray-300">
+                <span className="sr-only">{item.name}</span>
+                <item.icon className="h-6 w-6" aria-hidden="true" />
+              </a>
+            ))}
+          </div>
         {/* <div className="border-t border-gray-700 mt-12 pt-8 lg:flex lg:items-center lg:justify-between">
           <div>
             <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
@@ -91,14 +99,6 @@ function Footer(props) {
           </form>
         </div> */}
         <div className="mt-8 border-t border-gray-700 pt-8 md:flex md:items-center md:justify-between">
-          <div className="flex space-x-6 md:order-2">
-            {navigation.social.map((item) => (
-              <a key={item.name} href={item.href} target="_blank" className="text-gray-400 hover:text-gray-300">
-                <span className="sr-only">{item.name}</span>
-                <item.icon className="h-6 w-6" aria-hidden="true" />
-              </a>
-            ))}
-          </div>
           <p className="mt-8 text-base text-gray-400 md:mt-0 md:order-1">
             &copy; {new Date().getFullYear()} Blouppy, Inc. All rights reserved.
           </p>
