@@ -5,7 +5,7 @@ import PreviewCompatibleImage from './PreviewCompatibleImage'
 export default class ArticleInformation extends React.Component {
   render() {
     const { author, authorimage, date, readingTime, link } = this.props
-    console.log(link)
+    
     return (
       <div className="flex items-center justify-between">
         <div className="mt-6 pb-6 flex items-center">
