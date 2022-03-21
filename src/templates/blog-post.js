@@ -22,12 +22,22 @@ const BlogPost = ({ data }) => {
         slug={post.fields.slug}
         readingTime={post.fields.readingTime.text}
         helmet={
-          <Helmet titleTemplate="%s | Blog">
+          <Helmet titleTemplate="%s | Article">
             <title>{`${post.frontmatter.title}`}</title>
             <meta
               name="description"
               content={`${post.frontmatter.description}`}
             />
+            <meta name="image" content={`https://blouppy.com${post.frontmatter.featuredimage.childImageSharp.fluid.src}`} />
+            <meta property="og:type" content="blog" />
+            <meta property="og:image:alt" content={`${post.frontmatter.title}`} />
+            <meta property="og:locale" content="en_US" />
+            <meta property="og:image" content={`https://blouppy.com${post.frontmatter.featuredimage.childImageSharp.fluid.src}`} />) 
+            <meta property="og:title" content={`${post.frontmatter.title}`} />
+            <meta property="og:description" content={`${post.frontmatter.description}`} />
+            <meta property="og:url" content={`https://blouppy.com${post.fields.slug}`} />
+            <meta property="og:site_name" content="https://blouppy.com" />
+            <meta property="article:author" content="Jimmy Boinembalome" />
           </Helmet>
         }
         tags={post.frontmatter.tags}

@@ -4,7 +4,7 @@ import { Link } from 'gatsby'
 import ArticleInformation from '../components/ArticleInformation'
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
 
-export const BlogListTemplate = ({ data }) => {
+export const BlogListTemplate = ({ data, helmet }) => {
   const { edges: posts } = data.allMarkdownRemark
 
   function CardImage(props) {
@@ -52,6 +52,7 @@ export const BlogListTemplate = ({ data }) => {
   }
   return (
     <div className="mx-auto">
+      {helmet || ''}
     {posts &&
       posts.map(({ node: post }) => (
         <div className="relative bg-white dark:bg-gray-900 py-4" key={post.id}>
@@ -72,4 +73,5 @@ BlogListTemplate.propTypes = {
       edges: PropTypes.array,
     }),
   }),
+  helmet: PropTypes.object,
 }

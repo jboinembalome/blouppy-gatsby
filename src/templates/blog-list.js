@@ -29,14 +29,18 @@ const BlogList = ({ data, pageContext }) => {
           </div>
         </div>
         <section className="mt-8">
-          <Helmet titleTemplate="%s | Blogs">
-            <meta
-              name="blogs"
-              content="Blog of technology articles"
-            />
-          </Helmet>
           <BlogListTemplate
             data={data}
+            helmet={
+              <Helmet titleTemplate="%s | Blog">
+                <meta name="description" content="Blog of technology articles"/>
+                <meta property="og:locale" content="en_US" />
+                <meta property="og:title" content="List of articles" />
+                <meta property="og:description" content="Blog of technology articles" />
+                <meta property="og:url" content="https://blouppy.com/blog" />
+                <meta property="og:site_name" content="https://blouppy.com" />
+              </Helmet>
+            }
           />
         </section>
         <div className="py-4 flex items-center justify-between">

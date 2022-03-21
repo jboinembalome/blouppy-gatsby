@@ -4,11 +4,12 @@ import Content from '../components/Content'
 import { CameraIcon } from '@heroicons/react/solid'
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
 
-export const AboutPageTemplate = ({ title, aboutimage, content, contentComponent }) => {
+export const AboutPageTemplate = ({ title, aboutimage, content, contentComponent, helmet }) => {
   const PageContent = contentComponent || Content
 
   return (
     <div className="overflow-hidden">
+      {helmet || ''}
       <div className="relative max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
         <div className="mx-auto text-base max-w-prose lg:grid lg:grid-cols-2 lg:gap-8 lg:max-w-none">
           <div>
@@ -72,4 +73,5 @@ AboutPageTemplate.propTypes = {
   aboutimage: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   content: PropTypes.string,
   contentComponent: PropTypes.func,
+  helmet: PropTypes.object,
 }

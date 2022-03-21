@@ -4,7 +4,7 @@ import Content from '../components/Content'
 import { Helmet } from 'react-helmet'
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
 
-export const ResumePageTemplate = ({ title, subtitle, resumeimage, content, contentComponent }) => {
+export const ResumePageTemplate = ({ title, subtitle, resumeimage, content, contentComponent, helmet }) => {
   const PageContent = contentComponent || Content
   const skills = {
     specifics: [
@@ -31,7 +31,7 @@ export const ResumePageTemplate = ({ title, subtitle, resumeimage, content, cont
   }
   return (
     <div className="overflow-hidden">
-      <Helmet title={`Blouppy | Resume`} />
+      {helmet || ''}
       <div className="relative max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
         <div className="hidden lg:block lg:absolute lg:inset-y-0 lg:h-full lg:w-full">
           <div className="relative h-full text-lg max-w-prose mx-auto" aria-hidden="true">
@@ -184,4 +184,5 @@ ResumePageTemplate.propTypes = {
   resumeimage: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   content: PropTypes.string,
   contentComponent: PropTypes.func,
+  helmet: PropTypes.object,
 }

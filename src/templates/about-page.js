@@ -11,12 +11,24 @@ const AboutPage = ({ data }) => {
 
   return (
     <Layout>
-      <Helmet title={`Blouppy | About`} />
       <AboutPageTemplate
         contentComponent={HTMLContent}
         title={frontmatter.title}
         aboutimage={frontmatter.aboutimage}
         content={html}
+        helmet={
+          <Helmet titleTemplate="%s | About">
+            <meta name="description" content="About Jimmy Boinembalome" />
+            <meta name="image" content={`https://blouppy.com${frontmatter.aboutimage.childImageSharp.fluid.src}`} />
+            <meta property="og:image:alt" content={`${frontmatter.title}`} />
+            <meta property="og:locale" content="en_US" />
+            <meta property="og:image" content={`https://blouppy.com${frontmatter.aboutimage.childImageSharp.fluid.src}`} />) 
+            <meta property="og:title" content={`${frontmatter.title}`} />
+            <meta property="og:description" content="About Jimmy Boinembalome" />
+            <meta property="og:url" content="https://blouppy.com/about" />
+            <meta property="og:site_name" content="https://blouppy.com" />
+          </Helmet>
+        }
       />
     </Layout>
   )
