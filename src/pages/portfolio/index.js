@@ -8,7 +8,7 @@ export default class PortfolioIndexPage extends React.Component {
   render() {
     return (
       <Layout>
-        <Helmet titleTemplate="%s | Portfolio">
+        <Helmet title="Blouppy | Portfolio">
           <meta name="description" content="Personnal projects of Jimmy Boinembalome developed with love" />
           <meta property="og:locale" content="en_US" />
           <meta property="og:title" content="Portfolio of Jimmy Boinembalome" />
