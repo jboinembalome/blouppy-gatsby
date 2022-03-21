@@ -117,7 +117,7 @@ export const ResumePageTemplate = ({ title, subtitle, resumeimage, content, cont
                     />
                     <div className="space-y-2">
                       <div className="font-medium text-lg leading-6 space-y-1">
-                        <h3 className="text-white">Jimmy Boinembalome</h3>
+                        <p className="text-white">Jimmy Boinembalome</p>
                         <p className="text-violet-400 text-base">.NET Design and Development Engineer</p>
                       </div>
 
