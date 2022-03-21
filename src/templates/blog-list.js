@@ -32,7 +32,7 @@ const BlogList = ({ data, pageContext }) => {
           <BlogListTemplate
             data={data}
             helmet={
-              <Helmet titleTemplate="%s | Blog">
+              <Helmet title="Blouppy | Blog">
                 <meta name="description" content="Blog of technology articles"/>
                 <meta property="og:locale" content="en_US" />
                 <meta property="og:title" content="List of articles" />

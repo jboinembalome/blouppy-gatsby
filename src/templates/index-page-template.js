@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import BlogRoll from '../components/BlogRoll'
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
+import { Helmet } from 'react-helmet'
 
 export const IndexPageTemplate = ({
   image,
@@ -12,6 +13,7 @@ export const IndexPageTemplate = ({
 }) => (
   <div>
     <section className="flex max-w-7xl mx-auto justify-center pt-10 pb-20 px-4 sm:px-6 lg:pt-14 lg:pb-28 lg:px-8">
+      <Helmet title="Blouppy | Home" />
       <div className="container">
         <div className="flex-row mb-20 lg:flex lg:justify-between lg:items-center">
           <div className="text-center mx-auto sm:mx-0 lg:text-left">

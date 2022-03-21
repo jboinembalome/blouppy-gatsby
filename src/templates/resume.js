@@ -17,7 +17,7 @@ const ResumePage = ({ data }) => {
         resumeimage={frontmatter.resumeimage}
         content={html}
         helmet={
-          <Helmet titleTemplate="%s | Resume">
+          <Helmet title="Blouppy | Resume">
             <meta name="description" content="Resume of Jimmy Boinembalome" />
             <meta name="image" content={`https://blouppy.com${frontmatter.resumeimage.childImageSharp.fluid.src}`} />
             <meta property="og:image:alt" content={`${frontmatter.title}`} />

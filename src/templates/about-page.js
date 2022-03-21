@@ -17,7 +17,7 @@ const AboutPage = ({ data }) => {
         aboutimage={frontmatter.aboutimage}
         content={html}
         helmet={
-          <Helmet titleTemplate="%s | About">
+          <Helmet title="Blouppy | About">
             <meta name="description" content="About Jimmy Boinembalome" />
             <meta name="image" content={`https://blouppy.com${frontmatter.aboutimage.childImageSharp.fluid.src}`} />
             <meta property="og:image:alt" content={`${frontmatter.title}`} />
