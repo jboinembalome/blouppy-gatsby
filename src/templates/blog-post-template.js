@@ -4,7 +4,7 @@ import { kebabCase } from 'lodash'
 import { Link } from 'gatsby'
 import Content from '../components/Content'
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
-import { DiscussionEmbed } from 'disqus-react'
+import { Disqus } from 'gatsby-plugin-disqus'
 
 export const BlogPostTemplate = ({
   content,
@@ -18,20 +18,16 @@ export const BlogPostTemplate = ({
   featuredimage,
   slug,
   readingTime,
-  helmet,
-  isCmsPreview
+  helmet
 }) => {
   const PostContent = contentComponent || Content
   const siteUrl = 'https://blouppy.com' + slug
-  const disqusprops = {
-    shortname: `blouppy`,
-    config: {
-      url: siteUrl,
-      identifier: slug,
-      title: title,
-    },
-    theme:'dark'
-  };
+  const disqusConfig = {
+    url: siteUrl,
+    identifier: slug,
+    title: title,
+  }
+
   return (
 
     <section>
@@ -165,11 +161,7 @@ export const BlogPostTemplate = ({
               </div>
             ) : null}
             <div className="bg-gray-900 dark:bg-gray-800 px-4 pt-2  rounded-md mt-8 prose dark:prose-invert prose-indigo md:prose-lg lg:prose-xl">
-              {isCmsPreview ? (
-                ''
-              ) : (
-                <DiscussionEmbed {...disqusprops} />
-              )}
+                <Disqus config={disqusConfig} />
             </div>
           </div>
         </div>

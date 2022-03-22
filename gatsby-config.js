@@ -63,7 +63,27 @@ module.exports = {
       },
     },
     'gatsby-plugin-sharp',
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        start_url: `/`,
+        name: `Blouppy`,
+        short_name: `blouppy`,
+        description:
+          'The personal website of Jimmy Boinembalome. The application does cool things and makes your life better.',
+        background_color: `#ffffff`,
+        theme_color: `#7c3aed`,
+        display: `standalone`,
+        icon: 'src/img/logo.svg', // This path is relative to the root of the site.
+      },
+    },
     'gatsby-transformer-sharp',
+    {
+      resolve: `gatsby-plugin-disqus`,
+      options: {
+        shortname: `blouppy`
+      }
+    },
     {
       resolve: 'gatsby-transformer-remark',
       options: {
@@ -130,16 +150,15 @@ module.exports = {
               escapeEntities: {},
             },
           },
-          {
-            resolve: `gatsby-plugin-algolia`,
-            options: {
-              appId: process.env.GATSBY_ALGOLIA_APP_ID,
-              apiKey: process.env.ALGOLIA_ADMIN_KEY,
-              queries: require("./src/utils/algolia-queries")
-            },
-          },
-          'disqus-react',
         ],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-algolia`,
+      options: {
+        appId: process.env.GATSBY_ALGOLIA_APP_ID,
+        apiKey: process.env.ALGOLIA_ADMIN_KEY,
+        queries: require("./src/utils/algolia-queries")
       },
     },
     {
@@ -153,5 +172,7 @@ module.exports = {
     },
     // must be after other CSS plugins
     'gatsby-plugin-netlify', // make sure to keep it last in the array
+    /* Must be placed at the end */
+    `gatsby-plugin-offline`,
   ],
 }
