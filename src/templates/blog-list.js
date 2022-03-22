@@ -10,13 +10,13 @@ const BlogList = ({ data, pageContext }) => {
   return (
     <Layout>
       <div className="py-8 px-4 sm:px-6 lg:px-8">
-        <div className="bg-violet-700 dark:bg-violet-500 rounded-lg shadow-xl overflow-hidden">
+        <div className="bg-violet-700 dark:bg-violet-400 rounded-lg shadow-xl overflow-hidden">
           <div className="pt-10 pb-12 px-6 sm:pt-16 sm:px-16 lg:py-16 lg:pr-0 xl:py-20 xl:px-20">
             <div className="lg:self-center">
-              <h2 className="text-3xl font-extrabold text-white sm:text-4xl">
+              <h2 className="text-3xl font-extrabold text-gray-100 dark:text-gray-800 sm:text-4xl">
                 <span className="block">Latest Articles</span>
               </h2>
-              <p className="mt-4 text-lg leading-6 text-violet-200">
+              <p className="mt-4 text-lg leading-6 text-white dark:text-gray-900">
                 Every Wednesday an article is added 😉
               </p>
               {/* <a
@@ -49,7 +49,7 @@ const BlogList = ({ data, pageContext }) => {
               <Link to={pageContext.previousPagePath} className="btn">Previous</Link>) : null}
           </div>
           <div className="flex">
-            <span className="text-gray-500 text-sm font-medium">Page {pageContext.humanPageNumber} of {pageContext.numberOfPages}</span>
+            <span className="text-gray-500 dark:text-gray-400 text-sm font-medium">Page {pageContext.humanPageNumber} of {pageContext.numberOfPages}</span>
           </div>
           <div className="flex-1 flex justify-end">
             {pageContext.nextPagePath ? (
