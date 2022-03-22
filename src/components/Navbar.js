@@ -160,7 +160,7 @@ function Navbar(props) {
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center space-x-3 pr-2 md:static md:inset-auto md:ml-6 md:pr-0">
                 <button onClick={searchClick}>
-                <span class="sr-only">Search article with algolia</span>
+                <span className="sr-only">Search article with algolia</span>
                   <SearchIcon className="h-8 w-8 text-gray-400 hover:text-gray-500" />
                 </button>
                 <Search indices={searchIndices} openModal={toggleSearch} modalClosed={toggleSearchChange} />
