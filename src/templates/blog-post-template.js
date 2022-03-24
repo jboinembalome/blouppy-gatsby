@@ -5,6 +5,7 @@ import { Link } from 'gatsby'
 import Content from '../components/Content'
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
 import { Disqus } from 'gatsby-plugin-disqus'
+import { CameraIcon } from '@heroicons/react/solid'
 
 export const BlogPostTemplate = ({
   content,
@@ -15,6 +16,8 @@ export const BlogPostTemplate = ({
   description,
   tags,
   title,
+  featuredauthor,
+  featuredlink,
   featuredimage,
   slug,
   readingTime,
@@ -143,6 +146,10 @@ export const BlogPostTemplate = ({
                 </div>
               </div>
             </div>
+            <figcaption className="mt-3 flex text-sm text-gray-500 dark:text-gray-400">
+              <CameraIcon className="flex-none w-5 h-5 text-gray-400" aria-hidden="true" />
+              <span className="ml-2">Photo by <a href={featuredlink} target="_blank" className="underline hover:text-gray-600 dark:hover:text-gray-500">{featuredauthor}</a> on <a href="https://unsplash.com/" target="_blank" className="underline hover:text-gray-600 dark:hover:text-gray-500">Unsplash</a></span>
+            </figcaption>
             <PostContent className="unreset prose dark:prose-invert prose-indigo md:prose-lg lg:prose-xl" content={content} />
             {tags && tags.length ? (
               <div className="mt-6 prose dark:prose-invert prose-indigo md:prose-lg lg:prose-xl">
@@ -161,7 +168,7 @@ export const BlogPostTemplate = ({
               </div>
             ) : null}
             <div className="bg-gray-900 dark:bg-gray-800 px-4 pt-2  rounded-md mt-8 prose dark:prose-invert prose-indigo md:prose-lg lg:prose-xl">
-                <Disqus config={disqusConfig} />
+              <Disqus config={disqusConfig} />
             </div>
           </div>
         </div>
@@ -178,6 +185,8 @@ BlogPostTemplate.propTypes = {
   date: PropTypes.string,
   author: PropTypes.string,
   authorimage: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  featuredauthor: PropTypes.string,
+  featuredlink: PropTypes.string,
   featuredimage: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   slug: PropTypes.string,
   readingTime: PropTypes.string,

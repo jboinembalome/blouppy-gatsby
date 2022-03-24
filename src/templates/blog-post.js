@@ -18,6 +18,8 @@ const BlogPost = ({ data }) => {
         author={post.frontmatter.author}
         authorimage={post.frontmatter.authorimage}
         date={post.frontmatter.date}
+        featuredauthor={post.frontmatter.featuredauthor}
+        featuredlink={post.frontmatter.featuredlink}
         featuredimage={post.frontmatter.featuredimage}
         slug={post.fields.slug}
         readingTime={post.fields.readingTime.text}
@@ -70,6 +72,8 @@ export const pageQuery = graphql`query BlogPostByID($id: String!) {
       title
       description
       tags
+      featuredauthor
+      featuredlink
       featuredimage {
         childImageSharp {
           fluid(maxWidth: 1200, quality: 100) {

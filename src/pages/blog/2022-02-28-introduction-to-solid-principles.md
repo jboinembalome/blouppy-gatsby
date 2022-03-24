@@ -7,7 +7,9 @@ authorimage: /img/jimmy.jpg
 category: Best Pratices
 categorycolor: bg-green-100 text-green-800
 featuredpost: true
-featuredimage: /img/Introduction_To_SOLID_Principles.jpg
+featuredauthor: Adrian Infernus
+featuredlink: https://unsplash.com/@adrian_infernus
+featuredimage: /img/introduction_to_solid_principles.jpg
 description: >-
   Let's discover the principles of object-oriented programming to produce a better code with some examples in C#.
 tags:
