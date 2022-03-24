@@ -54,7 +54,7 @@ export const AboutPageTemplate = ({ title, aboutimage, content, contentComponent
                 </div>
                 <figcaption className="mt-3 flex text-sm text-gray-500 dark:text-gray-400">
                   <CameraIcon className="flex-none w-5 h-5 text-gray-400" aria-hidden="true" />
-                  <span className="ml-2">Photograph by Asia Zeni</span>
+                  <span className="ml-2">Photo by <a href="https://www.instagram.com/zenasiart/?hl=fr" target="_blank" className="underline hover:text-gray-600 dark:hover:text-gray-500">Asia Zeni</a></span>
                 </figcaption>
               </figure>
             </div>
