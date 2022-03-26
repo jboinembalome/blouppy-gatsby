@@ -19,13 +19,13 @@ function Navbar(props) {
 
   useEffect(() => {
     if (toggleTheme) {
-      document.body.classList.add('dark')
+      document.documentElement.classList.add('dark')
       if (typeof window !== 'undefined')
         localStorage.theme = 'dark'
     }
 
     else {
-      document.body.classList.remove('dark')
+      document.documentElement.classList.remove('dark')
       if (typeof window !== 'undefined')
         localStorage.theme = 'light'
     }
@@ -51,10 +51,10 @@ function Navbar(props) {
     // On page load or when changing themes, best to add inline in `head` to avoid FOUC
     if (typeof window !== 'undefined')
       if (localStorage.theme === 'light' || (!('theme' in localStorage))) {
-        document.body.classList.remove('dark')
+        document.documentElement.classList.remove('dark')
         return false;
       } else {
-        document.body.classList.add('dark')
+        document.documentElement.classList.add('dark')
         return true;
       }
     else
