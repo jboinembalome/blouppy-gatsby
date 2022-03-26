@@ -1,41 +1,15 @@
 /* This example requires Tailwind CSS v2.0+ */
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'gatsby';
 import { Disclosure } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
 import logo from "../img/logo.svg";
-import logoWithTextRow from "../img/logo-text-row.svg";
-import logoWithTextRowWhite from "../img/logo-text-row-white.svg";
 import Search from "./search"
 import { SearchIcon } from '@heroicons/react/solid'
-
-import Toggle from './Toggle';
+import { ThemeToggle } from './ThemeToggle';
+import { BlouppyIcon } from './BlouppyIcon';
 
 function Navbar(props) {
-  const [toggleTheme, setToggleTheme] = useState(() => {
-    const initialState = loadTheme();
-    return initialState;
-  });
-
-  useEffect(() => {
-    if (toggleTheme) {
-      document.documentElement.classList.add('dark')
-      if (typeof window !== 'undefined')
-        localStorage.theme = 'dark'
-    }
-
-    else {
-      document.documentElement.classList.remove('dark')
-      if (typeof window !== 'undefined')
-        localStorage.theme = 'light'
-    }
-
-  }, [toggleTheme]);
-
-  const toggleChange = (event) => {
-    setToggleTheme(event);
-  }
-
   const [toggleSearch, setToggleSearch] = useState(false)
 
   const toggleSearchChange = (event) => {
@@ -45,25 +19,6 @@ function Navbar(props) {
   const searchClick = () => {
     setToggleSearch(true);
   }
-
-
-  function loadTheme() {
-    // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-    if (typeof window !== 'undefined')
-      if (localStorage.theme === 'light' || (!('theme' in localStorage))) {
-        document.documentElement.classList.remove('dark')
-        return false;
-      } else {
-        document.documentElement.classList.add('dark')
-        return true;
-      }
-    else
-      return false;
-  }
-
-  const classNames = (...classes) => {
-    return classes.filter(Boolean).join(' ')
-  };
 
   const navigation = {
     link: [
@@ -146,8 +101,8 @@ function Navbar(props) {
                   <Link to="/" className="block lg:hidden p-2 h-14 w-14" title="Logo">
                     <img src={logo} alt="Blouppy" />
                   </Link>
-                  <Link to="/" className="hidden lg:block p-2 -mx-8 h-44 w-48" title="Logo">
-                    <img src={toggleTheme ? logoWithTextRowWhite : logoWithTextRow} alt="Blouppy" />
+                  <Link to="/" title="Logo">
+                    <BlouppyIcon className="hidden lg:block p-2 w-32"/>
                   </Link>
                 </div>
                 <div className="hidden md:ml-6 md:flex md:space-x-8">
@@ -160,13 +115,14 @@ function Navbar(props) {
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center space-x-3 pr-2 md:static md:inset-auto md:ml-6 md:pr-0">
                 <button onClick={searchClick}>
-                <span className="sr-only">Search article with algolia</span>
-                  <SearchIcon className="h-8 w-8 text-gray-400 hover:text-gray-500" />
+                  <span className="sr-only">Search article with algolia</span>
+                  <SearchIcon className="h-6 w-6 text-gray-500 hover:text-gray-600" />
                 </button>
                 <Search indices={searchIndices} openModal={toggleSearch} modalClosed={toggleSearchChange} />
 
                 <div className="order-last">
-                  <Toggle enabled={toggleTheme} onChange={toggleChange} />
+                  <ThemeToggle />
+
                 </div>
 
               </div>
