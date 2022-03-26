@@ -150,9 +150,9 @@ export const ResumePageTemplate = ({ title, subtitle, resumeimage, content, cont
 
 
             </div>
-            <PageContent className="unreset prose dark:prose-invert prose-indigo md:prose-lg" content={content} />
+            <PageContent className="unreset prose lg:prose-lg dark:prose-invert prose-indigo" content={content} />
           </div>
-          <div className="unreset prose dark:prose-invert prose-indigo md:prose-lg text-gray-500 dark:text-gray-400 mx-auto">
+          <div className="unreset prose lg:prose-lg dark:prose-invert prose-indigo text-gray-500 dark:text-gray-400 mx-auto">
             <h1>Skills</h1>
             <h2>Technical Skills</h2>
             <ul className=" mt-2 pl-0 leading-8">

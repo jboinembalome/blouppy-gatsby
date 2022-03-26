@@ -150,9 +150,9 @@ export const BlogPostTemplate = ({
               <CameraIcon className="flex-none w-5 h-5 text-gray-400" aria-hidden="true" />
               <span className="ml-2">Photo by <a href={featuredlink} target="_blank" className="underline hover:text-gray-600 dark:hover:text-gray-500">{featuredauthor}</a> on <a href="https://unsplash.com/" target="_blank" className="underline hover:text-gray-600 dark:hover:text-gray-500">Unsplash</a></span>
             </figcaption>
-            <PostContent className="unreset prose dark:prose-invert prose-indigo md:prose-lg lg:prose-xl" content={content} />
+            <PostContent className="unreset prose lg:prose-lg dark:prose-invert prose-indigo" content={content} />
             {tags && tags.length ? (
-              <div className="mt-6 prose dark:prose-invert prose-indigo md:prose-lg lg:prose-xl">
+              <div className="mt-6 prose lg:prose-lg dark:prose-invert prose-indigo">
                 <h4>Tags</h4>
                 <ul role="list" className="mt-2 pl-0 leading-8">
                   {tags.map((tag) => (
@@ -167,7 +167,7 @@ export const BlogPostTemplate = ({
                 </ul>
               </div>
             ) : null}
-            <div className="bg-gray-900 dark:bg-gray-800 px-4 pt-2  rounded-md mt-8 prose dark:prose-invert prose-indigo md:prose-lg lg:prose-xl">
+            <div className="bg-gray-900 dark:bg-gray-800 px-4 pt-2 rounded-md mt-8 prose lg:prose-lg dark:prose-invert prose-indigo">
               <Disqus config={disqusConfig} />
             </div>
           </div>

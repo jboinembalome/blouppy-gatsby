@@ -60,7 +60,7 @@ export const AboutPageTemplate = ({ title, aboutimage, content, contentComponent
             </div>
           </div>
           <div className="mt-8 lg:mt-0 max-w-prose mx-auto lg:max-w-none">
-            <PageContent className="mt-8 lg:mt-0 unreset prose dark:prose-invert prose-indigo prose-lg" content={content} />
+            <PageContent className="unreset prose lg:prose-lg dark:prose-invert prose-indigo" content={content} />
           </div>
         </div>
       </div>

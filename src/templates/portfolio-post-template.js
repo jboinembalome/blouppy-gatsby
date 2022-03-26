@@ -148,9 +148,9 @@ export const PortfolioPostTemplate = ({
                 </div>
               </div>
             </div>
-            <PostContent className="unreset prose dark:prose-invert prose-indigo md:prose-lg lg:prose-xl" content={content} />
+            <PostContent className="unreset prose lg:prose-lg dark:prose-invert prose-indigo" content={content} />
             {tags && tags.length ? (
-              <div className="mt-6 prose dark:prose-invert prose-indigo md:prose-lg lg:prose-xl">
+              <div className="mt-6 prose lg:prose-lg dark:prose-invert prose-indigo">
                 <h4>Tags</h4>
                 <ul role="list" className="mt-2 pl-0 leading-8">
                   {tags.map((tag) => (
