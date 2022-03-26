@@ -20,6 +20,11 @@ const TemplateWrapper = ({ children }) => {
           sizes="180x180"
           href={`${withPrefix('/')}img/apple-touch-icon.png`}
         />
+       
+        <link 
+          rel="shortcut icon" 
+          href={`${withPrefix('/')}img/favicon.ico`}
+          />
         <link
           rel="icon"
           type="image/png"
