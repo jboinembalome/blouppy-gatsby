@@ -17,7 +17,7 @@ const BlogList = ({ data, pageContext }) => {
                 <span className="block">Latest Articles</span>
               </h2>
               <p className="mt-4 text-lg leading-6 text-white dark:text-gray-900">
-                Every Wednesday an article is added 😉
+                On various topics such as C#, Asp.Net Core, WPF, Angular and many others! 😉
               </p>
               {/* <a
             href="#"
@@ -33,7 +33,7 @@ const BlogList = ({ data, pageContext }) => {
             data={data}
             helmet={
               <Helmet title="Blouppy | Blog">
-                <meta name="description" content="Blog of technology articles"/>
+                <meta name="description" content="Blog of technology articles" />
                 <meta property="og:locale" content="en_US" />
                 <meta property="og:title" content="List of articles" />
                 <meta property="og:description" content="Blog of technology articles" />
