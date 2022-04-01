@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import BlogRoll from '../components/BlogRoll'
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
+import { Transition } from '@headlessui/react'
 
 export const IndexPageTemplate = ({
   image,
@@ -20,14 +21,23 @@ export const IndexPageTemplate = ({
             <div className="max-w-7xl">
               <div className="lg:grid lg:grid-cols-2 lg:gap-32">
                 <div className="mx-auto max-w-md sm:max-w-2xl sm:text-center lg:text-left lg:flex lg:items-center">
-                  <div className="mx-auto max-w-md text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left">
-                    <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 dark:text-gray-100 sm:text-5xl md:text-6xl">
-                      <span className="block xl:inline">{title}</span>
-                    </h1>
-                    <h2 className="mt-3 text-base text-violet-600 dark:text-violet-400 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
-                      {subheading}
-                    </h2>
-                  </div>
+                  <Transition
+                    show={true}
+                    appear={true}
+                    enter="transition-all duration-1000"
+                    enterFrom="translate-y-24 opacity-0"
+                    enterTo="translate-y-0 opacity-100"
+                  >
+                    <div className="mx-auto max-w-md text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left">
+                      <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 dark:text-gray-100 sm:text-5xl md:text-6xl">
+                        <span className="block xl:inline">{title}</span>
+                      </h1>
+                      <h2 className="mt-3 text-base text-violet-600 dark:text-violet-400 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+                        {subheading}
+                      </h2>
+
+                    </div>
+                  </Transition>
                 </div>
                 <div className="relative">
                   <div className="mt-12 mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 lg:px-0 lg:max-w-md">

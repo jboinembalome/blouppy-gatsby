@@ -48,7 +48,7 @@ export const pageQuery = graphql`query IndexPageTemplate {
       image {
         childImageSharp {
           fluid(maxWidth: 750, quality: 100) {
-            ...GatsbyImageSharpFluid
+            ...GatsbyImageSharpFluid_noBase64
           }
         }
       }
