@@ -40,11 +40,11 @@ export default class Index extends React.Component {
       <Layout>
         <div className="bg-gray-100 dark:bg-gray-900">
           <div className="max-w-7xl mx-auto py-8 px-4 sm:py-8 sm:px-6 lg:px-8">
-            <div className="relative bg-white dark:bg-gray-800 border border-transparent rounded-lg shadow">
+            <div className="relative bg-white dark:bg-gray-900 border border-transparent rounded-lg shadow">
               <h2 className="sr-only">Contact us</h2>
 
               <div className="grid grid-cols-1 lg:grid-cols-3">
-                <div className="relative overflow-hidden py-10 px-6 border border-transparent rounded-t-lg lg:rounded-t-none lg:rounded-l-lg shadow bg-violet-700 dark:bg-violet-500 sm:px-10 xl:p-12">
+                <div className="relative overflow-hidden py-10 px-6 border border-transparent rounded-t-lg lg:rounded-t-none lg:rounded-l-lg shadow bg-violet-700 dark:bg-violet-400 sm:px-10 xl:p-12">
                   <Helmet title={`Blouppy | Contact`} />
                   <div className="absolute inset-0 pointer-events-none sm:hidden" aria-hidden="true">
                     <svg
@@ -142,29 +142,29 @@ export default class Index extends React.Component {
                       </defs>
                     </svg>
                   </div>
-                  <h3 className="text-lg font-medium text-white">Contact Me</h3>
-                  <p className="mt-6 text-base text-violet-50 max-w-3xl">
+                  <h3 className="text-lg font-medium text-white dark:text-gray-800">Contact Me</h3>
+                  <p className="mt-6 text-base text-violet-50 dark:text-gray-900 max-w-3xl">
                     Would you like to contact me? Send me a message via the form on the right, or send me an e-mail. I will be happy to answer you!
                   </p>
                   <dl className="mt-8 space-y-6">
                     <dt>
                       <span className="sr-only">Phone number</span>
                     </dt>
-                    <dd className="flex text-base text-violet-50">
-                      <PhoneIcon className="flex-shrink-0 w-6 h-6 text-violet-200" aria-hidden="true" />
+                    <dd className="flex text-base text-violet-50 dark:text-gray-900">
+                      <PhoneIcon className="flex-shrink-0 w-6 h-6 text-violet-200 dark:text-gray-800" aria-hidden="true" />
                       <span className="ml-3">+33 6 52 26 46 76</span>
                     </dd>
                     <dt>
                       <span className="sr-only">Email</span>
                     </dt>
-                    <dd className="flex text-base text-violet-50">
-                      <MailIcon className="flex-shrink-0 w-6 h-6 text-violet-200" aria-hidden="true" />
+                    <dd className="flex text-base text-violet-50 dark:text-gray-900">
+                      <MailIcon className="flex-shrink-0 w-6 h-6 text-violet-200 dark:text-gray-800" aria-hidden="true" />
                       <span className="ml-3">jboinembalome@gmail.com</span>
                     </dd>
                   </dl>
                   <ul role="list" className="mt-8 flex space-x-12">
                     <li>
-                      <a className="text-violet-200 hover:text-violet-100" href="https://fr.linkedin.com/in/jimmy-boinembalome-87281a189" target="_blank">
+                    <a className="text-violet-200 dark:text-gray-800 hover:text-violet-100 dark:hover:text-gray-900" href="https://fr.linkedin.com/in/jimmy-boinembalome-87281a189" target="_blank">
                         <span className="sr-only">LinkedIn</span>
                         <svg className="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
                           <path
@@ -176,7 +176,7 @@ export default class Index extends React.Component {
                       </a>
                     </li>
                     <li>
-                      <a className="text-violet-200 hover:text-violet-100" href="https://twitter.com/JBoinembalome" target="_blank">
+                    <a className="text-violet-200 dark:text-gray-800 hover:text-violet-100 dark:hover:text-gray-900" href="https://twitter.com/JBoinembalome" target="_blank">
                         <span className="sr-only">Twitter</span>
                         <svg
                           width={24}
@@ -321,7 +321,7 @@ export default class Index extends React.Component {
                     <div className="sm:col-span-2 sm:flex sm:justify-end">
                       <button
                         type="submit"
-                        className="mt-2 w-full inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-violet-600 hover:bg-violet-700 dark:bg-violet-400 hover:dark:bg-violet-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:w-auto"
+                        className="mt-2 w-full inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white dark:text-gray-900 bg-violet-600 hover:bg-violet-700 dark:bg-violet-400 hover:dark:bg-violet-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:w-auto"
                       >
                         Submit
                       </button>

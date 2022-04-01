@@ -98,10 +98,12 @@ function Navbar(props) {
               </div>
               <div className="flex-1 flex items-center justify-center md:items-stretch md:justify-start">
                 <div className="flex-shrink-0 flex items-center">
-                  <Link to="/" className="block lg:hidden p-2 h-14 w-14" title="Logo">
-                    <img src={logo} alt="Blouppy" />
+                  <Link to="/" title="Logo">
+                    <span className="sr-only">Home</span>
+                    <img src={logo} alt="Blouppy" className="block lg:hidden p-2 h-14 w-14"/>
                   </Link>
                   <Link to="/" title="Logo">
+                    <span className="sr-only">Home</span>
                     <BlouppyIcon className="hidden lg:block p-2 w-32"/>
                   </Link>
                 </div>

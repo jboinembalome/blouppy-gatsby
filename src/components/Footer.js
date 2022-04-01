@@ -52,7 +52,7 @@ function Footer(props) {
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="space-y-8 xl:col-span-1">
-            <img className="h-10" src={logo} alt="Blouppy" />
+            <img className="h-10 w-10" src={logo} alt="Blouppy" />
             <p className="text-gray-300 text-base">
               Making the world a better place by sharing information for all.
             </p>

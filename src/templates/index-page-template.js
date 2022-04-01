@@ -15,26 +15,30 @@ export const IndexPageTemplate = ({
     {helmet || ''}
     <section className="flex max-w-7xl mx-auto justify-center pt-10 pb-20 px-4 sm:px-6 lg:pt-14 lg:pb-28 lg:px-8">
       <div className="container">
-        <div className="flex-row mb-20 lg:flex lg:justify-between lg:items-center">
-          <div className="text-center mx-auto sm:mx-0 lg:text-left">
-            <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 dark:text-gray-100 sm:text-5xl md:text-6xl">
-              <span className="block xl:inline">{title}</span>
-            </h1>
-            <h3 className="mt-3 text-base text-violet-600 dark:text-violet-400 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
-              {subheading}
-            </h3>
-          </div>
-          <div className="mt-12 relative sm:max-w-lg sm:mx-auto lg:mt-0 lg:max-w-none lg:mx-0">
-            <div className="relative w-full lg:max-w-md">
-              <div
-                className="relative block w-full rounded-lg overflow-hidden"
-              >
-                <PreviewCompatibleImage className="w-full"
-                  imageInfo={{
-                    image: !!image.childImageSharp ? image.childImageSharp.fluid.src : image,
-                    alt: "",
-                  }}
-                />
+        <div className="flex-row mb-20">
+          <div className="lg:pb-14 lg:overflow-hidden">
+            <div className="max-w-7xl">
+              <div className="lg:grid lg:grid-cols-2 lg:gap-32">
+                <div className="mx-auto max-w-md sm:max-w-2xl sm:text-center lg:text-left lg:flex lg:items-center">
+                  <div className="mx-auto max-w-md text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left">
+                    <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 dark:text-gray-100 sm:text-5xl md:text-6xl">
+                      <span className="block xl:inline">{title}</span>
+                    </h1>
+                    <h2 className="mt-3 text-base text-violet-600 dark:text-violet-400 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+                      {subheading}
+                    </h2>
+                  </div>
+                </div>
+                <div className="relative">
+                  <div className="mt-12 mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 lg:px-0 lg:max-w-md">
+                    <PreviewCompatibleImage className="w-full"
+                      imageInfo={{
+                        image: image,
+                        alt: "",
+                      }}
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -69,7 +73,7 @@ export const IndexPageTemplate = ({
               <BlogRoll />
               <div className="flex-col  text-center mt-5">
                 <Link className="btn btn-outline-primary" to="/blog">
-                  Read more
+                  Read More Articles
                 </Link>
               </div>
             </div>
