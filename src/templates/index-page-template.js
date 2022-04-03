@@ -55,31 +55,48 @@ export const IndexPageTemplate = ({
         </div>
         <div className="flex-row">
           <div className="flex-col space-y-8">
-            <div className="text-lg mx-auto">
-              <h1>
-                <span className="block text-base text-center text-violet-600 dark:text-violet-400 font-semibold tracking-wide uppercase">
-                  Introducing
-                </span>
-                <span className="mt-2 block text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl">
-                  {mainpitch.title}
-                </span>
-              </h1>
-              <p className="mt-8 text-xl text-gray-500 dark:text-gray-400 leading-8">
-                {mainpitch.description}
-              </p>
-            </div>
-
-            <div className="flex-col ">
-              <div className="mb-8 text-lg mx-auto">
+            <Transition
+              show={true}
+              appear={true}
+              enter="transition-all duration-1000"
+              enterFrom="translate-y-24 opacity-0"
+              enterTo="translate-y-0 opacity-100"
+            >
+              <div className="text-lg mx-auto">
                 <h1>
                   <span className="block text-base text-center text-violet-600 dark:text-violet-400 font-semibold tracking-wide uppercase">
-                    Stay up to date
+                    Introducing
                   </span>
                   <span className="mt-2 block text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl">
-                    Latest Articles
+                    {mainpitch.title}
                   </span>
                 </h1>
+                <p className="mt-8 text-xl text-gray-500 dark:text-gray-400 leading-8">
+                  {mainpitch.description}
+                </p>
               </div>
+            </Transition>
+
+            <div className="flex-col ">
+              <Transition
+                show={true}
+                appear={true}
+                enter="transition-all duration-1000"
+                enterFrom="translate-y-24 opacity-0"
+                enterTo="translate-y-0 opacity-100"
+              >
+                <div className="mb-8 text-lg mx-auto">
+                  <h1>
+                    <span className="block text-base text-center text-violet-600 dark:text-violet-400 font-semibold tracking-wide uppercase">
+                      Stay up to date
+                    </span>
+                    <span className="mt-2 block text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl">
+                      Latest Articles
+                    </span>
+                  </h1>
+                </div>
+              </Transition>
+
               <BlogRoll />
               <div className="flex-col  text-center mt-5">
                 <Link className="btn btn-outline-primary" to="/blog">
