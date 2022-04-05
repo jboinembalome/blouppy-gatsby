@@ -22,7 +22,7 @@ class TagRoute extends React.Component {
     return (
       <Layout>
         <section>
-          <Helmet title={`${tag} | ${title}`} />
+          <Helmet title={`${tag} | Tag`} />
           <div className="overflow-hidden">
             <div className="relative max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
               <div className="hidden lg:block lg:absolute lg:inset-y-0 lg:h-full lg:w-full">
