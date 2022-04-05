@@ -68,7 +68,7 @@ export const pageQuery = graphql`query PortfolioPostByID($id: String!) {
       featuredimage {
         childImageSharp {
           fluid(maxWidth: 1200, quality: 100) {
-            ...GatsbyImageSharpFluid
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }
@@ -76,7 +76,7 @@ export const pageQuery = graphql`query PortfolioPostByID($id: String!) {
       authorimage {
         childImageSharp {
           fluid(maxWidth: 450, quality: 100) {
-            ...GatsbyImageSharpFluid
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }

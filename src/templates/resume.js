@@ -52,7 +52,7 @@ export const resumePageQuery = graphql`
         resumeimage {
           childImageSharp {
             fluid(maxWidth: 450, quality: 100) {
-              ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
