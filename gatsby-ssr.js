@@ -1,9 +1,5 @@
 const React = require("react");
 
-exports.replaceRenderer = ({ replaceBodyHTMLString }) => {
-  replaceBodyHTMLString('<div id="___gatsby"></div>');
-};
-
 exports.onRenderBody = ({ setPostBodyComponents }) => {
   setPostBodyComponents([
     <script key="theme-initialize"
