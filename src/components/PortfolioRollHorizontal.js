@@ -105,7 +105,7 @@ export default () => (
           featuredimage {
             childImageSharp {
               fluid(maxWidth: 750, quality: 100) {
-                ...GatsbyImageSharpFluid_withWebp
+                ...GatsbyImageSharpFluid
               }
             }
           }
@@ -113,7 +113,7 @@ export default () => (
           authorimage {
             childImageSharp {
               fluid(maxWidth: 450, quality: 100) {
-                ...GatsbyImageSharpFluid_withWebp
+                ...GatsbyImageSharpFluid
               }
             }
           }

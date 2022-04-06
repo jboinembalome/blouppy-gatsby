@@ -77,7 +77,7 @@ export const pageQuery = graphql`query BlogPostByID($id: String!) {
       featuredimage {
         childImageSharp {
           fluid(maxWidth: 1200, quality: 100) {
-            ...GatsbyImageSharpFluid_withWebp
+            ...GatsbyImageSharpFluid
           }
         }
       }
@@ -85,7 +85,7 @@ export const pageQuery = graphql`query BlogPostByID($id: String!) {
       authorimage {
         childImageSharp {
           fluid(maxWidth: 450, quality: 100) {
-            ...GatsbyImageSharpFluid_withWebp
+            ...GatsbyImageSharpFluid
           }
         }
       }
