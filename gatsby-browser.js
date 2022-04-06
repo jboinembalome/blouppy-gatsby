@@ -1,4 +1,5 @@
 const React = require("react")
+import './src/styles/site.scss';
 
 const addBuyMeACoffee = () => {
   const script = document.createElement("script");
