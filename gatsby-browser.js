@@ -1,4 +1,4 @@
-const React = require("react")
+import React from 'react';
 import './src/styles/site.scss';
 
 const addBuyMeACoffee = () => {
@@ -27,11 +27,11 @@ require("prismjs/plugins/line-numbers/prism-line-numbers.css")
 require("prismjs/plugins/command-line/prism-command-line.css")
 require("prismjs/themes/prism-tomorrow.css")
 
-exports.wrapPageElement = ({ element, props }) => {
-  return <div>{element}</div>;
+export function wrapPageElement({ element, props }) {
+    return <div>{element}</div>;
 }
 
-exports.onInitialClientRender = () => {
+export function onInitialClientRender() {
   // Add "buy me a coffee" when the initial rendering of the Gatsby application is done 
   // on the client because in the gatsby-ssr onRenderBody, the loading is too long. 
   // (white screen for 0.5 or 1s during rendering)
