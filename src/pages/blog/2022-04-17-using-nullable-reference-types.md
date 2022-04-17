@@ -7,8 +7,8 @@ authorimage: /img/jimmy.jpg
 category: C#
 categorycolor: bg-purple-100 text-purple-800
 featuredpost: true
-featuredauthor: Marek Piwnicki
-featuredlink: https://unsplash.com/@marekpiwnicki
+featuredauthor: Julien Tromeur
+featuredlink: https://unsplash.com/@julientromeur
 featuredimage: /img/using-nullable-reference-types-in-csharp-projects.jpg
 description: >-
   Let's discover the nullable reference types in a C# project.
