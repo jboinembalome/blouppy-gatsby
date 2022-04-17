@@ -23,10 +23,6 @@
  */
 
 .gatsby-highlight {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  max-width: 88vw;
-  min-width: 300px;
   @apply rounded-md rounded-tr-none mb-8;
 }
 .gatsby-highlight pre[class*="language-"] {
@@ -36,8 +32,9 @@
 .gatsby-highlight {
   /* PrismJS Theme styles */
   pre[class*="language-"] {
-    @apply overflow-auto;
-    -webkit-overflow-scrolling: touch;
+    @apply overflow-x-auto;
+    max-width: 88vw;
+    min-width: 300px;
   }
 }
 
