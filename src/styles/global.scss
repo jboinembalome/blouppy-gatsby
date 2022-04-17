@@ -40,7 +40,11 @@
 }
 
 .gatsby-highlight pre[class*="language-"].line-numbers {
-  @apply pl-16;
+  @apply pl-12;
+}
+
+.gatsby-highlight-code-line {
+  @apply block pl-3 -ml-6 bg-violet-50/25 border-l-violet-500 dark:border-l-violet-400 border-solid border-l-4;
 }
 
 // override style for gatsby-remark-code-buttons
