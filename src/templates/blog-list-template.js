@@ -26,7 +26,7 @@ export const BlogListTemplate = ({ data, helmet }) => {
   function CardContent(props) {
     const { post } = props
     return <div className="relative mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 md:px-0">
-      <div className="flex-1 dark:bg-gray-800 pt-6 pr-6 flex flex-col justify-between">
+      <div className="flex-1 pt-6 pr-6 flex flex-col justify-between">
         <div className="flex-1">
           <span className={`inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium ${post.frontmatter.categorycolor}`}>
             {post.frontmatter.category}
