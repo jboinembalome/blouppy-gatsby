@@ -12,9 +12,9 @@ It was with this simple application that I discovered my passion and went on to 
 
 ### Tool Used
 Here is the list of tools I usually use:
-- Visual Studio 2019 (Migration to 2022 soon)
+- Visual Studio 2022
 - Visual Studio Code
-- Git Bash (Also Git in VS 2019 and VS Code)
+- Git Bash (Also Git in VS 2022 and VS Code)
 - Postman
 - Docker Desktop (Sometimes)
 
