@@ -40,7 +40,7 @@ export default class Index extends React.Component {
       <Layout>
         <div className="bg-gray-100 dark:bg-gray-900">
           <div className="max-w-7xl mx-auto py-8 px-4 sm:py-8 sm:px-6 lg:px-8">
-            <div className="relative bg-white dark:bg-gray-900 border border-transparent rounded-lg shadow">
+            <div className="relative bg-white dark:bg-gray-800 border border-transparent rounded-lg shadow">
               <h2 className="sr-only">Contact us</h2>
 
               <div className="grid grid-cols-1 lg:grid-cols-3">
