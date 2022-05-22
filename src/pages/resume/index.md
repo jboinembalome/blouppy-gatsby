@@ -18,10 +18,13 @@ Over the years, I have helped various companies in the development and maintenan
 
 ## Apside (2020 - present)
 ### .NET Design and Development Engineer
-#### WhiteSpace - SwissTiming (04/2021 - 03/2022)
+#### WhiteSpace - European Parliament (05/2022 - Today)
 Whitespace is a global leader in enterprise user experience.
 Whitespace designs and builds customer and employee experiences that create business and social value. Its mission is to help you achieve a greater return on your human investment.
 
+The European Parliament uses an internal website allowing collaborators to access a set of information (calendar of events, news, Outlook events, real-time chat system, etc ). Within a team composed of 3 technical leaders and 4 front-end developers, my role is to bring a new user experience based on Sharepoint, Akumina, React and the Graph API created by Microsoft.
+
+#### WhiteSpace - SwissTiming (04/2021 - 04/2022)
 SwissTiming is a company active in the domain of sports timekeeping for international events such as the Olympic Games, the Asian Games, the European Games and many others.
 As a member of the team located in Leipzig (Germany), my role is to add features and maintain WPF applications and plugins to generate sets of messages. These contain information about matches such as player lists, results, team rankings, and so on. From scripting with Roslyn to step-by-step debugging between multiple applications, the activities are very exciting.
 
@@ -71,6 +74,8 @@ Rare are the days without listening to music. I like a lot of styles like electr
 If you are curious, here is my music of the moment: <a href="https://www.youtube.com/watch?v=6FoQ1-qy2h4" target="_blank">Sofiane Pamart - Berlin</a>
 ## Open Source
 I love contributing to open source projects. In general, I help folks when I can. It's even better when it comes to helping developers. At the moment, I contribute to the <a href="https://github.com/roslynpad/roslynpad" target="_blank">RoslynPad</a> project whenever possible.
+
+I am also working on some personal projects in Angular, ASP.NET Core or WPF which you can find in the [Portfolio](/portfolio) tab if you wish! 🙂
 
 </br>
 
