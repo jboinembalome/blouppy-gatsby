@@ -16,7 +16,7 @@ Over the years, I have helped various companies in the development and maintenan
 
 # Recent Experience
 
-## Apside (2020 - present)
+## Apside (2020 - Present)
 ### .NET Design and Development Engineer
 #### WhiteSpace - European Parliament (05/2022 - Today)
 Whitespace is a global leader in enterprise user experience.
