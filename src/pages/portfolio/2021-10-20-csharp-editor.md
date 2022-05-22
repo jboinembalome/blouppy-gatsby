@@ -15,6 +15,7 @@ tags:
   - WPF
   - Roslyn
   - .NET
+link: https://github.com/jboinembalome/RoslynEditor
 ---
 
 Creation of a C# editor in WPF with .NET 4.8 based on RoslynPad.Roslyn.Windows, AvalonEdit and Microsoft.Toolkit.Mvvm. The purpose of this project is to improve my knowledge in WPF and especially to work with the Roslyn .NET compiler.
