@@ -172,14 +172,14 @@ export const ResumePageTemplate = ({ title, subtitle, resumeimage, content, cont
                 </li>
               ))}
             </ul>
-            <div className="mt-12">
-              <h1>Download my resume</h1>
-              <p className="prose lg:prose-lg dark:prose-invert prose-indigo">If you wish, you can download my resume: </p>
-              <div className="mt-6 flex justify-between">
-                <a href={EnglishResumeJB} download className="btn btn-outline-primary no-underline text-white dark:text-gray-900">
+            <div className="mt-12 unreset prose lg:prose-lg dark:prose-invert prose-indigo">
+              <h1>Download</h1>
+              <p>If you wish, you can download my resume: </p>
+              <div className="mt-6 space-y-4 flex flex-col justify-between sm:space-y-0 sm:flex-row">
+                <a href={EnglishResumeJB} download className="no-underline inline-flex items-center justify-center mr-2 px-4 py-2 text-base font-medium rounded-md shadow-sm text-white dark:text-gray-900 bg-violet-600 hover:bg-violet-700 dark:bg-violet-400 hover:dark:bg-violet-500">
                   Download In English
                 </a>
-                <a href={FrenchResumeJB} download className="btn btn-outline-primary no-underline text-white dark:text-gray-900">
+                <a href={FrenchResumeJB} download className="no-underline inline-flex items-center justify-center mr-2 px-4 py-2 text-base font-medium rounded-md shadow-sm text-white dark:text-gray-900 bg-violet-600 hover:bg-violet-700 dark:bg-violet-400 hover:dark:bg-violet-500">
                   Download In French
                 </a>
               </div>
