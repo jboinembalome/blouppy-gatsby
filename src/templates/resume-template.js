@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Content from '../components/Content'
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
+import EnglishResumeJB from '../../static/downloads/CV_EN_Boinembalome_Jimmy.pdf' 
+import FrenchResumeJB from '../../static/downloads/CV_FR_Boinembalome_Jimmy.pdf' 
 
 export const ResumePageTemplate = ({ title, subtitle, resumeimage, content, contentComponent, helmet }) => {
   const PageContent = contentComponent || Content
@@ -170,6 +172,18 @@ export const ResumePageTemplate = ({ title, subtitle, resumeimage, content, cont
                 </li>
               ))}
             </ul>
+            <div className="mt-12">
+              <h1>Download my resume</h1>
+              <p className="prose lg:prose-lg dark:prose-invert prose-indigo">If you wish, you can download my resume: </p>
+              <div className="mt-6 flex justify-between">
+                <a href={EnglishResumeJB} download className="btn btn-outline-primary no-underline text-white dark:text-gray-900">
+                  Download In English
+                </a>
+                <a href={FrenchResumeJB} download className="btn btn-outline-primary no-underline text-white dark:text-gray-900">
+                  Download In French
+                </a>
+              </div>
+            </div> 
           </div>
         </div>
       </div>
