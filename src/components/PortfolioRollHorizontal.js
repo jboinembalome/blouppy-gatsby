@@ -12,7 +12,7 @@ class PortfolioRollHorizontal extends React.Component {
     function CardImage(props) {
       const { post } = props
       return <Link className="relative h-full" to={post.fields.slug}>
-        <div className="relative h-full pt-24 sm:pt-48 md:pt-64 pb-10 rounded-lg overflow-hidden">
+        <div className="relative h-full rounded-lg overflow-hidden">
           {post.frontmatter.featuredimage ? (
             <PreviewCompatibleImage className="absolute inset-0 h-full w-full object-cover"
               imageInfo={{
@@ -59,7 +59,7 @@ class PortfolioRollHorizontal extends React.Component {
         {posts &&
           posts.map(({ node: post }) => (
             <div className="relative bg-white dark:bg-gray-900 py-4" key={post.id}>
-              <div className="border border-transparent rounded-2xl bg-white dark:bg-gray-800 shadow md:mx-auto md:max-w-7xl md:grid md:grid-cols-2 md:gap-24 md:items-start">
+              <div className="rounded-2xl bg-white dark:bg-gray-800 shadow md:mx-auto md:max-w-7xl md:grid md:grid-cols-2 md:gap-24 md:items-start">
                 <CardImage post={post} />
                 <CardContent post={post} />
               </div>
