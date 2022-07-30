@@ -156,21 +156,25 @@ export const ResumePageTemplate = ({ title, subtitle, resumeimage, content, cont
             <div className="unreset prose lg:prose-lg dark:prose-invert prose-indigo">
               <h1>Skills</h1>
               <h2>Technical Skills</h2>
-              <ul className="mt-2 pl-0 leading-8">
-                {skills.specifics.map((skill) => (
-                  <li key={skill + `skill`} className="not-prose no-underline inline-flex items-center mr-2 px-3 py-0.5 rounded-full text-base font-medium bg-violet-100 text-violet-800">
-                    <span>{skill}</span>
-                  </li>
-                ))}
-              </ul>
+              <div className="not-prose">
+                <ul className="not-prose not-unreset mt-2 pl-0 leading-8">
+                  {skills.specifics.map((skill) => (
+                    <li key={skill + `skill`} className="not-prose not-unreset no-underline inline-flex items-center mr-2 my-2 px-3 py-0.5 rounded-full text-base font-medium bg-violet-100 text-violet-800">
+                      <span>{skill}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
               <h2>Soft Skills</h2>
-              <ul className="mt-2 pl-0 leading-8">
-                {skills.softs.map((soft) => (
-                  <li key={soft + `soft`} className="not-prose no-underline inline-flex items-center mr-2 px-3 py-0.5 rounded-md text-base font-medium bg-amber-100 text-amber-800">
-                    <span>{soft}</span>
-                  </li>
-                ))}
-              </ul>
+              <div className="not-prose">
+                <ul className="not-prose not-unreset mt-2 pl-0 leading-8">
+                  {skills.softs.map((soft) => (
+                    <li key={soft + `soft`} className="not-prose not-unreset no-underline inline-flex items-center mr-2 my-2 px-3 py-0.5 rounded-md text-base font-medium bg-amber-100 text-amber-800">
+                      <span>{soft}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
               <div className="mt-12 unreset prose lg:prose-lg dark:prose-invert prose-indigo">
                 <h1>Download</h1>
                 <p>If you wish, you can download my resume: </p>
