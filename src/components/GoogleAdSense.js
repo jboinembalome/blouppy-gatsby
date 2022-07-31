@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
 
-const AdSenseGoogle = (props) => {
+const GoogleAdSense = (props) => {
   useEffect(() => {
     try {
       if (window) (window.adsbygoogle = window.adsbygoogle || []).push({});
@@ -22,7 +22,7 @@ const AdSenseGoogle = (props) => {
   )
 };
 
-AdSenseGoogle.propTypes = {
+GoogleAdSense.propTypes = {
   className: PropTypes.string,
   style: PropTypes.object,
   client: PropTypes.string.isRequired,
@@ -33,7 +33,7 @@ AdSenseGoogle.propTypes = {
   responsive: PropTypes.string
 };
 
-AdSenseGoogle.defaultProps = {
+GoogleAdSense.defaultProps = {
   className: '',
   style: { display: 'block' },
   format: 'auto',
