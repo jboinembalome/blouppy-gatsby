@@ -155,17 +155,19 @@ export const BlogPostTemplate = ({
             {tags && tags.length ? (
               <div className="mt-6 prose lg:prose-lg dark:prose-invert prose-indigo">
                 <h4>Tags</h4>
-                <ul role="list" className="mt-2 pl-0 leading-8">
-                  {tags.map((tag) => (
-                    <li key={tag + `tag`} className="inline pl-0 pr-2">
-                      <Link to={`/tags/${kebabCase(tag)}/`} className="no-underline inline-flex items-center px-3 py-0.5 rounded-full text-base font-medium bg-violet-100 text-violet-800">
-                        <span>
-                          {tag}
-                        </span>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
+                <div className="not-prose">
+                  <ul role="list" className="not-prose mt-2 pl-0 leading-8">
+                    {tags.map((tag) => (
+                      <li key={tag + `tag`} className="not-prose inline pl-0 pr-2">
+                        <Link to={`/tags/${kebabCase(tag)}/`} className="no-underline inline-flex items-center px-3 py-0.5 rounded-full text-base font-medium bg-violet-100 text-violet-800">
+                          <span>
+                            {tag}
+                          </span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             ) : null}
             <GoogleAdSense
