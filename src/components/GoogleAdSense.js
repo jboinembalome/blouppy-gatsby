@@ -35,7 +35,7 @@ GoogleAdSense.propTypes = {
 
 GoogleAdSense.defaultProps = {
   className: '',
-  style: { display: 'block' },
+  style: {},
   format: 'auto',
   layout: '',
   layoutKey: '',
