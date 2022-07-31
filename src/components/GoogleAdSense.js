@@ -42,4 +42,4 @@ GoogleAdSense.defaultProps = {
   responsive: 'false'
 };
 
-export default AdSenseGoogle;
+export default GoogleAdSense;
