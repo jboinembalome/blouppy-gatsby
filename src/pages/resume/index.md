@@ -1,6 +1,5 @@
 ---
 templateKey: 'resume'
-path: /resume
 title: Resume
 subtitle: Are you interested by my career history? You are in the right place.
 resumeimage: /img/jimmy.jpg

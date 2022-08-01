@@ -1,6 +1,6 @@
 import React from 'react'
 import { kebabCase } from 'lodash'
-import { Helmet } from 'react-helmet'
+import { Seo } from "../../components/Seo"
 import { Link, graphql } from 'gatsby'
 import Layout from '../../components/Layout'
 
@@ -22,15 +22,11 @@ const Tag = ({ tag }) => (
 )
 const TagsPage = ({
   data: {
-    allMarkdownRemark: { group },
-    site: {
-      siteMetadata: { title },
-    },
+    allMarkdownRemark: { group }
   },
 }) => (
   <Layout>
     <section>
-      <Helmet title={`Blouppy | Tags`} />
       <div className="overflow-hidden">
         <div className="relative max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
           <div className="hidden lg:block lg:absolute lg:inset-y-0 lg:h-full lg:w-full">
@@ -110,7 +106,7 @@ const TagsPage = ({
 
                 <ul className="mt-8 flex flex-wrap gap-2">
                   {group.map((tag) => (
-                    <Tag key={tag.fieldValue} tag={tag}/>
+                    <Tag key={tag.fieldValue} tag={tag} />
                   ))}
                 </ul>
               </div>
@@ -123,13 +119,18 @@ const TagsPage = ({
   </Layout>
 )
 
+export const Head = ({
+  data: {
+    site: { siteMetadata },
+  } }) => <Seo title="Tags" description="List of tags for all articles." url={`${siteMetadata.siteUrl}/tags`} />;
+
 export default TagsPage
 
 export const tagPageQuery = graphql`
   query TagsQuery {
     site {
       siteMetadata {
-        title
+        siteUrl
       }
     }
     allMarkdownRemark(limit: 1000) {

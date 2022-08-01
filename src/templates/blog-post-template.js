@@ -21,8 +21,7 @@ export const BlogPostTemplate = ({
   featuredlink,
   featuredimage,
   slug,
-  readingTime,
-  helmet
+  readingTime
 }) => {
   const PostContent = contentComponent || Content
   const siteUrl = 'https://blouppy.com' + slug
@@ -35,8 +34,6 @@ export const BlogPostTemplate = ({
   return (
 
     <section>
-      {helmet || ''
-      }
       <div className="relative py-8 overflow-hidden">
         <div className="hidden lg:block lg:absolute lg:inset-y-0 lg:h-full lg:w-full">
           <div className="relative h-full text-lg max-w-prose mx-auto" aria-hidden="true">
@@ -199,6 +196,5 @@ BlogPostTemplate.propTypes = {
   featuredlink: PropTypes.string,
   featuredimage: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   slug: PropTypes.string,
-  readingTime: PropTypes.string,
-  helmet: PropTypes.object,
+  readingTime: PropTypes.string
 }

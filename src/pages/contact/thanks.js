@@ -1,6 +1,8 @@
 import React from 'react'
 import Layout from '../../components/Layout'
 import { Link } from 'gatsby'
+import { Seo } from "../../components/Seo"
+import { useSiteMetadata } from "../../components/useSiteMetadata"
 
 const Thanks = () => (
   <Layout>
@@ -28,5 +30,11 @@ const Thanks = () => (
     </section>
   </Layout>
 )
+
+export const Head = () => {
+  const { siteUrl } = useSiteMetadata();
+  const description = "Thank you page"
+  return <Seo title="Thanks" description={description} url={`${siteUrl}/contact/thanks`} />
+};
 
 export default Thanks;
