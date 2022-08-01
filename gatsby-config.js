@@ -12,8 +12,17 @@ const isNetlifyProduction = NETLIFY_ENV === 'production'
 const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL
 module.exports = {
   siteMetadata: {
-    siteUrl,
+    title: `Blouppy`,
+    author: {
+      name: `Jimmy Boinembalome`,
+      summary: `👋 Hi, I am @jboinembalome. I am design and development engineer from France with a passion for application development.`,
+    },
+    description: `The personal website of Jimmy Boinembalome.`,
+    siteUrl: siteUrl,
     canonicalUrl: siteUrl,
+    social: {
+      twitter: `@JBoinembalome`,
+    },
   },
   plugins: [
     {

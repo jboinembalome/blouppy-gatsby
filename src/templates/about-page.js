@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import { AboutPageTemplate } from './about-page-template'
 import { HTMLContent } from '../components/Content'
-import { Helmet } from 'react-helmet'
+import { Seo } from "../components/Seo"
 
 const AboutPage = ({ data }) => {
   const { frontmatter, html } = data.markdownRemark
@@ -16,19 +16,6 @@ const AboutPage = ({ data }) => {
         title={frontmatter.title}
         aboutimage={frontmatter.aboutimage}
         content={html}
-        helmet={
-          <Helmet title="Blouppy | About">
-            <meta name="description" content="About Jimmy Boinembalome" />
-            <meta name="image" content={`https://blouppy.com${frontmatter.aboutimage.childImageSharp.fluid.src}`} />
-            <meta property="og:image:alt" content={`${frontmatter.title}`} />
-            <meta property="og:locale" content="en_US" />
-            <meta property="og:image" content={`https://blouppy.com${frontmatter.aboutimage.childImageSharp.fluid.src}`} />) 
-            <meta property="og:title" content={`${frontmatter.title}`} />
-            <meta property="og:description" content="About Jimmy Boinembalome" />
-            <meta property="og:url" content="https://blouppy.com/about" />
-            <meta property="og:site_name" content="https://blouppy.com" />
-          </Helmet>
-        }
       />
     </Layout>
   )
@@ -40,10 +27,33 @@ AboutPage.propTypes = {
   }),
 }
 
+export const Head = ({
+  data: {
+    site: { siteMetadata },
+    markdownRemark: { frontmatter },
+  } }) => {
+  const description = "About Jimmy Boinembalome";
+
+  return (
+    <Seo title={frontmatter.title} description={description} url={`${siteMetadata.siteUrl}/about`}>
+      <meta name="image" content={`${siteMetadata.siteUrl}${frontmatter.aboutimage.childImageSharp.fluid.src}`} />
+      <meta property="og:image:alt" content={siteMetadata.author.name} />
+      <meta property="og:image" content={`${siteMetadata.siteUrl}${frontmatter.aboutimage.childImageSharp.fluid.src}`} />
+    </Seo>);
+};
+
 export default AboutPage
 
 export const aboutPageQuery = graphql`
   query AboutPage($id: String!) {
+    site {
+      siteMetadata {
+        author {
+          name
+        }
+        siteUrl
+      }
+    }
     markdownRemark(id: { eq: $id }) {
       html
       frontmatter {

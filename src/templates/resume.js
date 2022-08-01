@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import { ResumePageTemplate } from './resume-template'
 import { HTMLContent } from '../components/Content'
-import { Helmet } from 'react-helmet'
+import { Seo } from "../components/Seo"
 
 const ResumePage = ({ data }) => {
   const { frontmatter, html } = data.markdownRemark
@@ -16,19 +16,6 @@ const ResumePage = ({ data }) => {
         subtitle={frontmatter.subtitle}
         resumeimage={frontmatter.resumeimage}
         content={html}
-        helmet={
-          <Helmet title="Blouppy | Resume">
-            <meta name="description" content="Resume of Jimmy Boinembalome" />
-            <meta name="image" content={`https://blouppy.com${frontmatter.resumeimage.childImageSharp.fluid.src}`} />
-            <meta property="og:image:alt" content={`${frontmatter.title}`} />
-            <meta property="og:locale" content="en_US" />
-            <meta property="og:image" content={`https://blouppy.com${frontmatter.resumeimage.childImageSharp.fluid.src}`} />) 
-            <meta property="og:title" content={`${frontmatter.title}`} />
-            <meta property="og:description" content="Resume of Jimmy Boinembalome" />
-            <meta property="og:url" content="https://blouppy.com/resume" />
-            <meta property="og:site_name" content="https://blouppy.com" />
-          </Helmet>
-        }
       />
     </Layout>
   )
@@ -40,10 +27,33 @@ ResumePage.propTypes = {
   }),
 }
 
+export const Head = ({
+  data: {
+    site: { siteMetadata },
+    markdownRemark: { frontmatter },
+  } }) => {
+  const description = "Resume of Jimmy Boinembalome";
+
+  return (
+    <Seo title={frontmatter.title} description={description} url={`${siteMetadata.siteUrl}/resume`}>
+      <meta name="image" content={`${siteMetadata.siteUrl}${frontmatter.resumeimage.childImageSharp.fluid.src}`} />
+      <meta property="og:image:alt" content={siteMetadata.author.name} />
+      <meta property="og:image" content={`${siteMetadata.siteUrl}${frontmatter.resumeimage.childImageSharp.fluid.src}`} />
+    </Seo>);
+};
+
 export default ResumePage
 
 export const resumePageQuery = graphql`
   query ResumePage($id: String!) {
+    site {
+      siteMetadata {
+        author {
+          name
+        }
+        siteUrl
+      }
+    }
     markdownRemark(id: { eq: $id }) {
       html
       frontmatter {
