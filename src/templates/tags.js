@@ -1,7 +1,8 @@
 import React from 'react'
-import { Helmet } from 'react-helmet'
 import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
+import { kebabCase } from 'lodash'
+import { Seo } from "../components/Seo"
 
 class TagRoute extends React.Component {
   render() {
@@ -14,7 +15,6 @@ class TagRoute extends React.Component {
       </li>
     ))
     const tag = this.props.pageContext.tag
-    const title = this.props.data.site.siteMetadata.title
     const totalCount = this.props.data.allMarkdownRemark.totalCount
     const tagHeader = `${totalCount} post${totalCount === 1 ? '' : 's'
       } tagged with`
@@ -22,7 +22,6 @@ class TagRoute extends React.Component {
     return (
       <Layout>
         <section>
-          <Helmet title={`${tag} | Tag`} />
           <div className="overflow-hidden">
             <div className="relative max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
               <div className="hidden lg:block lg:absolute lg:inset-y-0 lg:h-full lg:w-full">
@@ -116,13 +115,24 @@ class TagRoute extends React.Component {
   }
 }
 
+export const Head = ({
+  pageContext,
+  data: {
+    site: { siteMetadata },
+  } }) => {
+  const description = `Article(s) tagged with ${pageContext.tag}`;
+  const url = `${siteMetadata.siteUrl}/tags/${kebabCase(pageContext.tag)}`;
+
+  return <Seo title={pageContext.tag} description={description} url={url} />
+};
+
 export default TagRoute
 
 export const tagPageQuery = graphql`
   query TagPage($tag: String) {
     site {
       siteMetadata {
-        title
+        siteUrl
       }
     }
     allMarkdownRemark(

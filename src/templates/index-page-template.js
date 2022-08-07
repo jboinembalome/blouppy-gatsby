@@ -9,11 +9,9 @@ export const IndexPageTemplate = ({
   image,
   title,
   subheading,
-  mainpitch,
-  helmet
+  mainpitch
 }) => (
   <div>
-    {helmet || ''}
     <section className="flex max-w-7xl mx-auto justify-center pt-10 pb-20 px-4 sm:px-6 lg:pt-14 lg:pb-28 lg:px-8">
       <div className="container">
         <div className="flex-row mb-20">
@@ -116,6 +114,5 @@ IndexPageTemplate.propTypes = {
   title: PropTypes.string,
   heading: PropTypes.string,
   subheading: PropTypes.string,
-  mainpitch: PropTypes.object,
-  helmet: PropTypes.object,
+  mainpitch: PropTypes.object
 }

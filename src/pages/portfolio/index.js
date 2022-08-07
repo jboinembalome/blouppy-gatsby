@@ -1,21 +1,13 @@
 import React from 'react'
-
 import Layout from '../../components/Layout'
 import PortfolioRollHorizontal from '../../components/PortfolioRollHorizontal'
-import { Helmet } from 'react-helmet'
+import { Seo } from "../../components/Seo"
+import { useSiteMetadata } from "../../components/useSiteMetadata"
 
 export default class PortfolioIndexPage extends React.Component {
   render() {
     return (
       <Layout>
-        <Helmet title="Blouppy | Portfolio">
-          <meta name="description" content="Personnal projects of Jimmy Boinembalome developed with love" />
-          <meta property="og:locale" content="en_US" />
-          <meta property="og:title" content="Portfolio of Jimmy Boinembalome" />
-          <meta property="og:description" content="Personnal projects of Jimmy Boinembalome developed with love" />
-          <meta property="og:url" content="https://blouppy.com/portfolio" />
-          <meta property="og:site_name" content="https://blouppy.com" />
-        </Helmet>
         <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
           <div className="bg-rose-300 dark:bg-indigo-400 rounded-lg shadow-xl overflow-hidden">
             <div className="pt-10 pb-12 px-6 sm:pt-16 sm:px-16 lg:py-16 lg:pr-0 xl:py-20 xl:px-20">
@@ -43,3 +35,9 @@ export default class PortfolioIndexPage extends React.Component {
     )
   }
 }
+
+export const Head = () => {
+  const { siteUrl } = useSiteMetadata();
+  const description = "Personnal projects of Jimmy Boinembalome developed with love";
+  return <Seo title="Portfolio" description={description} url={`${siteUrl}/portfolio`} />
+};

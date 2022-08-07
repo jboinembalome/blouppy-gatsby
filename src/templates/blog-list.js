@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import { BlogListTemplate } from './blog-list-template'
 import { Link } from 'gatsby'
-import { Helmet } from 'react-helmet'
+import { Seo } from "../components/Seo"
 
 const BlogList = ({ data, pageContext }) => {
   return (
@@ -29,19 +29,7 @@ const BlogList = ({ data, pageContext }) => {
           </div>
         </div>
         <section className="mt-8">
-          <BlogListTemplate
-            data={data}
-            helmet={
-              <Helmet title="Blouppy | Blog">
-                <meta name="description" content="Blog of technology articles" />
-                <meta property="og:locale" content="en_US" />
-                <meta property="og:title" content="List of articles" />
-                <meta property="og:description" content="Blog of technology articles" />
-                <meta property="og:url" content="https://blouppy.com/blog" />
-                <meta property="og:site_name" content="https://blouppy.com" />
-              </Helmet>
-            }
-          />
+          <BlogListTemplate data={data} />
         </section>
         <div className="py-4 flex items-center justify-between">
           <div className="w-0 flex-1 flex">
@@ -69,9 +57,23 @@ BlogList.propTypes = {
   }),
 }
 
+export const Head = ({
+  data: {
+    site: { siteMetadata },
+  } }) => {
+  const description = "Blog of technology articles";
+
+  return <Seo title="Blog" description={description} url={`${siteMetadata.siteUrl}/blog`} />
+};
+
 export default BlogList
 
 export const pageQuery = graphql`query BlogList($skip: Int!, $limit: Int!) {
+  site {
+    siteMetadata {
+      siteUrl
+    }
+  }
   allMarkdownRemark(
     sort: {order: DESC, fields: [frontmatter___date]}
     skip: $skip
