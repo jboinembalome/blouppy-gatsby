@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Helmet } from 'react-helmet'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import { PortfolioPostTemplate } from './portfolio-post-template'
 import { HTMLContent } from '../components/Content'
+import { Seo } from "../components/Seo"
 
 const PortfolioPost = ({ data }) => {
   const { markdownRemark: post } = data
@@ -20,21 +20,6 @@ const PortfolioPost = ({ data }) => {
         date={post.frontmatter.date}
         featuredimage={post.frontmatter.featuredimage}
         readingTime={post.fields.readingTime.text}
-        helmet={
-          <Helmet titleTemplate="%s | Personal Project">
-          <title>{`${post.frontmatter.title}`}</title>
-          <meta name="description" content={`${post.frontmatter.description}`} />
-          <meta name="image" content={`https://blouppy.com${post.frontmatter.featuredimage.childImageSharp.fluid.src}`} />
-          <meta property="og:image:alt" content={`${post.frontmatter.title}`} />
-          <meta property="og:locale" content="en_US" />
-          <meta property="og:image" content={`https://blouppy.com${post.frontmatter.featuredimage.childImageSharp.fluid.src}`} />) 
-          <meta property="og:title" content={`${post.frontmatter.title}`} />
-          <meta property="og:description" content={`${post.frontmatter.description}`} />
-          <meta property="og:url" content={`https://blouppy.com${post.fields.slug}`} />
-          <meta property="og:site_name" content="https://blouppy.com" />
-          <meta property="article:author" content="Jimmy Boinembalome" />
-        </Helmet>
-        }
         tags={post.frontmatter.tags}
         title={post.frontmatter.title}
         link={post.frontmatter.link}
@@ -49,9 +34,27 @@ PortfolioPost.propTypes = {
   }),
 }
 
+export const Head = ({
+  data: {
+    site: { siteMetadata },
+    markdownRemark: { fields, frontmatter },
+  } }) => {
+  return (
+    <Seo title={frontmatter.title} description={frontmatter.description} url={`${siteMetadata.siteUrl}${fields.slug}`}>
+      <meta name="image" content={`${siteMetadata.siteUrl}${frontmatter.featuredimage.childImageSharp.fluid.src}`} />
+      <meta property="og:image:alt" content={frontmatter.title} />
+      <meta property="og:image" content={`${siteMetadata.siteUrl}${frontmatter.featuredimage.childImageSharp.fluid.src}`} />
+    </Seo>);
+};
+
 export default PortfolioPost
 
 export const pageQuery = graphql`query PortfolioPostByID($id: String!) {
+  site {
+    siteMetadata {
+      siteUrl
+    }
+  }
   markdownRemark(id: {eq: $id}) {
     id
     html

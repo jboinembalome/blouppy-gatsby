@@ -2,7 +2,10 @@ import React from 'react'
 import { navigate } from 'gatsby-link'
 import Layout from '../../components/Layout'
 import { MailIcon, PhoneIcon } from '@heroicons/react/outline'
-import { Helmet } from 'react-helmet'
+import { Seo } from "../../components/Seo"
+import { useSiteMetadata } from "../../components/useSiteMetadata"
+
+const description = "Would you like to contact me? Send me a message via the form or send me an e-mail. I will be happy to answer you!";
 
 function encode(data) {
   return Object.keys(data)
@@ -45,7 +48,6 @@ export default class Index extends React.Component {
 
               <div className="grid grid-cols-1 lg:grid-cols-3">
                 <div className="relative overflow-hidden py-10 px-6 border border-transparent rounded-t-lg lg:rounded-t-none lg:rounded-l-lg shadow bg-violet-700 dark:bg-violet-400 sm:px-10 xl:p-12">
-                  <Helmet title={`Blouppy | Contact`} />
                   <div className="absolute inset-0 pointer-events-none sm:hidden" aria-hidden="true">
                     <svg
                       className="absolute inset-0 w-full h-full"
@@ -144,7 +146,7 @@ export default class Index extends React.Component {
                   </div>
                   <h3 className="text-lg font-medium text-white dark:text-gray-800">Contact Me</h3>
                   <p className="mt-6 text-base text-violet-50 dark:text-gray-900 max-w-3xl">
-                    Would you like to contact me? Send me a message via the form on the right, or send me an e-mail. I will be happy to answer you!
+                    {description}
                   </p>
                   <dl className="mt-8 space-y-6">
                     <dt>
@@ -164,7 +166,7 @@ export default class Index extends React.Component {
                   </dl>
                   <ul role="list" className="mt-8 flex space-x-12">
                     <li>
-                    <a className="text-violet-200 dark:text-gray-800 hover:text-violet-100 dark:hover:text-gray-900" href="https://fr.linkedin.com/in/jimmy-boinembalome-87281a189" target="_blank">
+                      <a className="text-violet-200 dark:text-gray-800 hover:text-violet-100 dark:hover:text-gray-900" href="https://fr.linkedin.com/in/jimmy-boinembalome-87281a189" target="_blank">
                         <span className="sr-only">LinkedIn</span>
                         <svg className="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
                           <path
@@ -176,7 +178,7 @@ export default class Index extends React.Component {
                       </a>
                     </li>
                     <li>
-                    <a className="text-violet-200 dark:text-gray-800 hover:text-violet-100 dark:hover:text-gray-900" href="https://twitter.com/JBoinembalome" target="_blank">
+                      <a className="text-violet-200 dark:text-gray-800 hover:text-violet-100 dark:hover:text-gray-900" href="https://twitter.com/JBoinembalome" target="_blank">
                         <span className="sr-only">Twitter</span>
                         <svg
                           width={24}
@@ -336,3 +338,8 @@ export default class Index extends React.Component {
     )
   }
 }
+
+export const Head = () => {
+  const { siteUrl } = useSiteMetadata();
+  return <Seo title="Contact" description={description} url={`${siteUrl}/contact`} />
+};
