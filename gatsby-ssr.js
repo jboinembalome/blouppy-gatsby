@@ -9,7 +9,7 @@ exports.onRenderBody = ({ setHeadComponents, setPostBodyComponents }) => {
     <script key="google-ads"
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7159241060953293"
-      crossorigin="anonymous" />,
+      crossOrigin="anonymous" />,
   ]);
 
   setPostBodyComponents([
