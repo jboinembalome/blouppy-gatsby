@@ -11,6 +11,7 @@ const AboutPage = ({ data }) => {
 
   return (
     <Layout>
+      <Head siteMetadata={data.site.siteMetadata} frontmatter={frontmatter}/>
       <AboutPageTemplate
         contentComponent={HTMLContent}
         title={frontmatter.title}
@@ -27,11 +28,7 @@ AboutPage.propTypes = {
   }),
 }
 
-export const Head = ({
-  data: {
-    site: { siteMetadata },
-    markdownRemark: { frontmatter },
-  } }) => {
+const Head = ({ siteMetadata, frontmatter }) => {
   const description = "About Jimmy Boinembalome";
 
   return (

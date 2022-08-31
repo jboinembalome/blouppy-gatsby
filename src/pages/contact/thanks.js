@@ -6,6 +6,7 @@ import { useSiteMetadata } from "../../components/useSiteMetadata"
 
 const Thanks = () => (
   <Layout>
+    <Head />
     <section className="min-h-full px-4 py-16 sm:px-6 sm:py-24 md:grid md:place-items-center lg:px-8">
       <div className="max-w-max mx-auto">
         <main className="sm:flex">
@@ -31,7 +32,7 @@ const Thanks = () => (
   </Layout>
 )
 
-export const Head = () => {
+const Head = () => {
   const { siteUrl } = useSiteMetadata();
   const description = "Thank you page"
   return <Seo title="Thanks" description={description} url={`${siteUrl}/contact/thanks`} />

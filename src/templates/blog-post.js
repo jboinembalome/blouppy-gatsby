@@ -6,13 +6,12 @@ import { BlogPostTemplate } from './blog-post-template'
 import { HTMLContent } from '../components/Content'
 import { Seo } from "../components/Seo"
 
-const BlogPost = ({
-  data: {
-    markdownRemark: post,
-  } }) => {
+const BlogPost = ({ data }) => {
+  const { markdownRemark: post } = data;
 
   return (
     <Layout>
+      <Head siteMetadata={data.site.siteMetadata} fields={post.fields} frontmatter={post.frontmatter}/>
       <BlogPostTemplate
         content={post.html}
         contentComponent={HTMLContent}
@@ -38,11 +37,7 @@ BlogPost.propTypes = {
   }),
 }
 
-export const Head = ({
-  data: {
-    site: { siteMetadata },
-    markdownRemark: { fields, frontmatter },
-  } }) => {
+const Head = ({ siteMetadata, fields, frontmatter }) => {
   return (
     <Seo title={frontmatter.title} description={frontmatter.description} url={`${siteMetadata.siteUrl}${fields.slug}`}>
       <meta name="image" content={`${siteMetadata.siteUrl}${frontmatter.featuredimage.childImageSharp.fluid.src}`} />

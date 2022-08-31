@@ -7,10 +7,11 @@ import { HTMLContent } from '../components/Content'
 import { Seo } from "../components/Seo"
 
 const PortfolioPost = ({ data }) => {
-  const { markdownRemark: post } = data
+  const { markdownRemark: post } = data;
 
   return (
     <Layout>
+      <Head siteMetadata={data.site.siteMetadata} fields={post.fields} frontmatter={post.frontmatter}/>
       <PortfolioPostTemplate
         content={post.html}
         contentComponent={HTMLContent}
@@ -34,11 +35,7 @@ PortfolioPost.propTypes = {
   }),
 }
 
-export const Head = ({
-  data: {
-    site: { siteMetadata },
-    markdownRemark: { fields, frontmatter },
-  } }) => {
+const Head = ({ siteMetadata, fields, frontmatter }) => {
   return (
     <Seo title={frontmatter.title} description={frontmatter.description} url={`${siteMetadata.siteUrl}${fields.slug}`}>
       <meta name="image" content={`${siteMetadata.siteUrl}${frontmatter.featuredimage.childImageSharp.fluid.src}`} />

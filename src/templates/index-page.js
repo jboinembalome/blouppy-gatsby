@@ -12,6 +12,7 @@ const IndexPage = ({
 
   return (
     <Layout>
+      <Head frontmatter={frontmatter} />
       <IndexPageTemplate
         image={frontmatter.image}
         title={frontmatter.title}
@@ -31,10 +32,7 @@ IndexPage.propTypes = {
   }),
 }
 
-export const Head = ({
-  data: {
-    markdownRemark: { frontmatter },
-  } }) => {
+const Head = ({ frontmatter }) => {
   const description = `The personal website of Jimmy Boinembalome. ${frontmatter.mainpitch.description}`;
 
   return (

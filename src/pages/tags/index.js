@@ -20,12 +20,12 @@ const Tag = ({ tag }) => (
 
   </li>
 )
-const TagsPage = ({
-  data: {
-    allMarkdownRemark: { group }
-  },
-}) => (
+const TagsPage = ({ data }) => { 
+  const { allMarkdownRemark: { group }} = data;
+
+  return (
   <Layout>
+    <Head siteMetadata={data.site.siteMetadata}/>
     <section>
       <div className="overflow-hidden">
         <div className="relative max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
@@ -117,12 +117,9 @@ const TagsPage = ({
     </section>
 
   </Layout>
-)
+)}
 
-export const Head = ({
-  data: {
-    site: { siteMetadata },
-  } }) => <Seo title="Tags" description="List of tags for all articles." url={`${siteMetadata.siteUrl}/tags`} />;
+const Head = ({ siteMetadata }) => <Seo title="Tags" description="List of tags for all articles." url={`${siteMetadata.siteUrl}/tags`} />;
 
 export default TagsPage
 

@@ -21,6 +21,7 @@ class TagRoute extends React.Component {
 
     return (
       <Layout>
+        <Head tag={tag} siteMetadata={this.props.data.site.siteMetadata}/>
         <section>
           <div className="overflow-hidden">
             <div className="relative max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
@@ -115,15 +116,11 @@ class TagRoute extends React.Component {
   }
 }
 
-export const Head = ({
-  pageContext,
-  data: {
-    site: { siteMetadata },
-  } }) => {
-  const description = `Article(s) tagged with ${pageContext.tag}`;
-  const url = `${siteMetadata.siteUrl}/tags/${kebabCase(pageContext.tag)}`;
+const Head = ({ tag, siteMetadata }) => {
+  const description = `Article(s) tagged with ${tag}`;
+  const url = `${siteMetadata.siteUrl}/tags/${kebabCase(tag)}`;
 
-  return <Seo title={pageContext.tag} description={description} url={url} />
+  return <Seo title={tag} description={description} url={url} />
 };
 
 export default TagRoute

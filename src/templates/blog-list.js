@@ -9,6 +9,7 @@ import { Seo } from "../components/Seo"
 const BlogList = ({ data, pageContext }) => {
   return (
     <Layout>
+      <Head siteMetadata={data.site.siteMetadata}/>
       <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
         <div className="bg-violet-700 dark:bg-violet-400 rounded-lg shadow-xl overflow-hidden">
           <div className="pt-10 pb-12 px-6 sm:pt-16 sm:px-16 lg:py-16 lg:pr-0 xl:py-20 xl:px-20">
@@ -57,10 +58,7 @@ BlogList.propTypes = {
   }),
 }
 
-export const Head = ({
-  data: {
-    site: { siteMetadata },
-  } }) => {
+const Head = ({ siteMetadata }) => {
   const description = "Blog of technology articles";
 
   return <Seo title="Blog" description={description} url={`${siteMetadata.siteUrl}/blog`} />

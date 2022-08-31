@@ -8,6 +8,7 @@ export default class PortfolioIndexPage extends React.Component {
   render() {
     return (
       <Layout>
+        <Head />
         <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
           <div className="bg-rose-300 dark:bg-indigo-400 rounded-lg shadow-xl overflow-hidden">
             <div className="pt-10 pb-12 px-6 sm:pt-16 sm:px-16 lg:py-16 lg:pr-0 xl:py-20 xl:px-20">
@@ -36,7 +37,7 @@ export default class PortfolioIndexPage extends React.Component {
   }
 }
 
-export const Head = () => {
+const Head = () => {
   const { siteUrl } = useSiteMetadata();
   const description = "Personnal projects of Jimmy Boinembalome developed with love";
   return <Seo title="Portfolio" description={description} url={`${siteUrl}/portfolio`} />

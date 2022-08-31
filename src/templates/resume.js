@@ -10,6 +10,7 @@ const ResumePage = ({ data }) => {
   const { frontmatter, html } = data.markdownRemark
   return (
     <Layout>
+      <Head siteMetadata={data.site.siteMetadata} frontmatter={frontmatter}/>
       <ResumePageTemplate
         contentComponent={HTMLContent}
         title={frontmatter.title}
@@ -27,11 +28,7 @@ ResumePage.propTypes = {
   }),
 }
 
-export const Head = ({
-  data: {
-    site: { siteMetadata },
-    markdownRemark: { frontmatter },
-  } }) => {
+const Head = ({ siteMetadata, frontmatter }) => {
   const description = "Resume of Jimmy Boinembalome";
 
   return (

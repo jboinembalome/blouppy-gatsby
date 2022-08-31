@@ -41,6 +41,7 @@ export default class Index extends React.Component {
   render() {
     return (
       <Layout>
+        <Head />
         <div className="bg-gray-100 dark:bg-gray-900">
           <div className="max-w-7xl mx-auto py-8 px-4 sm:py-8 sm:px-6 lg:px-8">
             <div className="relative bg-white dark:bg-gray-800 border border-transparent rounded-lg shadow">
@@ -339,7 +340,7 @@ export default class Index extends React.Component {
   }
 }
 
-export const Head = () => {
+const Head = () => {
   const { siteUrl } = useSiteMetadata();
   return <Seo title="Contact" description={description} url={`${siteUrl}/contact`} />
 };
