@@ -6,7 +6,7 @@ import Content from '../components/Content'
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
 import { Disqus } from 'gatsby-plugin-disqus'
 import { CameraIcon } from '@heroicons/react/solid'
-import GoogleAdSense from '../components/GoogleAdSense'
+//import GoogleAdSense from '../components/GoogleAdSense'
 
 export const BlogPostTemplate = ({
   content,
@@ -167,13 +167,13 @@ export const BlogPostTemplate = ({
                 </div>
               </div>
             ) : null}
-            <GoogleAdSense
+           {/*  <GoogleAdSense
               className="block mt-8"
               client='ca-pub-7159241060953293'
               slot='6674263874'
               format='auto'
               responsive='true'
-            />
+            /> */}
             <div className="bg-gray-900 dark:bg-gray-800 px-4 pt-2 rounded-md mt-8 prose lg:prose-lg dark:prose-invert prose-indigo">
               <Disqus config={disqusConfig} />
             </div>

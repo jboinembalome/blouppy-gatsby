@@ -4,13 +4,13 @@ exports.replaceRenderer = ({ replaceBodyHTMLString }) => {
   replaceBodyHTMLString('<div id="___gatsby"></div>');
 };
 
-exports.onRenderBody = ({ setHeadComponents, setPostBodyComponents }) => {
-  setHeadComponents([
+exports.onRenderBody = ({ /* setHeadComponents ,*/ setPostBodyComponents }) => {
+  /* setHeadComponents([
     <script key="google-ads"
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7159241060953293"
       crossOrigin="anonymous" />,
-  ]);
+  ]); */
 
   setPostBodyComponents([
     <script key="theme-initialize"
