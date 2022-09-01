@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import Content from '../components/Content'
 import { CameraIcon } from '@heroicons/react/solid'
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
+import { SetOfPoints4 } from '../components/shared/svg/shape'
 
 export const AboutPageTemplate = ({ title, aboutimage, content, contentComponent }) => {
   const PageContent = contentComponent || Content
@@ -19,28 +20,7 @@ export const AboutPageTemplate = ({ title, aboutimage, content, contentComponent
         </div>
         <div className="mt-8 lg:grid lg:grid-cols-2 lg:gap-8">
           <div className="relative lg:row-start-1 lg:col-start-2">
-            <svg
-              className="hidden lg:block absolute top-0 right-0 -mt-20 -mr-20"
-              width={404}
-              height={384}
-              fill="none"
-              viewBox="0 0 404 384"
-              aria-hidden="true"
-            >
-              <defs>
-                <pattern
-                  id="de316486-4a29-4312-bdfc-fbce2132a2c1"
-                  x={0}
-                  y={0}
-                  width={20}
-                  height={20}
-                  patternUnits="userSpaceOnUse"
-                >
-                  <rect x={0} y={0} width={4} height={4} className="text-gray-200" fill="currentColor" />
-                </pattern>
-              </defs>
-              <rect width={404} height={384} fill="url(#de316486-4a29-4312-bdfc-fbce2132a2c1)" />
-            </svg>
+            <SetOfPoints4 className="hidden lg:block absolute top-0 right-0 -mt-20 -mr-20" />
             <div className="relative text-base mx-auto max-w-prose lg:max-w-none">
               <figure>
                 <div>
