@@ -172,7 +172,7 @@ dotnet run -c Release
 If you did not get an error, you should get the result of the benchmarks according to your machine. 
 For example, below is the result on my machine:
 
-![Benchmark result](./introduction-to-benchmarkdotnet-benchmark-result.png)
+![Benchmark result](/img/introduction-to-benchmarkdotnet-benchmark-result.png)
 
 Legends:
 - Method: The method name executed
@@ -228,7 +228,7 @@ dotnet run -c Release --framework .net7.0
 
 
 Below is the result on my machine:
-![Benchmark result](./introduction-to-benchmarkdotnet-benchmark-result2.png)
+![Benchmark result](/img/introduction-to-benchmarkdotnet-benchmark-result2.png)
 
 ## Conclusion
 **BenchmarkDotNet** is a package that allows us to easily measure the performance of our code and observe the results with a user-friendly interface. Over 11,000 projects use BenchmarkDotNet, including dotnet/performance (benchmarks for all .NET runtimes), dotnet/runtime (.NET runtime and libraries), Roslyn (C# and Visual Basic compiler), ASP.NET Core, Entity Framework Core, Serilog, Avalonia, RestSharp, MediatR and many others.
