@@ -20,23 +20,25 @@ tags:
   
 Benchmarking is a process used to evaluate performance measures. We can take advantage of benchmarking to compare performance between different methods or libraries and determine which areas of our code can be optimized. 
 
-In this article, we will create a benchmark in **C#** with the **BenchmarkDotNet** package and 
-compare the performance between 3 ways to retrieve a element by id in a object list:
+In this article, we will create a benchmark in **C#** to compare the performance between 3 ways to retrieve a element by id in a object list:
 - A `foreach` loop.
 - The `FirstOrDefault()` extension. (Linq)
 - The `SingleOrDefault()` extension. (Linq)
 
+
 ## Prerequisites
-Before to start with **BenchmarkDotNet** you will need:
+Before to start you will need:
 - [Visual Studio Code](https://code.visualstudio.com/) with the [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
 - The [.NET 6 SDK](https://dotnet.microsoft.com/download/dotnet/6.0).
 
 > **_Note:_**  Of course, you can develop with your favourite IDE as well. 🙂
 
+
 ## BenchmarkDotNet
 **BenchmarkDotNet** is an open source library that can quickly transform our methods into benchmarks. **BenchmarkDotNet** does most of the analysis of performance data for us and presents the results in a user-friendly format. In addition to being extremely powerful, **BenchmarkDotNet** is compatible with applications using the **.NET** and **.NET Core** frameworks.
 
 Now we will install **BenchmarkDotNet**.
+
 
 ## Create a new project
 1. Create a new folder named **IntroductionToBenchmarkDotNet**.
@@ -46,7 +48,7 @@ Now we will install **BenchmarkDotNet**.
 ```powershell
 dotnet new console --framework net6.0
 ```
-5. Install the **BenchmarkDotNet** package with the following command:
+5. Install the **BenchmarkDotNet** NuGet package with the following command:
 ```powershell
 dotnet add package BenchmarkDotNet --version 0.13.2
 ```
@@ -60,16 +62,13 @@ If all the steps were successful, you should see on your terminal our fabulous:
 Hello, World!
 ```
 
-Now that we have successfully created our project and installed the BenchmarkDotNet package, we can create our first benchmark.
+Now that we have successfully created our project and installed the **BenchmarkDotNet** package, we can create our first benchmark.
+
 
 ## Create a benchmark 
-### Add a new folder
-In the project created earlier, we will add a new folder named **Benchmarks**. This folder will be used to create each benchmark.
-
-For example, if we want to compare the performance between `string.format()` and the [interpolation string](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/tokens/interpolated) to concatenate several strings, we can create a new class named `ConcatStringBenchmark`, if we want to know the best performance between `AutoMapper` and `Mapster` then we can create a `MapperBenchmark` class.
 
 ### Add a benchmark class
-As we want to evaluate the performance of 3 ways to get an element by its id, we will add a `Person` object which will contain the properties `Id` and `Name` and a new class called `GetByIdBenchmark` with a list of people.
+As we want to evaluate the performance of 3 ways to get an element by its id, we will add a `Person` class which will contain the properties `Id` and `Name` and a new class called `GetByIdBenchmark` with a list of people.
 ```csharp
 namespace IntroductionToBenchmarkDotNet.Models 
 {
@@ -82,6 +81,7 @@ namespace IntroductionToBenchmarkDotNet.Models
 ```
 
 ```csharp
+using BenchmarkDotNet.Attributes;
 using IntroductionToBenchmarkDotNet.Models;
 
 namespace IntroductionToBenchmarkDotNet.Benchmarks
@@ -91,28 +91,38 @@ namespace IntroductionToBenchmarkDotNet.Benchmarks
         readonly List<Person> people = new();
         readonly int id = 1;
 
-        public GetByIdBenchmark()
-        {
-            for (int i = 1; i <= 100; i++)
-            {
-                var person = new Person
-                { 
-                  Id = i, 
-                  Name = $"Name{i}" 
-                };
+        [Params(10, 50, 100)]
+        public int Iterations { get; set; }
 
+        [GlobalSetup]
+        public void GlobalSetup()
+        {
+            for (int i = 1; i <= Iterations; i++)
+            {
+                var person = new Person 
+                { 
+                    Id = i, 
+                    Name = $"Name{i}" 
+                };
                 people.Add(person);
             }
-        }    
+        }
     }
 }
 ```
 
+Here we have used 2 attributes of **BenchmarkDotNet**, `Params` and `GlobalSetup`: 
+- The `Params` attribute takes as a parameter a set of values. Each value passed as a parameter will be used in a benchmark.
+- The `GlobalSetup` function allows us to perform an action before each benchmark. This is useful if we want to initialise a variable in the same way for each benchmark without duplicating code.
+
+> **_Note:_** If needed, there is also a `GlobalCleanup` attribute to perform an action after each benchmark. E.g. To dispose an unmanaged resource.
+
 ### Add the methods to compare
-Now, let's add the 3 ways to get an element by id inside the `GetByIdBenchmark` class.
+Now let's add in the `GetByIdBenchmark` class, the 3 ways to get an element by its id.
 
 - Foreach:
 ```csharp
+[Benchmark]
 public Person? Foreach()
 {
     foreach (var person in people)
@@ -127,87 +137,104 @@ public Person? Foreach()
 
 - FirstOrDefault:
 ```csharp
+[Benchmark]
 public Person? FirstOrDefault() 
     => people.FirstOrDefault(x => x.Id == id);
 ```
 
 - SingleOrDefault:
 ```csharp
+[Benchmark]
 public Person? SingleOrDefault() 
     => people.SingleOrDefault(x => x.Id == id);
 ```
 
-### Add Benchmark attribut
-To target the methods to be executed, we only need to insert the [Benchmark] attribute above the methods as below:
-```csharp
-[Benchmark]
-public Person? Foreach()
-{
-    foreach (var person in people)
-    {
-        if (person.Id == id)
-            return person;
-    }
+This time we have used the `Benchmark` attribute. `Benchmark` allows us to target the methods that will be run as a benchmark.
 
-    return null;
-}
-
-[Benchmark]
-public Person? FirstOrDefault()
-    => people.FirstOrDefault(x => x.Id == id);
-
-[Benchmark]
-public Person? SingleOrDefault()
-    => people.SingleOrDefault(x => x.Id == id);
-```
-Okay ça semble plutôt bien, cependant 
-### Use Global Setup and Cleanup
-- Global Setup and Cleanup
-[GlobalSetup]
-[GlobalCleanup]
-
-### Execute a benchmark with several parameters
-[Params(10, 100, 1000)]
-public int NumberOfIterations { get; set; }
-
-### Execute a benchmark with different parameters
-[Benchmark]
-[Arguments(100, 10)]
- public void Benchmark(int a, int b)
 
 ## Run the Benchmark 
+We will use the `BenchmarkRunner` class to run all the benchmarks that are present in the `GetByIdBenchmark` class. To do this, let's update our **Program.cs** file:
 
-- Update the **Program.cs** file to Run the `LinqBenchmark`:
 ```csharp
 using BenchmarkDotNet.Running;
 using IntroductionToBenchmarkDotNet.Benchmarks;
 
 var summary = BenchmarkRunner.Run<GetByIdBenchmark>();
 ```
-- Start the console app in Release mode:
+
+Finally, we will launch the project in release mode with the following command:
 ```powershell
 dotnet run -c Release
 ```
 
-> **_Note:_**  `-c` or `--configuration`, définit la configuration de build. La valeur par défaut est Debug. Dans ce cadre d'un benchmark nous utilisons le mode Release pour améliorer le temps d'exécution du benchmark qui peut s'éxécuter 10 à 100 fois plus lentement en mode Debug.
+> **_Note:_**  `-c` or `--configuration`, sets the build configuration. The default value is Debug. In the context of a benchmark, we use Release mode to improve the execution time of the benchmark, which can run 10 to 100 times slower in Debug mode.
 
+If you did not get an error, you should get the result of the benchmarks according to your machine. 
+For example, below is the result on my machine:
 
-Add the Result of the benchmark
-Comment the benchmark
+![Benchmark result](./introduction-to-benchmarkdotnet-benchmark-result.png)
+
+Legends:
+- Method: The method name executed
+- Iterations: Value of the 'Iterations' parameter
+- Mean: Arithmetic mean of all measurements (The average time)
+- Error: Half of 99.9% confidence interval
+- StdDev: Standard deviation of all measurements
+- 1 ns: 1 Nanosecond (0.000000001 sec)
+
+If we look at the **Mean** column in the image above, retrieving an object by its id seems to be faster with a `foreach` when our list has 10, 50 or 100 elements. From a technical point of view this makes sense:
+- The `SingleOrDefault` method looks through the list to check if the item is unique.
+- The `FirstOrDefault` method returns the first item found. 
+- Concerning the performance difference between `FirstOrDefault` and `foreach`, `FirstOrDefault` is slower because the method creates and invokes a `delegate` which represents an additional cost.
 
 ## Bonus
-- Execute the Benchmark on several frameworks
-<TargetFrameworks>net6.0;net48;net472</TargetFrameworks>
-<ImplicitUsings>disable</ImplicitUsings>
-<Nullable>disable</Nullable>
-[SimpleJob(RuntimeMoniker.Net60)]
-[SimpleJob(RuntimeMoniker.Net48)]
-[SimpleJob(RuntimeMoniker.Net472)]
+We can also run our benchmarks on multiple frameworks. To do this we need to modify the .csproj file to allow the project to target multiple frameworks. 
 
+For example, if we want to target the .NET 6.0 and .NET 7.0 frameworks we need to replace the line:
+
+```xml{4}
+<TargetFramework>net6.0</TargetFramework>
+```
+by:
+
+```xml{4}
+<TargetFrameworks>net6.0;net7.0</TargetFrameworks>
+```
+
+And add the `SimpleJob` attribute above the `GetByIdBenchmark` class:
+```csharp
+using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Jobs;
+using IntroductionToBenchmarkDotNet.Models;
+
+namespace IntroductionToBenchmarkDotNet.Benchmarks
+{
+
+    [SimpleJob(RuntimeMoniker.Net70)]
+    [SimpleJob(RuntimeMoniker.Net60)]
+    public class GetByIdBenchmark
+    ...
+}
+```
+
+> **_Note:_**  You must also install the SDK if it is not already installed.
+
+
+After updating your project, you can run it a second time in release mode with the command:
+```powershell
+dotnet run -c Release --framework .net7.0
+```
+> **_Note:_**  This time we added the --framework .net7.0 parameter to host the console application with the .NET 7.0 framework. However, the application will run benchmarks for both frameworks. 😉
+
+
+Below is the result on my machine:
+![Benchmark result](./introduction-to-benchmarkdotnet-benchmark-result2.png)
 
 ## Conclusion
+**BenchmarkDotNet** is a package that allows us to easily measure the performance of our code and observe the results with a user-friendly interface. Over 11,000 projects use BenchmarkDotNet, including dotnet/performance (benchmarks for all .NET runtimes), dotnet/runtime (.NET runtime and libraries), Roslyn (C# and Visual Basic compiler), ASP.NET Core, Entity Framework Core, Serilog, Avalonia, RestSharp, MediatR and many others.
 
-BenchmarkDotNet est très utilisé par la communauté. Plus de 11 000 projets utilisent BenchmarkDotNet, notamment dotnet/performance (benchmarks de référence pour tous les runtimes .NET), dotnet/runtime (runtime et bibliothèques .NET), Roslyn (compilateur C# et Visual Basic), ASP.NET Core, Entity Framework Core, Serilog, Avalonia, RestSharp, MediatR et bien d'autres.
+During this article, you have had an introduction to the **BenchmarkDotNet** package. There are many other features offered by the package. If you want to know more, here is the link to the official documentation: [BenchmarkDotNet Doc](https://benchmarkdotnet.org/)
 
-Learn more about benchmarking (doc link, book link)
+Source code of the article: [Github source code](https://github.com/jboinembalome/IntroductionToBenchmarkDotNet)
+
 *Thanks for reading! 🙂*
