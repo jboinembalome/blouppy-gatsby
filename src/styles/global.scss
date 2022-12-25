@@ -245,3 +245,9 @@
     @apply w-16 dark:fill-white;
   }
 }
+
+// override style for gatsby-remark-images
+.gatsby-resp-image-wrapper .gatsby-resp-image-background-image,
+.gatsby-resp-image-wrapper .gatsby-resp-image-image {
+  border-radius: 0.5rem;
+}
