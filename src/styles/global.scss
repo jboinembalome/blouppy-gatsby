@@ -78,6 +78,9 @@
 
 // unreset class is used to define a default style for pages with markdown
 .unreset {
+  img:not(.not-unreset) {
+    @apply rounded-lg;
+  }
   a:not(.not-unreset) {
     @apply text-blue-700 dark:text-blue-500 underline;
   }
