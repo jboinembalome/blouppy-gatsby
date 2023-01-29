@@ -10,7 +10,7 @@ featuredpost: true
 featuredauthor: Jackson Sophat
 featuredlink: https://unsplash.com/@jacksonsophat?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 featuredimage: /img/install-angular-material-in-an-angular-project.jpg
-description: Quick steps to install Angular Material in Angular project.
+description: Quick steps to install Angular Material in an Angular project.
 tags:
   - Development
   - Angular
