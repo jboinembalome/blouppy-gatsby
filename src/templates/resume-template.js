@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Content from '../components/Content'
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
-import { SetOfPoints1, SetOfPoints2, SetOfPoints3 } from '../components/shared/svg/shape'
 import { LinkedInIcon, TwitterIcon } from '../components/shared/svg/social/Icons'
 import EnglishResumeJB from '../../static/downloads/CV_EN_Boinembalome_Jimmy.pdf'
 import FrenchResumeJB from '../../static/downloads/CV_FR_Boinembalome_Jimmy.pdf'
@@ -35,17 +34,9 @@ export const ResumePageTemplate = ({ title, subtitle, resumeimage, content, cont
   return (
     <div className="overflow-hidden">
       <div className="relative max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
-        <div className="hidden lg:block lg:absolute lg:inset-y-0 lg:h-full lg:w-full">
-          <div className="relative h-full text-lg max-w-prose mx-auto" aria-hidden="true">
-            <SetOfPoints1 className="absolute top-12 left-full transform translate-x-32" />
-            <SetOfPoints2 className="absolute top-1/2 right-full transform -translate-y-1/2 -translate-x-32" />
-            <SetOfPoints3 className="absolute bottom-12 left-full transform translate-x-32" />
-          </div>
-        </div>
         <div className="relative flex flex-col px-4 sm:px-6 lg:px-8">
           <div className="text-gray-500 dark:text-gray-400 mx-auto">
             <div className="text-lg max-w-prose mx-auto">
-
               <div className="space-y-4 sm:grid sm:grid-cols-2 sm:gap-6 sm:space-y-0">
                 <h1 className="block text-3xl leading-8 font-extrabold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl">
                   {title}

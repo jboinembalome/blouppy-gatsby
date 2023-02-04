@@ -3,7 +3,6 @@ import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import { kebabCase } from 'lodash'
 import { Seo } from '../components/Seo'
-import { SetOfPoints1 } from '../components/shared/svg/shape'
 
 class TagRoute extends React.Component {
   render() {
@@ -26,11 +25,6 @@ class TagRoute extends React.Component {
         <section>
           <div className="overflow-hidden">
             <div className="relative max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
-              <div className="hidden lg:block lg:absolute lg:inset-y-0 lg:h-full lg:w-full">
-                <div className="relative h-full text-lg max-w-prose mx-auto" aria-hidden="true">
-                  <SetOfPoints1 className="absolute top-12 left-full transform translate-x-32" />
-                </div>
-              </div>
               <div className="relative px-4 sm:px-6 lg:px-8">
                 <div className="text-gray-500 dark:text-gray-400 mx-auto">
                   <div className="text-lg max-w-prose mx-auto">

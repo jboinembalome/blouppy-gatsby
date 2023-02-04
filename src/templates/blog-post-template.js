@@ -6,7 +6,6 @@ import Content from '../components/Content'
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
 import { Disqus } from 'gatsby-plugin-disqus'
 import { CameraIcon } from '@heroicons/react/solid'
-import { SetOfPoints1, SetOfPoints2, SetOfPoints3 } from '../components/shared/svg/shape'
 //import GoogleAdSense from '../components/GoogleAdSense'
 
 export const BlogPostTemplate = ({
@@ -36,13 +35,6 @@ export const BlogPostTemplate = ({
 
     <section>
       <div className="relative py-8 overflow-hidden">
-        <div className="hidden lg:block lg:absolute lg:inset-y-0 lg:h-full lg:w-full">
-          <div className="relative h-full text-lg max-w-prose mx-auto" aria-hidden="true">
-            <SetOfPoints1 className="absolute top-12 left-full transform translate-x-32" />
-            <SetOfPoints2 className="absolute top-1/2 right-full transform -translate-y-1/2 -translate-x-32" />
-            <SetOfPoints3 className="absolute bottom-12 left-full transform translate-x-32" />
-          </div>
-        </div>
         <div className="relative flex flex-col px-4 sm:px-6 lg:px-8">
           <div className="text-lg max-w-prose mx-auto">
             <div className="flex items-center">

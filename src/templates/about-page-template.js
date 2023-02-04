@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import Content from '../components/Content'
 import { CameraIcon } from '@heroicons/react/solid'
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
-import { SetOfPoints4 } from '../components/shared/svg/shape'
 
 export const AboutPageTemplate = ({ title, aboutimage, content, contentComponent }) => {
   const PageContent = contentComponent || Content
@@ -20,7 +19,6 @@ export const AboutPageTemplate = ({ title, aboutimage, content, contentComponent
         </div>
         <div className="mt-8 lg:grid lg:grid-cols-2 lg:gap-8">
           <div className="relative lg:row-start-1 lg:col-start-2">
-            <SetOfPoints4 className="hidden lg:block absolute top-0 right-0 -mt-20 -mr-20" />
             <div className="relative text-base mx-auto max-w-prose lg:max-w-none">
               <figure>
                 <div>

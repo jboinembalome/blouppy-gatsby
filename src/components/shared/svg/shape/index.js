@@ -1,7 +1,0 @@
-export * from "./LargePentagon"
-export * from "./LargeTriangle"
-export * from "./MediumTrapezoid"
-export * from "./SetOfPoints1"
-export * from "./SetOfPoints2"
-export * from "./SetOfPoints3"
-export * from "./SetOfPoints4"

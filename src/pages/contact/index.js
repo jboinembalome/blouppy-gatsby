@@ -2,7 +2,6 @@ import React from 'react'
 import { navigate } from 'gatsby-link'
 import Layout from '../../components/Layout'
 import { MailIcon, PhoneIcon } from '@heroicons/react/outline'
-import { LargePentagon, LargeTriangle, MediumTrapezoid } from '../../components/shared/svg/shape'
 import { LinkedInIcon, TwitterIcon } from '../../components/shared/svg/social/Icons'
 import { Seo } from "../../components/Seo"
 import { useSiteMetadata } from "../../components/useSiteMetadata"
@@ -51,21 +50,6 @@ export default class Index extends React.Component {
 
               <div className="grid grid-cols-1 lg:grid-cols-3">
                 <div className="relative overflow-hidden py-10 px-6 border border-transparent rounded-t-lg lg:rounded-t-none lg:rounded-l-lg shadow bg-violet-700 dark:bg-violet-400 sm:px-10 xl:p-12">
-                  <div className="absolute inset-0 pointer-events-none sm:hidden" aria-hidden="true">
-                    <LargeTriangle className="absolute inset-0 w-full h-full" />
-                  </div>
-                  <div
-                    className="hidden absolute top-0 right-0 bottom-0 w-1/2 pointer-events-none sm:block lg:hidden"
-                    aria-hidden="true"
-                  >
-                    <LargePentagon className="absolute inset-0 w-full h-full" />
-                  </div>
-                  <div
-                    className="hidden absolute top-0 right-0 bottom-0 w-1/2 pointer-events-none lg:block"
-                    aria-hidden="true"
-                  >
-                    <MediumTrapezoid className="absolute inset-0 w-full h-full" />
-                  </div>
                   <h3 className="text-lg font-medium text-white dark:text-gray-800">Contact Me</h3>
                   <p className="mt-6 text-base text-violet-50 dark:text-gray-900 max-w-3xl">
                     {description}
