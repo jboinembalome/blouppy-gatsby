@@ -8,7 +8,7 @@ resumeimage: /img/jimmy.jpg
 </br>
 
 # Profile
-My name is Jimmy Boinembalome and I have been a .NET design and development engineer for 5 years now.
+My name is Jimmy Boinembalome and I have been a .NET design and development engineer for 6 years now.
 Over the years, I have helped various companies in the development and maintenance of business applications.
 
 </br>
