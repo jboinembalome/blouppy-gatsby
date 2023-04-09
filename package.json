@@ -3,6 +3,8 @@
   "description": "The personal website of Jimmy Boinembalome. Blouppy is a place where you can get information about tips, best practices, technologies around Microsoft such as .NET Core, WPF, ASP.NET Core but also about other topics. You can also find information about the creator of Blouppy if you wish.",
   "version": "1.1.4",
   "author": "Jimmy Boinembalome",
+  "license": "MIT",
+  "main": "n/a",
   "eslintConfig": {
     "extends": [
       "wesbos"
@@ -10,6 +12,17 @@
     "rules": {
       "react/prop-types": 0
     }
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "scripts": {
+    "clean": "gatsby clean",
+    "start": "npm run develop",
+    "build": "npm run clean && gatsby build",
+    "develop": "npm run clean && gatsby develop",
+    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"{gatsby-*.js,src/**/*.js}\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.13",
@@ -58,18 +71,9 @@
     "tailwindcss": "^3.3.1",
     "uuid": "^8.3.2"
   },
-  "keywords": [
-    "gatsby"
-  ],
-  "license": "MIT",
-  "main": "n/a",
-  "scripts": {
-    "clean": "gatsby clean",
-    "start": "npm run develop",
-    "build": "npm run clean && gatsby build",
-    "develop": "npm run clean && gatsby develop",
-    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"{gatsby-*.js,src/**/*.js}\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "resolutions": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "autoprefixer": "10.4.14",
