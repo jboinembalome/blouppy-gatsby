@@ -1,7 +1,7 @@
 {
   "name": "blouppy",
   "description": "The personal website of Jimmy Boinembalome. Blouppy is a place where you can get information about tips, best practices, technologies around Microsoft such as .NET Core, WPF, ASP.NET Core but also about other topics. You can also find information about the creator of Blouppy if you wish.",
-  "version": "1.1.4",
+  "version": "2.0.0",
   "author": "Jimmy Boinembalome",
   "license": "MIT",
   "main": "n/a",
