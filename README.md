@@ -2,7 +2,7 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/b654c94e-08a6-4b79-b443-7837581b1d8d/deploy-status)](https://app.netlify.com/sites/blouppy-ci/deploys)
 
-**Note:** Blouppy uses [Gatsby v4](https://www.gatsbyjs.com/gatsby-4/).
+**Note:** Blouppy uses [Gatsby v4](https://www.gatsbyjs.com/gatsby-5/).
 
 This repository contains the source code for the **[Blouppy](https://www.blouppy.com/)** website that is built with [Gatsby](https://www.gatsbyjs.org/), [Netlify CMS](https://www.netlifycms.org) and [Tailwind](https://tailwindcss.com/).
 
@@ -29,7 +29,7 @@ It follows the [JAMstack architecture](https://jamstack.org) by using Git as a s
 
 ## Prerequisites
 
-- Node (I recommend using v8.2.0 or higher)
+- Node (I recommend using v18.15.0 or higher)
 - [Gatsby CLI](https://www.gatsbyjs.org/docs/)
 - [Netlify CLI](https://github.com/netlify/cli)
 
@@ -47,7 +47,7 @@ Pulldown a local copy of the Github repository Netlify created for you, with the
 ```
 $ git clone https://github.com/[GITHUB_USERNAME]/[REPO_NAME].git
 $ cd [REPO_NAME]
-$ yarn
+$ yarn # or npm install
 $ netlify dev # or ntl dev
 ```
 
