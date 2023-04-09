@@ -47,7 +47,7 @@ Pulldown a local copy of the Github repository Netlify created for you, with the
 ```
 $ git clone https://github.com/[GITHUB_USERNAME]/[REPO_NAME].git
 $ cd [REPO_NAME]
-$ yarn # or npm install
+$ npm install
 $ netlify dev # or ntl dev
 ```
 
