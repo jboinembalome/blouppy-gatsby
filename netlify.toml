@@ -1,8 +1,6 @@
 [build]
   publish = "public"
-  command = "CI='' npm run build"
+  command = "npm run build"
   functions = "lambda"
 [build.environment]
   NODE_VERSION = "18.15.0"
-  NPM_VERSION = "9.6.4"
-  NPM_FLAGS = "--legacy-peer-deps"
