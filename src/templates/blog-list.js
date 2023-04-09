@@ -66,14 +66,15 @@ const Head = ({ siteMetadata }) => {
 
 export default BlogList
 
-export const pageQuery = graphql`query BlogList($skip: Int!, $limit: Int!) {
+export const pageQuery = graphql`
+query BlogList($skip: Int!, $limit: Int!) {
   site {
     siteMetadata {
       siteUrl
     }
   }
   allMarkdownRemark(
-    sort: {order: DESC, fields: [frontmatter___date]}
+    sort: {frontmatter: {date: DESC}}
     skip: $skip
     limit: $limit
     filter: {frontmatter: {templateKey: {eq: "blog-post"}}}

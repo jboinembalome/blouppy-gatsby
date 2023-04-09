@@ -1,10 +1,10 @@
 import React from "react"
 import { connectSearchBox } from "react-instantsearch-dom"
-import { SearchIcon } from '@heroicons/react/solid'
+import { MagnifyingGlassIcon } from '@heroicons/react/24/solid'
 
 const SearchBox = ({ refine, currentRefinement, className }) => (
     <form className={className}>
-        <SearchIcon
+        <MagnifyingGlassIcon
             className="pointer-events-none absolute top-3.5 left-4 h-5 w-5"
             aria-hidden="true"
         />

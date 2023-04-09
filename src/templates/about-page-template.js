@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Content from '../components/Content'
-import { CameraIcon } from '@heroicons/react/solid'
+import { CameraIcon } from '@heroicons/react/24/solid'
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
 
 export const AboutPageTemplate = ({ title, aboutimage, content, contentComponent }) => {
