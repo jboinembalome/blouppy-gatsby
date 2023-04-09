@@ -75,50 +75,51 @@ BlogRoll.propTypes = {
 
 export default () => (
   <StaticQuery
-    query={graphql`query BlogRollQuery {
-  allMarkdownRemark(
-    sort: {order: DESC, fields: [frontmatter___date]}
-    filter: {frontmatter: {templateKey: {eq: "blog-post"}}}
-    limit: 3
-  ) {
-    edges {
-      node {
-        excerpt(pruneLength: 200)
-        id
-        fields {
-          slug
-          readingTime {
-            text
-          }
-        }
-        frontmatter {
-          title
-          templateKey
-          date(formatString: "MMMM DD, YYYY")
-          category
-          categorycolor
-          featuredpost
-          featuredimage {
-            childImageSharp {
-              fluid(maxWidth: 750, quality: 100) {
-                ...GatsbyImageSharpFluid
+    query={graphql`
+      query BlogRollQuery {
+        allMarkdownRemark(
+          sort: {frontmatter: {date: DESC}}
+          filter: {frontmatter: {templateKey: {eq: "blog-post"}}}
+          limit: 3
+        ) {
+          edges {
+            node {
+              excerpt(pruneLength: 200)
+              id
+              fields {
+                slug
+                readingTime {
+                  text
+                }
+              }
+              frontmatter {
+                title
+                templateKey
+                date(formatString: "MMMM DD, YYYY")
+                category
+                categorycolor
+                featuredpost
+                featuredimage {
+                  childImageSharp {
+                    fluid(maxWidth: 750, quality: 100) {
+                      ...GatsbyImageSharpFluid
+                    }
+                  }
+                }
+                author
+                authorimage {
+                  childImageSharp {
+                    fluid(maxWidth: 450, quality: 100) {
+                      ...GatsbyImageSharpFluid
+                    }
+                  }
+                }
               }
             }
           }
-          author
-          authorimage {
-            childImageSharp {
-              fluid(maxWidth: 450, quality: 100) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
         }
-      }
-    }
-  }
-}
-`}
+      } 
+    `}
     render={(data, count) => <BlogRoll data={data} count={count} />}
   />
 )

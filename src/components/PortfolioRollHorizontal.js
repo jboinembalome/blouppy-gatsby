@@ -80,50 +80,51 @@ PortfolioRollHorizontal.propTypes = {
 
 export default () => (
   <StaticQuery
-    query={graphql`query PortfolioRollHorizontalQuery {
-  allMarkdownRemark(
-    sort: {order: DESC, fields: [frontmatter___date]}
-    filter: {frontmatter: {templateKey: {eq: "portfolio-post"}}}
-  ) {
-    edges {
-      node {
-        excerpt(pruneLength: 200)
-        id
-        fields {
-          slug
-          readingTime {
-            text
-          }
-        }
-        frontmatter {
-          title
-          templateKey
-          date(formatString: "MMMM DD, YYYY")
-          category
-          categorycolor
-          featuredpost
-          featuredimage {
-            childImageSharp {
-              fluid(maxWidth: 750, quality: 100) {
-                ...GatsbyImageSharpFluid
+    query={graphql`
+      query PortfolioRollHorizontalQuery {
+        allMarkdownRemark(
+          sort: {frontmatter: {date: DESC}}
+          filter: {frontmatter: {templateKey: {eq: "portfolio-post"}}}
+        ) {
+          edges {
+            node {
+              excerpt(pruneLength: 200)
+              id
+              fields {
+                slug
+                readingTime {
+                  text
+                }
+              }
+              frontmatter {
+                title
+                templateKey
+                date(formatString: "MMMM DD, YYYY")
+                category
+                categorycolor
+                featuredpost
+                featuredimage {
+                  childImageSharp {
+                    fluid(maxWidth: 750, quality: 100) {
+                      ...GatsbyImageSharpFluid
+                    }
+                  }
+                }
+                author
+                authorimage {
+                  childImageSharp {
+                    fluid(maxWidth: 450, quality: 100) {
+                      ...GatsbyImageSharpFluid
+                    }
+                  }
+                }
+                link
               }
             }
           }
-          author
-          authorimage {
-            childImageSharp {
-              fluid(maxWidth: 450, quality: 100) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
-          link
         }
       }
-    }
-  }
-}
-`}
+    `}
     render={(data, count) => <PortfolioRollHorizontal data={data} count={count} />}
   />
 )

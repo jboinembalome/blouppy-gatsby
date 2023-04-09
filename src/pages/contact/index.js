@@ -1,7 +1,7 @@
 import React from 'react'
 import { navigate } from 'gatsby-link'
 import Layout from '../../components/Layout'
-import { MailIcon, PhoneIcon } from '@heroicons/react/outline'
+import { EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline'
 import { LinkedInIcon, TwitterIcon } from '../../components/shared/svg/social/Icons'
 import { Seo } from "../../components/Seo"
 import { useSiteMetadata } from "../../components/useSiteMetadata"
@@ -66,7 +66,7 @@ export default class Index extends React.Component {
                       <span className="sr-only">Email</span>
                     </dt>
                     <dd className="flex text-base text-violet-50 dark:text-gray-900">
-                      <MailIcon className="flex-shrink-0 w-6 h-6 text-violet-200 dark:text-gray-800" aria-hidden="true" />
+                      <EnvelopeIcon className="flex-shrink-0 w-6 h-6 text-violet-200 dark:text-gray-800" aria-hidden="true" />
                       <span className="ml-3">jboinembalome@gmail.com</span>
                     </dd>
                   </dl>

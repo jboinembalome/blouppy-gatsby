@@ -5,7 +5,7 @@ import { Link } from 'gatsby'
 import Content from '../components/Content'
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
 import { Disqus } from 'gatsby-plugin-disqus'
-import { CameraIcon } from '@heroicons/react/solid'
+import { CameraIcon } from '@heroicons/react/24/solid'
 //import GoogleAdSense from '../components/GoogleAdSense'
 
 export const BlogPostTemplate = ({
