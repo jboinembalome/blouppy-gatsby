@@ -81,13 +81,11 @@ query BlogList($skip: Int!, $limit: Int!) {
   ) {
     edges {
       node {
+        timeToRead
         excerpt(pruneLength: 200)
         id
         fields {
           slug
-          readingTime {
-            text
-          }
         }
         frontmatter {
           title

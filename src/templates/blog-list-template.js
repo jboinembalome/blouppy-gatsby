@@ -25,6 +25,8 @@ export const BlogListTemplate = ({ data }) => {
 
   function CardContent(props) {
     const { post } = props
+    const readingTime = `${post.timeToRead} min read`
+
     return <div className="relative mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 md:px-0">
       <div className="flex-1 pt-6 pr-6 flex flex-col justify-between">
         <div className="flex-1">
@@ -45,7 +47,7 @@ export const BlogListTemplate = ({ data }) => {
           author={post.frontmatter.author}
           authorimage={post.frontmatter.authorimage}
           date={post.frontmatter.date}
-          readingTime={post.fields.readingTime.text} />
+          readingTime={readingTime} />
       </div>
     </div>
       ;

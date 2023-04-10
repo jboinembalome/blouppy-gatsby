@@ -27,6 +27,8 @@ class BlogRoll extends React.Component {
 
     function CardContent(props) {
       const { post } = props
+      const readingTime = `${post.timeToRead} min read`
+
       return <div className="flex-1 dark:bg-gray-800 p-6 flex flex-col justify-between">
         <div className="flex-1">
           <span className={`inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium ${post.frontmatter.categorycolor}`}>
@@ -47,7 +49,7 @@ class BlogRoll extends React.Component {
           author={post.frontmatter.author}
           authorimage={post.frontmatter.authorimage}
           date={post.frontmatter.date}
-          readingTime={post.fields.readingTime.text} />
+          readingTime={readingTime} />
       </div>;
     }
 
@@ -84,13 +86,11 @@ export default () => (
         ) {
           edges {
             node {
+              timeToRead
               excerpt(pruneLength: 200)
               id
               fields {
                 slug
-                readingTime {
-                  text
-                }
               }
               frontmatter {
                 title

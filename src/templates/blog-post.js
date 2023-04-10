@@ -9,6 +9,7 @@ import { getSrc } from "gatsby-plugin-image"
 
 const BlogPost = ({ data }) => {
   const { markdownRemark: post } = data;
+  const readingTime = `${post.timeToRead} min read`
 
   return (
     <Layout>
@@ -24,7 +25,7 @@ const BlogPost = ({ data }) => {
         featuredlink={post.frontmatter.featuredlink}
         featuredimage={post.frontmatter.featuredimage}
         slug={post.fields.slug}
-        readingTime={post.fields.readingTime.text}
+        readingTime={readingTime}
         tags={post.frontmatter.tags}
         title={post.frontmatter.title}
       />
@@ -58,11 +59,9 @@ export const pageQuery = graphql`query BlogPostByID($id: String!) {
   markdownRemark(id: {eq: $id}) {
     id
     html
+    timeToRead
     fields {
       slug
-      readingTime {
-        text
-      }
     }
     frontmatter {
       date(formatString: "MMMM DD, YYYY")
