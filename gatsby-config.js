@@ -72,6 +72,15 @@ module.exports = {
         name: 'images',
       },
     },
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        defaults: {
+          placeholder: `dominantColor`,
+          backgroundColor: `transparent`         
+        },
+      },
+    },
     'gatsby-plugin-sharp',
     {
       resolve: `gatsby-plugin-manifest`,

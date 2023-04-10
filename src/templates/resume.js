@@ -5,6 +5,7 @@ import Layout from '../components/Layout'
 import { ResumePageTemplate } from './resume-template'
 import { HTMLContent } from '../components/Content'
 import { Seo } from "../components/Seo"
+import { getSrc } from "gatsby-plugin-image"
 
 const ResumePage = ({ data }) => {
   const { frontmatter, html } = data.markdownRemark
@@ -33,9 +34,9 @@ const Head = ({ siteMetadata, frontmatter }) => {
 
   return (
     <Seo title={frontmatter.title} description={description} url={`${siteMetadata.siteUrl}/resume`}>
-      <meta name="image" content={`${siteMetadata.siteUrl}${frontmatter.resumeimage.childImageSharp.fluid.src}`} />
+      <meta name="image" content={`${siteMetadata.siteUrl}${getSrc(frontmatter.resumeimage)}`} />
       <meta property="og:image:alt" content={siteMetadata.author.name} />
-      <meta property="og:image" content={`${siteMetadata.siteUrl}${frontmatter.resumeimage.childImageSharp.fluid.src}`} />
+      <meta property="og:image" content={`${siteMetadata.siteUrl}${getSrc(frontmatter.resumeimage)}`} />
     </Seo>);
 };
 
@@ -58,9 +59,7 @@ export const resumePageQuery = graphql`
         subtitle
         resumeimage {
           childImageSharp {
-            fluid(maxWidth: 450, quality: 100) {
-              ...GatsbyImageSharpFluid
-            }
+            gatsbyImageData(layout: FULL_WIDTH)
           }
         }
       }

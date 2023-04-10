@@ -5,6 +5,7 @@ import Layout from '../components/Layout'
 import { AboutPageTemplate } from './about-page-template'
 import { HTMLContent } from '../components/Content'
 import { Seo } from "../components/Seo"
+import { getSrc } from "gatsby-plugin-image"
 
 const AboutPage = ({ data }) => {
   const { frontmatter, html } = data.markdownRemark
@@ -33,9 +34,9 @@ const Head = ({ siteMetadata, frontmatter }) => {
 
   return (
     <Seo title={frontmatter.title} description={description} url={`${siteMetadata.siteUrl}/about`}>
-      <meta name="image" content={`${siteMetadata.siteUrl}${frontmatter.aboutimage.childImageSharp.fluid.src}`} />
+      <meta name="image" content={`${siteMetadata.siteUrl}${getSrc(frontmatter.aboutimage)}`} />
       <meta property="og:image:alt" content={siteMetadata.author.name} />
-      <meta property="og:image" content={`${siteMetadata.siteUrl}${frontmatter.aboutimage.childImageSharp.fluid.src}`} />
+      <meta property="og:image" content={`${siteMetadata.siteUrl}${getSrc(frontmatter.aboutimage)}`} />
     </Seo>);
 };
 
@@ -57,9 +58,7 @@ export const aboutPageQuery = graphql`
         title
         aboutimage {
           childImageSharp {
-            fluid(maxWidth: 1200, quality: 100) {
-              ...GatsbyImageSharpFluid
-            }
+            gatsbyImageData(layout: FULL_WIDTH)
           }
         }
       }
