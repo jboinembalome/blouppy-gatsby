@@ -44,6 +44,7 @@ export const IndexPageTemplate = ({
                         image: image,
                         alt: "",
                       }}
+                      loading="eager"
                     />
                   </div>
                 </div>
