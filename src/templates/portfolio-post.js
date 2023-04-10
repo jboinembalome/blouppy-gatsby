@@ -5,6 +5,7 @@ import Layout from '../components/Layout'
 import { PortfolioPostTemplate } from './portfolio-post-template'
 import { HTMLContent } from '../components/Content'
 import { Seo } from "../components/Seo"
+import { getSrc } from "gatsby-plugin-image"
 
 const PortfolioPost = ({ data }) => {
   const { markdownRemark: post } = data;
@@ -38,9 +39,9 @@ PortfolioPost.propTypes = {
 const Head = ({ siteMetadata, fields, frontmatter }) => {
   return (
     <Seo title={frontmatter.title} description={frontmatter.description} url={`${siteMetadata.siteUrl}${fields.slug}`}>
-      <meta name="image" content={`${siteMetadata.siteUrl}${frontmatter.featuredimage.childImageSharp.fluid.src}`} />
+      <meta name="image" content={`${siteMetadata.siteUrl}${getSrc(frontmatter.featuredimage)}`} />
       <meta property="og:image:alt" content={frontmatter.title} />
-      <meta property="og:image" content={`${siteMetadata.siteUrl}${frontmatter.featuredimage.childImageSharp.fluid.src}`} />
+      <meta property="og:image" content={`${siteMetadata.siteUrl}${getSrc(frontmatter.featuredimage)}`} />
     </Seo>);
 };
 
@@ -67,17 +68,13 @@ export const pageQuery = graphql`query PortfolioPostByID($id: String!) {
       tags
       featuredimage {
         childImageSharp {
-          fluid(maxWidth: 1200, quality: 100) {
-            ...GatsbyImageSharpFluid
-          }
+          gatsbyImageData(layout: FULL_WIDTH)
         }
       }
       author
       authorimage {
         childImageSharp {
-          fluid(maxWidth: 450, quality: 100) {
-            ...GatsbyImageSharpFluid
-          }
+          gatsbyImageData(layout: FULL_WIDTH)
         }
       }
       link

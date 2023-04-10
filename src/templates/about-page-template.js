@@ -22,7 +22,7 @@ export const AboutPageTemplate = ({ title, aboutimage, content, contentComponent
             <div className="relative text-base mx-auto max-w-prose lg:max-w-none">
               <figure>
                 <div>
-                  <PreviewCompatibleImage className="rounded-lg shadow-lg object-cover object-center aspect-w-12 aspect-h-7 lg:aspect-none"
+                  <PreviewCompatibleImage className="rounded-lg shadow-lg object-cover object-center aspect-w-12 aspect-h-7 lg:aspect-none lg:relative"
                     imageInfo={{
                       image: aboutimage,
                       alt: `about image`,

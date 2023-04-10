@@ -98,17 +98,13 @@ query BlogList($skip: Int!, $limit: Int!) {
           featuredpost
           featuredimage {
             childImageSharp {
-              fluid(maxWidth: 1200, quality: 100) {
-                ...GatsbyImageSharpFluid
-              }
+              gatsbyImageData(layout: FULL_WIDTH)
             }
           }
           author
           authorimage {
             childImageSharp {
-              fluid(maxWidth: 450, quality: 100) {
-                ...GatsbyImageSharpFluid
-              }
+              gatsbyImageData(layout: FULL_WIDTH)
             }
           }
         }

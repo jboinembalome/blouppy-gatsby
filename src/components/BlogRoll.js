@@ -101,17 +101,13 @@ export default () => (
                 featuredpost
                 featuredimage {
                   childImageSharp {
-                    fluid(maxWidth: 750, quality: 100) {
-                      ...GatsbyImageSharpFluid
-                    }
+                    gatsbyImageData(layout: FULL_WIDTH)
                   }
                 }
                 author
                 authorimage {
                   childImageSharp {
-                    fluid(maxWidth: 450, quality: 100) {
-                      ...GatsbyImageSharpFluid
-                    }
+                    gatsbyImageData(layout: FULL_WIDTH)
                   }
                 }
               }
