@@ -1,6 +1,5 @@
 import { useIsomorphicLayoutEffect } from '../hooks/useIsomorphicLayoutEffect'
 import { Listbox } from '@headlessui/react'
-import clsx from 'clsx'
 import React, { Fragment, useEffect, useRef, useState } from 'react'
 import { Pc } from './shared/svg/device/Icons'
 import { Moon, Sun } from './shared/svg/weather/Icons'
@@ -97,7 +96,7 @@ function useTheme() {
     return [setting, setSetting]
 }
 
-export function ThemeToggle({ panelClassName = 'mt-4' }) {
+export function ThemeToggle({ panelClassName }) {
     let [setting, setSetting] = useTheme()
 
     return (
@@ -112,21 +111,12 @@ export function ThemeToggle({ panelClassName = 'mt-4' }) {
                 </span>
             </Listbox.Button>
             <Listbox.Options
-                className={clsx(
-                    'absolute z-50 top-full right-0 bg-white rounded-lg ring-1 ring-gray-900/10 shadow-lg overflow-hidden w-36 py-1 text-sm text-gray-700 font-semibold dark:bg-gray-800 dark:ring-0 dark:highlight-white/5 dark:text-gray-300',
-                    panelClassName
-                )}
+                className={`absolute z-50 top-full right-0 bg-white rounded-lg ring-1 ring-gray-900/10 shadow-lg overflow-hidden w-36 py-1 text-sm text-gray-700 font-semibold dark:bg-gray-800 dark:ring-0 dark:highlight-white/5 dark:text-gray-300 ${panelClassName}`}
             >
                 {settings.map(({ value, label, icon: Icon }) => (
                     <Listbox.Option key={value} value={value} as={Fragment}>
                         {({ active, selected }) => (
-                            <li
-                                className={clsx(
-                                    'py-1 px-2 flex items-center cursor-pointer',
-                                    selected && 'text-violet-500',
-                                    active && 'bg-gray-50 dark:bg-gray-600/30'
-                                )}
-                            >
+                            <li className={`${selected && 'text-violet-500'} ${active && 'bg-gray-50 dark:bg-gray-600/30'} py-1 px-2 flex items-center cursor-pointer`}>
                                 <Icon selected={selected} className="w-6 h-6 mr-2" />
                                 {label}
                             </li>
