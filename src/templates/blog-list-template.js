@@ -10,9 +10,9 @@ export const BlogListTemplate = ({ data }) => {
   function CardImage(props) {
     const { post } = props
     return <Link className="relative h-full" to={post.fields.slug}>
-      <div className="relative h-full rounded-lg overflow-hidden">
+      <div className="relative h-full rounded-t-lg md:rounded-none md:rounded-l-lg overflow-hidden">
         {post.frontmatter.featuredimage ? (
-          <PreviewCompatibleImage className="inset-0 h-full w-full rounded-lg object-cover relative z-0"
+          <PreviewCompatibleImage className="inset-0 h-full w-full rounded-t-lg md:rounded-none md:rounded-l-lg object-cover relative z-0"
             imageInfo={{
               image: post.frontmatter.featuredimage,
               alt: `featured image thumbnail for post ${post.frontmatter.title}`,

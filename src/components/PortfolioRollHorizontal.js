@@ -12,9 +12,9 @@ class PortfolioRollHorizontal extends React.Component {
     function CardImage(props) {
       const { post } = props
       return <Link className="relative h-full" to={post.fields.slug}>
-        <div className="relative h-full rounded-lg overflow-hidden">
+        <div className="relative h-full rounded-t-lg md:rounded-none md:rounded-l-lg overflow-hidden">
           {post.frontmatter.featuredimage ? (
-            <PreviewCompatibleImage className="absolute inset-0 h-full w-full rounded-lg object-cover z-0"
+            <PreviewCompatibleImage className="absolute inset-0 h-full w-full rounded-t-lg md:rounded-none md:rounded-l-lg object-cover z-0"
               imageInfo={{
                 image: post.frontmatter.featuredimage,
                 alt: `project image thumbnail for post ${post.frontmatter.title}`,
