@@ -62,16 +62,14 @@ export const PortfolioPostTemplate = ({
             </p>
             <div className="mt-6 rounded-lg shadow-lg overflow-hidden">
               <div className="flex-shrink-0 rounded-lg shadow-lg">
-                <div className="relative">
                   {featuredimage ? (
-                    <PreviewCompatibleImage className="relative z-0"
+                    <PreviewCompatibleImage className="rounded-lg relative z-0"
                       imageInfo={{
                         image: featuredimage,
                         alt: `featured image thumbnail for post ${title}`,
                       }}
                     />
-                  ) : <div className="h-64 w-64" />}
-                </div>
+                  ) : <div className="relative h-64 w-64" />}
               </div>
             </div>
             <PostContent className="unreset prose lg:prose-lg dark:prose-invert prose-indigo" content={content} />

@@ -12,7 +12,7 @@ export const BlogListTemplate = ({ data }) => {
     return <Link className="relative h-full" to={post.fields.slug}>
       <div className="relative h-full rounded-lg overflow-hidden">
         {post.frontmatter.featuredimage ? (
-          <PreviewCompatibleImage className="absolute inset-0 h-full w-full object-cover z-0"
+          <PreviewCompatibleImage className="inset-0 h-full w-full rounded-lg object-cover relative z-0"
             imageInfo={{
               image: post.frontmatter.featuredimage,
               alt: `featured image thumbnail for post ${post.frontmatter.title}`,

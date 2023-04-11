@@ -64,17 +64,15 @@ export const BlogPostTemplate = ({
               {description}
             </p>
             <div className="mt-6 rounded-lg shadow-lg overflow-hidden">
-              <div className="flex-shrink-0 rounded-lg shadow-lg">
-                <div className="relative">
+              <div className="flex-shrink-0 rounded-lg shadow-lg">    
                   {featuredimage ? (
-                    <PreviewCompatibleImage className="relative z-0"
+                    <PreviewCompatibleImage className="rounded-lg relative z-0"
                       imageInfo={{
                         image: featuredimage,
                         alt: `featured image thumbnail for post ${title}`,
                       }}
                     />
-                  ) : <div className="h-64 w-64" />}
-                </div>
+                  ) : <div className="relative h-64 w-64" />}
               </div>
             </div>
             <figcaption className="mt-3 flex text-sm text-gray-500 dark:text-gray-400">

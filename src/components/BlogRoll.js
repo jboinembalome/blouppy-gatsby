@@ -14,7 +14,7 @@ class BlogRoll extends React.Component {
       return <Link className="flex-shrink-0" to={post.fields.slug}>
         <div className="relative">
           {post.frontmatter.featuredimage ? (
-            <PreviewCompatibleImage className="relative z-0"
+            <PreviewCompatibleImage className="rounded-lg relative z-0"
               imageInfo={{
                 image: post.frontmatter.featuredimage,
                 alt: `featured image thumbnail for post ${post.frontmatter.title}`,
