@@ -43,7 +43,7 @@ export const ResumePageTemplate = ({ title, subtitle, resumeimage, content, cont
                 </h1>
                 <div className="py-8 px-6 bg-gray-800 text-center rounded-lg">
                   <div className="space-y-6">
-                    <PreviewCompatibleImage className="mx-auto h-24 w-24 rounded-full"
+                    <PreviewCompatibleImage className="mx-auto h-24 w-24 rounded-full relative z-0"
                       imageInfo={{
                         image: resumeimage,
                         alt: `resume image`,

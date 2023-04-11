@@ -30,7 +30,7 @@ export const PortfolioPostTemplate = ({
             <div className="flex items-center justify-between">
               <div className="flex items-center">
                 <div className="flex-shrink-0">
-                  <PreviewCompatibleImage className="h-10 w-10 rounded-full"
+                  <PreviewCompatibleImage className="h-10 w-10 rounded-full relative z-0"
                     imageInfo={{
                       image: authorimage,
                       alt: `featured image thumbnail for post ${author}`,
@@ -64,7 +64,7 @@ export const PortfolioPostTemplate = ({
               <div className="flex-shrink-0 rounded-lg shadow-lg">
                 <div className="relative">
                   {featuredimage ? (
-                    <PreviewCompatibleImage
+                    <PreviewCompatibleImage className="relative z-0"
                       imageInfo={{
                         image: featuredimage,
                         alt: `featured image thumbnail for post ${title}`,

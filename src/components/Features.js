@@ -9,7 +9,7 @@ const FeatureGrid = ({ gridItems }) => (
         <section>
           <div className="text-center">
             <div className="w-64 inline-block">
-              <PreviewCompatibleImage imageInfo={item} />
+              <PreviewCompatibleImage className="relative z-0" imageInfo={item} />
             </div>
           </div>
           <p>{item.text}</p>

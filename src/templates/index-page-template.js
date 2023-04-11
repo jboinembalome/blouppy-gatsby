@@ -39,7 +39,7 @@ export const IndexPageTemplate = ({
                 </div>
                 <div className="relative">
                   <div className="mt-12 mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 lg:px-0 lg:max-w-md">
-                    <PreviewCompatibleImage className="w-full"
+                    <PreviewCompatibleImage className="w-full relative z-0"
                       imageInfo={{
                         image: image,
                         alt: "",
