@@ -4,7 +4,6 @@
   "version": "2.0.0",
   "author": "Jimmy Boinembalome",
   "license": "MIT",
-  "main": "n/a",
   "eslintConfig": {
     "extends": [
       "wesbos"
@@ -21,7 +20,7 @@
     "start": "npm run develop",
     "build": "npm run clean && gatsby build",
     "develop": "npm run clean && gatsby develop",
-    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"{gatsby-*.js,src/**/*.js}\"",
+    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"{gatsby-*.ts,src/**/*.ts}\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
@@ -70,6 +69,11 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
+    "@types/node": "^18.15.11",
+    "@types/react": "^18.0.34",
+    "@types/react-dom": "^18.0.11",
+    "@types/react-helmet": "^6.1.6",
+    "@types/react-instantsearch-dom": "^6.12.3",
     "autoprefixer": "10.4.14",
     "cross-env": "^7.0.3",
     "eslint": "^8.38.0",
@@ -81,11 +85,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "esm": "^3.2.25",
     "prettier": "^2.8.7",
-    "sass": "^1.61.0"
-  },
-  "overrides": {
-    "react": "^18.2.0",
-    "@types/react": "^18.0.17",
-    "react-dom": "^18.2.0"
+    "sass": "^1.61.0",
+    "typescript": "^5.0.4"
   }
 }
