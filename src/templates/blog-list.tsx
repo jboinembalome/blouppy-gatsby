@@ -44,7 +44,7 @@ type EdgeType = {
   node: NodeType;
 };
 
-type DataType = {
+export type DataType = {
   site: {
     siteMetadata: SiteMetadataType;
   }
@@ -76,9 +76,7 @@ const BlogList = ({ data, pageContext }: PageProps<DataType>) => {
             </div>
           </div>
         </div>
-        <section className="mt-8">
-          <BlogListTemplate data={data} />
-        </section>
+        <BlogListTemplate data={data} />
         <div className="py-4 flex items-center justify-between">
           <div className="w-0 flex-1 flex">
             {(pageContext as any).previousPagePath ? (

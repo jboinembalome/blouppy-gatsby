@@ -33,9 +33,7 @@ const PortfolioIndexPage = () => {
             </div>
           </div>
         </div>
-        <section className="mt-8">
-          <PortfolioRollHorizontal />
-        </section>
+        <PortfolioRollHorizontal />
       </div>
     </Layout>
   );
