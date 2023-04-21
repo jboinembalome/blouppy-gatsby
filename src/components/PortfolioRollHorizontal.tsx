@@ -53,7 +53,7 @@ const PortfolioRollHorizontal = ({ data }: PortfolioRollHorizontalProps) => {
       {projects && projects.map(({ node: project }) => (
         <Card key={project.id} className="rounded-2xl bg-white dark:bg-gray-800 shadow md:mx-auto md:max-w-7xl md:grid md:grid-cols-2 md:gap-12 md:items-start">
           <CardImage link={project.fields.slug} image={project.frontmatter.featuredimage}  alt={`project image thumbnail for post ${project.frontmatter.title}`} containerClassName="relative h-full" className="absolute inset-0 h-full w-full rounded-t-lg md:rounded-none md:rounded-l-lg object-cover z-0" />
-          <CardContent title={project.frontmatter.title} description={project.excerpt} date={project.frontmatter.date} readingTime={`${project.timeToRead} min read`} link={project.fields.slug} category={project.frontmatter.category} categoryColor={project.frontmatter.categorycolor} author={project.frontmatter.author} authorimage={project.frontmatter.authorimage} />
+          <CardContent title={project.frontmatter.title} description={project.excerpt} date={project.frontmatter.date} readingTime={`${project.timeToRead} min read`} link={project.fields.slug} category={project.frontmatter.category} categoryColor={project.frontmatter.categorycolor} author={project.frontmatter.author} authorimage={project.frontmatter.authorimage} className="relative mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 md:px-0" />
         </Card>
       ))}
     </section>

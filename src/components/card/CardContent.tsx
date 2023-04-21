@@ -13,11 +13,12 @@ export interface CardContentProps {
     categoryColor?: string;
     author: string;
     authorimage?: ImageDataLike;
+    className?: string;
 }
 
-export const CardContent = ({ title, description, date, readingTime, link, category, categoryColor, author, authorimage }: CardContentProps) => {
+export const CardContent = ({ title, description, date, readingTime, link, category, categoryColor, author, authorimage, className }: CardContentProps) => {
     return (
-        <div className="relative mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 md:px-0">
+        <div className={className}>
             <div className="flex-1 pt-6 pr-6 flex flex-col justify-between">
                 <div className="flex-1">
                     <span
