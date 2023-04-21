@@ -49,7 +49,7 @@ const PortfolioRollHorizontal = ({ data }: PortfolioRollHorizontalProps) => {
   const { edges: projects } = data.allMarkdownRemark;
 
   return (
-    <section className="mt-8 mx-auto flex flex-col gap-y-4">
+    <section className="mt-8 mx-auto flex flex-col gap-y-8">
       {projects && projects.map(({ node: project }) => (
         <Card key={project.id} className="rounded-2xl bg-white dark:bg-gray-800 shadow md:mx-auto md:max-w-7xl md:grid md:grid-cols-2 md:gap-12 md:items-start">
           <CardImage link={project.fields.slug} image={project.frontmatter.featuredimage}  alt={`project image thumbnail for post ${project.frontmatter.title}`} containerClassName="relative h-full" className="absolute inset-0 h-full w-full rounded-t-lg md:rounded-none md:rounded-l-lg object-cover z-0" />
