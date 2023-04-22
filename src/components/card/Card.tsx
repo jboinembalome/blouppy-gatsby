@@ -7,10 +7,8 @@ export interface CardProps {
 
 export const Card = ({ children, className }: CardProps) => {
     return (
-        <>
-            <div className={className}>
-                {children}
-            </div>
-        </>    
+        <div className={className}>
+            {children}
+        </div>
     );
 };
