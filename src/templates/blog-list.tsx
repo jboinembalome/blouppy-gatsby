@@ -2,10 +2,10 @@ import React from 'react'
 import { PageProps, graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import { BlogListTemplate } from './blog-list-template'
-import { Link } from 'gatsby'
 import { Seo } from "../components/Seo"
 import { IGatsbyImageData } from 'gatsby-plugin-image'
 import { Banner } from '../components/banner'
+import { Pagination } from '../components/pagination'
 
 type SiteMetadataType = {
   siteUrl: string;
@@ -57,6 +57,12 @@ export type DataType = {
 const BlogList = ({ data, pageContext }: PageProps<DataType>) => {
   const bannerTitle = "Latest Articles";
   const bannerSubtitle = "On various topics such as C#, Asp.Net Core, WPF, Angular and many others! 😉";
+  const previousPagePath = (pageContext as any).previousPagePath;
+  const nextPagePath = (pageContext as any).nextPagePath;
+  const humanPageNumber = (pageContext as any).humanPageNumber;
+  const numberOfPages = (pageContext as any).numberOfPages;
+  const previousPageButtonText = "Previous";
+  const nextPageButtonText = "Next";
 
   return (
     <Layout>
@@ -64,19 +70,7 @@ const BlogList = ({ data, pageContext }: PageProps<DataType>) => {
       <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
         <Banner title={bannerTitle} subtitle={bannerSubtitle} className="bg-violet-700 dark:bg-violet-400 rounded-lg shadow-xl overflow-hidden" />
         <BlogListTemplate data={data} />
-        <div className="py-4 flex items-center justify-between">
-          <div className="w-0 flex-1 flex">
-            {(pageContext as any).previousPagePath ? (
-              <Link to={(pageContext as any).previousPagePath} className="btn">Previous</Link>) : null}
-          </div>
-          <div className="flex">
-            <span className="text-gray-500 dark:text-gray-400 text-sm font-medium">Page {(pageContext as any).humanPageNumber} of {(pageContext as any).numberOfPages}</span>
-          </div>
-          <div className="flex-1 flex justify-end">
-            {(pageContext as any).nextPagePath ? (
-              <Link to={(pageContext as any).nextPagePath} className="btn ml-3 ">Next</Link>) : null}
-          </div>
-        </div>
+        <Pagination previousPagePath={previousPagePath} nextPagePath={nextPagePath} humanPageNumber={humanPageNumber} numberOfPages={numberOfPages} previousPageButtonText={previousPageButtonText} nextPageButtonText={nextPageButtonText} className="py-4 flex items-center justify-between" />
       </div>
     </Layout>
   )
