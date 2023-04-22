@@ -19,7 +19,7 @@ export interface CardContentProps {
 export const CardContent = ({ title, description, date, readingTime, link, category, categoryColor, author, authorimage, className }: CardContentProps) => {
     return (
         <div className={className}>
-            <div className="flex-1 pt-6 pr-6 flex flex-col justify-between">
+            <div className="flex-1 flex flex-col justify-between">
                 <div className="flex-1">
                     <span
                         className={`inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium ${categoryColor ?? ''}`}
