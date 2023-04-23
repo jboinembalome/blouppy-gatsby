@@ -50,27 +50,19 @@ const TagsPage = ({ data }: PageProps<DataType>) => {
   return (
     <Layout>
       <Head siteMetadata={data.site.siteMetadata} />
-      <section>
-        <div className="overflow-hidden">
-          <div className="relative max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
-            <div className="relative px-4 sm:px-6 lg:px-8">
-              <div className="text-gray-500 dark:text-gray-400 mx-auto">
-                <div className="text-lg max-w-prose mx-auto">
-                  <h1 className="block text-3xl leading-8 font-extrabold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl">
-                    Tags
-                  </h1>
+      <div className="max-w-prose mx-auto">
+        <div className="text-lg max-w-prose mx-auto">
+          <h1 className="block text-3xl leading-8 font-extrabold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl">
+            Tags
+          </h1>
 
-                  <ul className="mt-8 flex flex-wrap gap-2">
-                    {group.map((tag) => (
-                      <Tag key={tag.fieldValue} tag={tag} />
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
+          <ul className="mt-8 flex flex-wrap gap-2">
+            {group.map((tag) => (
+              <Tag key={tag.fieldValue} tag={tag} />
+            ))}
+          </ul>
         </div>
-      </section>
+      </div>
     </Layout>
   );
 };

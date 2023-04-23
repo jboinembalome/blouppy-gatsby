@@ -46,36 +46,28 @@ const TagRoute = ({ data, pageContext }: PageProps<DataType>) => {
   ));
   const tag = (pageContext as any).tag;
   const totalCount = data.allMarkdownRemark.totalCount;
-  const tagHeader = `${totalCount} post${
-    totalCount === 1 ? "" : "s"
-  } tagged with`;
+  const tagHeader = `${totalCount} post${totalCount === 1 ? "" : "s"
+    } tagged with`;
 
   return (
     <Layout>
       <Head tag={tag} siteMetadata={data.site.siteMetadata} />
-      <section>
-        <div className="overflow-hidden">
-          <div className="relative max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
-            <div className="relative px-4 sm:px-6 lg:px-8">
-              <div className="text-gray-500 dark:text-gray-400 mx-auto">
-                <div className="text-lg max-w-prose mx-auto">
-                  <h1 className="block text-3xl leading-8 font-extrabold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl">
-                    {tagHeader}{" "}
-                    <span className="text-violet-600 dark:text-violet-400">
-                      {tag}
-                    </span>
-                  </h1>
-                  <ul className="mt-8 divide-y divide-gray-200">{postLinks}</ul>
 
-                  <Link className="mt-2 btn btn-outline-primary" to="/tags/">
-                    Browse all tags
-                  </Link>
-                </div>
+            <div className="text-gray-500 dark:text-gray-400 mx-auto">
+              <div className="text-lg max-w-prose mx-auto">
+                <h1 className="block text-3xl leading-8 font-extrabold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl">
+                  {tagHeader}{" "}
+                  <span className="text-violet-600 dark:text-violet-400">
+                    {tag}
+                  </span>
+                </h1>
+                <ul className="mt-8 divide-y divide-gray-200">{postLinks}</ul>
+
+                <Link className="mt-2 mx-auto text-center btn btn-outline-primary" to="/tags/">
+                  Browse all tags
+                </Link>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
     </Layout>
   );
 };

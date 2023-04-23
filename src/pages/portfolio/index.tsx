@@ -18,10 +18,8 @@ const PortfolioIndexPage = () => {
   return (
     <Layout>
       <Head />
-      <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
-        <Banner title={bannerTitle} subtitle={bannerSubtitle} className="bg-rose-300 dark:bg-indigo-400 rounded-lg shadow-xl overflow-hidden" />
-        <PortfolioRollHorizontal />
-      </div>
+      <Banner title={bannerTitle} subtitle={bannerSubtitle} className="bg-rose-300 dark:bg-indigo-400 rounded-lg shadow-xl overflow-hidden" />
+      <PortfolioRollHorizontal />
     </Layout>
   );
 };

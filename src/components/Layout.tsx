@@ -42,7 +42,7 @@ const TemplateWrapper = ({ children }: TemplateWrapperProps) => {
         <body />
       </Helmet>
       <Navbar />
-      <div>{children}</div>
+        <div className="relative max-w-7xl mx-auto p-8">{children}</div>
       <Footer />
     </div>
   );

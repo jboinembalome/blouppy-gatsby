@@ -4,7 +4,7 @@ import { Link } from 'gatsby'
 
 const NotFoundPage = () => (
   <Layout>
-    <div className="flex-grow mx-auto max-w-7xl w-full flex flex-col px-4 sm:px-6 lg:px-8">
+    <div className="flex-grow mx-auto max-w-7xl w-full flex flex-col">
       <div className="flex-shrink-0 my-auto py-16 sm:py-32">
         <p className="text-sm font-semibold text-indigo-600 dark:text-indigo-400 uppercase tracking-wide">404 error</p>
         <h1 className="mt-2 text-4xl font-extrabold text-gray-900 dark:text-gray-100 tracking-tight sm:text-5xl">Page not found</h1>

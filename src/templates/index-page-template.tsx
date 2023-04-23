@@ -79,7 +79,7 @@ interface IndexPageTemplateProps extends WelcomeProps, IntroducingProps{
 
 export const IndexPageTemplate = ({ image, title, subheading, mainpitch }: IndexPageTemplateProps) => {
   return (
-    <section className="flex flex-col gap-12 justify-center max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+    <section className="flex flex-col gap-12 justify-center">
       <Welcome image={image} title={title} subheading={subheading} />
       <Introducing mainpitch={mainpitch} />
       <StayUpToDate />

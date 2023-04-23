@@ -13,22 +13,22 @@ type SiteMetadataType = {
 
 type FrontmatterType = {
   title: string;
-    templateKey: string;
-    date: string;
-    category: string;
-    categorycolor: string;
-    featuredpost: boolean;
-    featuredimage: {
-      childImageSharp: {
-        gatsbyImageData: IGatsbyImageData;
-      };
+  templateKey: string;
+  date: string;
+  category: string;
+  categorycolor: string;
+  featuredpost: boolean;
+  featuredimage: {
+    childImageSharp: {
+      gatsbyImageData: IGatsbyImageData;
     };
-    author: string;
-    authorimage: {
-      childImageSharp: {
-        gatsbyImageData: IGatsbyImageData;
-      };
+  };
+  author: string;
+  authorimage: {
+    childImageSharp: {
+      gatsbyImageData: IGatsbyImageData;
     };
+  };
 };
 
 type NodeType = {
@@ -66,12 +66,10 @@ const BlogList = ({ data, pageContext }: PageProps<DataType>) => {
 
   return (
     <Layout>
-      <Head siteMetadata={data.site.siteMetadata}/>
-      <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
-        <Banner title={bannerTitle} subtitle={bannerSubtitle} className="bg-violet-700 dark:bg-violet-400 rounded-lg shadow-xl overflow-hidden" />
-        <BlogListTemplate data={data} />
-        <Pagination previousPagePath={previousPagePath} nextPagePath={nextPagePath} humanPageNumber={humanPageNumber} numberOfPages={numberOfPages} previousPageButtonText={previousPageButtonText} nextPageButtonText={nextPageButtonText} className="py-4 flex items-center justify-between" />
-      </div>
+      <Head siteMetadata={data.site.siteMetadata} />
+      <Banner title={bannerTitle} subtitle={bannerSubtitle} className="bg-violet-700 dark:bg-violet-400 rounded-lg shadow-xl overflow-hidden" />
+      <BlogListTemplate data={data} />
+      <Pagination previousPagePath={previousPagePath} nextPagePath={nextPagePath} humanPageNumber={humanPageNumber} numberOfPages={numberOfPages} previousPageButtonText={previousPageButtonText} nextPageButtonText={nextPageButtonText} className="py-4 flex items-center justify-between" />
     </Layout>
   )
 }
