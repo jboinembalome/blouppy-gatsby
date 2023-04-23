@@ -1,11 +1,11 @@
 import React from "react";
 import { kebabCase } from "lodash";
-import { Link } from "gatsby";
 import Content, { HTMLContent } from "../components/Content";
 import PreviewCompatibleImage from "../components/PreviewCompatibleImage";
 import { Disqus } from "gatsby-plugin-disqus";
 import { CameraIcon } from "@heroicons/react/24/solid";
 import { IGatsbyImageData } from "gatsby-plugin-image";
+import { Tag } from "../components/tag";
 //import GoogleAdSense from '../components/GoogleAdSense'
 
 interface BlogPostTemplateProps {
@@ -134,18 +134,10 @@ export const BlogPostTemplate = ({
               <div className="mt-6 prose lg:prose-lg dark:prose-invert prose-indigo">
                 <h4>Tags</h4>
                 <div className="not-prose">
-                  <ul role="list" className="not-prose mt-2 pl-0 leading-8">
+                  <ul role="list" className="mt-2 pl-0 leading-8">
                     {tags.map((tag) => (
-                      <li
-                        key={tag + `tag`}
-                        className="not-prose inline pl-0 pr-2"
-                      >
-                        <Link
-                          to={`/tags/${kebabCase(tag)}/`}
-                          className="no-underline inline-flex items-center px-3 py-0.5 rounded-full text-base font-medium bg-violet-100 text-violet-800"
-                        >
-                          <span>{tag}</span>
-                        </Link>
+                      <li key={tag + `tag`} className="inline pl-0 pr-2">
+                        <Tag text={tag} color="bg-violet-100 text-violet-800" link={`/tags/${kebabCase(tag)}/`} className="no-underline" />
                       </li>
                     ))}
                   </ul>

@@ -8,6 +8,7 @@ import {
 import EnglishResumeJB from '../../static/downloads/CV_EN_Boinembalome_Jimmy.pdf'
 import FrenchResumeJB from '../../static/downloads/CV_FR_Boinembalome_Jimmy.pdf'
 import { IGatsbyImageData } from "gatsby-plugin-image";
+import { Tag } from "../components/tag";
 
 interface ResumePageTemplateProps {
   title: string;
@@ -112,30 +113,26 @@ export const ResumePageTemplate = ({
               <h1>Skills</h1>
               <h2>Technical Skills</h2>
               <div className="not-prose">
-                <ul className="not-prose not-unreset mt-2 pl-0 leading-8">
+                <ul className="not-unreset mt-2 pl-0 leading-8">
                   {skills.specifics.map((skill) => (
-                    <li
-                      key={skill + `skill`}
-                      className="not-prose not-unreset no-underline inline-flex items-center mr-2 my-2 px-3 py-0.5 rounded-full text-base font-medium bg-violet-100 text-violet-800"
-                    >
-                      <span>{skill}</span>
+                    <li key={skill + `skill`} className="not-unreset inline-flex mr-2 my-2">
+                      <Tag text={skill} color="bg-violet-100 text-violet-800" className="no-underline" />
                     </li>
                   ))}
                 </ul>
               </div>
+              
               <h2>Soft Skills</h2>
               <div className="not-prose">
-                <ul className="not-prose not-unreset mt-2 pl-0 leading-8">
+                <ul className="not-unreset mt-2 pl-0 leading-8">
                   {skills.softs.map((soft) => (
-                    <li
-                      key={soft + `soft`}
-                      className="not-prose not-unreset no-underline inline-flex items-center mr-2 my-2 px-3 py-0.5 rounded-md text-base font-medium bg-amber-100 text-amber-800"
-                    >
-                      <span>{soft}</span>
+                    <li key={soft + `soft`} className="not-unreset inline-flex mr-2 my-2">
+                      <Tag text={soft} color="bg-amber-100 text-amber-800" isRoundedFull={false} className="no-underline" />
                     </li>
                   ))}
                 </ul>
               </div>
+              
               <div className="mt-12 unreset prose lg:prose-lg dark:prose-invert prose-indigo">
                 <h1>Download</h1>
                 <p>If you wish, you can download my resume: </p>

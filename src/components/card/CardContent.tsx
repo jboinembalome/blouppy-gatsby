@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import { ImageDataLike } from 'gatsby-plugin-image';
 import ArticleInformation from '../ArticleInformation';
+import { Tag } from '../tag';
 
 export interface CardContentProps {
     title?: string;
@@ -21,11 +22,7 @@ export const CardContent = ({ title, description, date, readingTime, link, categ
         <div className={className}>
             <div className="flex-1 flex flex-col justify-between">
                 <div className="flex-1">
-                    <span
-                        className={`inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium ${categoryColor ?? ''}`}
-                    >
-                        {category}
-                    </span>
+                    <Tag text={category} color={categoryColor}/>
                     <div className="block mt-2">
                         <p className="text-xl font-semibold text-gray-900 dark:text-gray-100">
                             {title}
