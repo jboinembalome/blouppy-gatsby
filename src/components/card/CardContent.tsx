@@ -10,6 +10,7 @@ export interface CardContentProps {
     date: string;
     readingTime?: string;
     link?: string;
+    sourceCodeLink?: string;
     category?: string;
     categoryColor?: string;
     author: string;
@@ -17,7 +18,7 @@ export interface CardContentProps {
     className?: string;
 }
 
-export const CardContent = ({ title, description, date, readingTime, link, category, categoryColor, author, authorimage, className }: CardContentProps) => {
+export const CardContent = ({ title, description, date, readingTime, link, sourceCodeLink, category, categoryColor, author, authorimage, className }: CardContentProps) => {
     return (
         <div className={className}>
             <div className="flex-1 flex flex-col justify-between">
@@ -42,7 +43,8 @@ export const CardContent = ({ title, description, date, readingTime, link, categ
                     authorimage={authorimage}
                     date={date}
                     readingTime={readingTime ?? ''}
-                    link={link}
+                    link={sourceCodeLink}
+                    className="mt-6"
                 />
             </div>
         </div>
