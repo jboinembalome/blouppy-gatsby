@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import { ImageDataLike } from 'gatsby-plugin-image';
-import ArticleInformation from '../ArticleInformation';
+import { ArticleInformation } from '../article';
 import { Tag } from '../tag';
 
 export interface CardContentProps {

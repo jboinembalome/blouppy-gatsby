@@ -65,7 +65,7 @@ const PortfolioPost = ({ data }: PageProps<DataType>) => {
         author={post.frontmatter.author}
         authorimage={post.frontmatter.authorimage}
         date={post.frontmatter.date}
-        featuredimage={post.frontmatter.featuredimage}
+        image={post.frontmatter.featuredimage}
         readingTime={readingTime}
         tags={post.frontmatter.tags}
         title={post.frontmatter.title}

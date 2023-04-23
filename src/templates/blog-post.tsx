@@ -67,9 +67,9 @@ const BlogPost = ({ data }: PageProps<DataType>) => {
         author={post.frontmatter.author}
         authorimage={post.frontmatter.authorimage}
         date={post.frontmatter.date}
-        featuredauthor={post.frontmatter.featuredauthor}
-        featuredlink={post.frontmatter.featuredlink}
-        featuredimage={post.frontmatter.featuredimage}
+        imageCreator={post.frontmatter.featuredauthor}
+        imageLink={post.frontmatter.featuredlink}
+        image={post.frontmatter.featuredimage}
         slug={post.fields.slug}
         readingTime={readingTime}
         tags={post.frontmatter.tags}

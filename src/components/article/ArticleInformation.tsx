@@ -1,6 +1,6 @@
 import React from "react";
-import PreviewCompatibleImage from "./PreviewCompatibleImage";
-import { GithubIcon } from "./shared/svg/social/Icons";
+import PreviewCompatibleImage from "../PreviewCompatibleImage";
+import { GithubIcon } from "../shared/svg/social/Icons";
 import { ImageDataLike } from "gatsby-plugin-image";
 
 interface ArticleInformationProps {
@@ -9,18 +9,20 @@ interface ArticleInformationProps {
   readingTime: string;
   link?: string;
   authorimage?: ImageDataLike;
+  className?: string;
 }
 
-const ArticleInformation = ({
+export const ArticleInformation = ({
   author,
   authorimage,
   date,
   readingTime,
   link,
+  className = ''
 }: ArticleInformationProps) => {
   return (
-    <div className="flex items-center justify-between">
-      <div className="mt-6 pb-6 flex items-center">
+    <div className={`flex items-center justify-between ${className}`}>
+      <div className="flex items-center">
         <div className="flex-shrink-0">
           <PreviewCompatibleImage
             className="h-10 w-10 rounded-full relative z-0"
@@ -42,11 +44,7 @@ const ArticleInformation = ({
         </div>
       </div>
       {link && (
-        <a
-          href={link}
-          target="_blank"
-          className="text-gray-500 hover:text-gray-700"
-        >
+        <a href={link} target="_blank" className="text-gray-500 hover:text-gray-700">
           <span className="sr-only">Project Link</span>
           <GithubIcon className="h-10 w-10" />
         </a>
@@ -54,5 +52,3 @@ const ArticleInformation = ({
     </div>
   );
 };
-
-export default ArticleInformation;
