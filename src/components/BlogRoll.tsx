@@ -54,7 +54,7 @@ const BlogRoll = ({ data }: BlogRollProps) => {
         blogs.map(({ node: blog }) => (
           <Card key={blog.id} className="rounded-2xl bg-white dark:bg-gray-800 shadow flex flex-col overflow-hidden">
           <CardImage link={blog.fields.slug} image={blog.frontmatter.featuredimage}  alt={`blog image thumbnail for post ${blog.frontmatter.title}`} containerClassName="flex-shrink-0" className="rounded-t-lg relative z-0" />
-          <CardContent title={blog.frontmatter.title} description={blog.excerpt} date={blog.frontmatter.date} readingTime={`${blog.timeToRead} min read`} category={blog.frontmatter.category} categoryColor={blog.frontmatter.categorycolor} author={blog.frontmatter.author} authorimage={blog.frontmatter.authorimage} className="flex-1 dark:bg-gray-800 p-6 flex flex-col justify-between"/>
+          <CardContent title={blog.frontmatter.title} description={blog.excerpt} date={blog.frontmatter.date} readingTime={`${blog.timeToRead} min read`} category={blog.frontmatter.category} categoryColor={blog.frontmatter.categorycolor} author={blog.frontmatter.author} authorimage={blog.frontmatter.authorimage} link={blog.fields.slug} className="flex-1 dark:bg-gray-800 p-6 flex flex-col justify-between"/>
         </Card>
         ))}
     </div>
