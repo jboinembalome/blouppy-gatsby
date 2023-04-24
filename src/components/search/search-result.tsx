@@ -7,7 +7,7 @@ import {
     Index,
     Snippet,
 } from "react-instantsearch-dom"
-import { AlgoliaIcon } from "../shared/svg/library/Icons"
+import { AlgoliaIcon } from "../icons/svg/library/Icons"
 
 const HitCount = connectStateResults(({ searchResults }) => {
     const hitCount = searchResults && searchResults.nbHits

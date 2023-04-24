@@ -6,8 +6,8 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Search from "../search";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import { ThemeToggle } from "../ThemeToggle";
-import { BlouppyIcon } from "../shared/svg/BlouppyIcon";
-import { BlouppyWithTextIcon } from "../shared/svg/BlouppyWithTextIcon";
+import { BlouppyIcon } from "../icons/svg/BlouppyIcon";
+import { BlouppyWithTextIcon } from "../icons/svg/BlouppyWithTextIcon";
 import { LinkGetProps } from "@reach/router";
 
 export const Navbar = () => {

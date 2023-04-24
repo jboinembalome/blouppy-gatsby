@@ -4,7 +4,7 @@ import PreviewCompatibleImage from "../components/PreviewCompatibleImage";
 import {
   LinkedInIcon,
   TwitterIcon,
-} from "../components/shared/svg/social/Icons";
+} from "../components/icons/svg/social/Icons";
 import EnglishResumeJB from '../../static/downloads/CV_EN_Boinembalome_Jimmy.pdf'
 import FrenchResumeJB from '../../static/downloads/CV_FR_Boinembalome_Jimmy.pdf'
 import { IGatsbyImageData } from "gatsby-plugin-image";

@@ -1,8 +1,8 @@
 import { useIsomorphicLayoutEffect } from '../hooks/useIsomorphicLayoutEffect'
 import { Listbox } from '@headlessui/react'
 import React, { Fragment, useEffect, useRef, useState } from 'react'
-import { Pc } from './shared/svg/device/Icons'
-import { Moon, Sun } from './shared/svg/weather/Icons'
+import { Pc } from './icons/svg/device/Icons'
+import { Moon, Sun } from './icons/svg/weather/Icons'
 
 function update() {
     if (

@@ -3,7 +3,7 @@ import {
   GithubIcon,
   LinkedInIcon,
   TwitterIcon,
-} from "../shared/svg/social/Icons";
+} from "../icons/svg/social/Icons";
 import logo from '../../img/logo.png'
 
 export const Footer = () => {

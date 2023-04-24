@@ -2,7 +2,7 @@ import React, { ChangeEvent, FormEvent, useState } from 'react'
 import { navigate } from 'gatsby-link'
 import { Layout } from '../../components/layout';
 import { EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline'
-import { LinkedInIcon, TwitterIcon } from '../../components/shared/svg/social/Icons'
+import { LinkedInIcon, TwitterIcon } from '../../components/icons/svg/social/Icons'
 import { Seo } from "../../components/Seo"
 import { useSiteMetadata } from "../../components/useSiteMetadata"
 

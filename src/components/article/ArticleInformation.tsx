@@ -1,6 +1,6 @@
 import React from "react";
 import PreviewCompatibleImage from "../PreviewCompatibleImage";
-import { GithubIcon } from "../shared/svg/social/Icons";
+import { GithubIcon } from "../icons/svg/social/Icons";
 import { ImageDataLike } from "gatsby-plugin-image";
 
 interface ArticleInformationProps {
