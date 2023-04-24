@@ -1,15 +1,15 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import Footer from "./Footer";
-import Navbar from "./Navbar";
-import "../styles/site.scss";
+import { Footer } from "./Footer";
+import { Navbar } from "./Navbar";
 import { withPrefix } from "gatsby";
+import "../../styles/site.scss";
 
-interface TemplateWrapperProps {
+interface LayoutProps {
   children: JSX.Element |  JSX.Element[];
 }
 
-const TemplateWrapper = ({ children }: TemplateWrapperProps) => {
+export const Layout = ({ children }: LayoutProps) => {
   return (
     <div className="dark:bg-gray-900">
       <Helmet>
@@ -47,5 +47,3 @@ const TemplateWrapper = ({ children }: TemplateWrapperProps) => {
     </div>
   );
 };
-
-export default TemplateWrapper;

@@ -2,7 +2,7 @@ import React from "react";
 import { kebabCase } from "lodash";
 import { Seo } from "../../components/Seo";
 import { Link, PageProps, graphql } from "gatsby";
-import Layout from "../../components/Layout";
+import { Layout } from '../../components/layout';
 
 type SiteMetadataType = {
   siteUrl: string;

@@ -1,5 +1,5 @@
 import React from "react";
-import Layout from "../../components/Layout";
+import { Layout } from '../../components/layout';
 import PortfolioRollHorizontal from "../../components/PortfolioRollHorizontal";
 import { Seo } from "../../components/Seo";
 import { useSiteMetadata } from "../../components/useSiteMetadata";

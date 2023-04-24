@@ -1,6 +1,6 @@
 import React, { ChangeEvent, FormEvent, useState } from "react";
 import { navigate } from "gatsby-link";
-import Layout from "../../components/Layout";
+import { Layout } from '../../components/layout';
 
 const Contact = () => {
   const [state, setState] = useState({});

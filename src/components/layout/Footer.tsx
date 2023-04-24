@@ -3,10 +3,10 @@ import {
   GithubIcon,
   LinkedInIcon,
   TwitterIcon,
-} from "./shared/svg/social/Icons";
-import logo from '../img/logo.png'
+} from "../shared/svg/social/Icons";
+import logo from '../../img/logo.png'
 
-const Footer = () => {
+export const Footer = () => {
   const navigation = {
     social: [
       {
@@ -105,5 +105,3 @@ const Footer = () => {
     </footer>
   );
 };
-
-export default Footer;

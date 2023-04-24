@@ -1,6 +1,6 @@
 import React from "react";
 import { PageProps, graphql } from "gatsby";
-import Layout from "../components/Layout";
+import { Layout } from '../components/layout';
 import { BlogPostTemplate } from "./blog-post-template";
 import { HTMLContent } from "../components/Content";
 import { Seo } from "../components/Seo";

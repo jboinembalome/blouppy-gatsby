@@ -1,6 +1,6 @@
 import React from 'react'
 import { PageProps, graphql } from 'gatsby'
-import Layout from '../components/Layout'
+import { Layout } from '../components/layout';
 import { BlogListTemplate } from './blog-list-template'
 import { Seo } from "../components/Seo"
 import { IGatsbyImageData } from 'gatsby-plugin-image'

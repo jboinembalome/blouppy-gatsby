@@ -3,14 +3,14 @@ import React, { useState } from "react";
 import { Link } from "gatsby";
 import { Disclosure } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import Search from "./search";
+import Search from "../search";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
-import { ThemeToggle } from "./ThemeToggle";
-import { BlouppyIcon } from "./shared/svg/BlouppyIcon";
-import { BlouppyWithTextIcon } from "./shared/svg/BlouppyWithTextIcon";
+import { ThemeToggle } from "../ThemeToggle";
+import { BlouppyIcon } from "../shared/svg/BlouppyIcon";
+import { BlouppyWithTextIcon } from "../shared/svg/BlouppyWithTextIcon";
 import { LinkGetProps } from "@reach/router";
 
-const Navbar = () => {
+export const Navbar = () => {
   const [toggleSearch, setToggleSearch] = useState(false);
 
   const toggleSearchChange = (event: boolean) => {
@@ -171,5 +171,3 @@ const Navbar = () => {
     </Disclosure>
   );
 };
-
-export default Navbar;
