@@ -18,6 +18,6 @@ export const PortfolioPostTemplate = (props: PortfolioPostTemplateProps) => {
       readingTime={props.readingTime} 
       link={props.link} 
       content={props.content} 
-      contentComponent={props.contentComponent} />
+    />
   );
 };

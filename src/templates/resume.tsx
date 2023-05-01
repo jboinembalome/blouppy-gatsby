@@ -2,7 +2,6 @@ import React from "react";
 import { PageProps, graphql } from "gatsby";
 import { Layout } from '../components/layout';
 import { ResumePageTemplate } from "./resume-template";
-import { HTMLContent } from "../components/Content";
 import { Seo } from "../components/Seo";
 import { IGatsbyImageData, getSrc } from "gatsby-plugin-image";
 
@@ -17,12 +16,16 @@ type SiteMetadataType = {
 
 type FrontmatterType = {
   title: string;
-  subtitle: string;
   resumeimage: {
     childImageSharp: {
       gatsbyImageData: IGatsbyImageData;
     };
   };
+  job: string;
+  technicalSkills: string[];
+  softSkills: string[];
+  englishResumeJB: string;
+  frenchResumeJB: string;
 };
 
 type DataType = {
@@ -41,10 +44,13 @@ const ResumePage = ({ data }: PageProps<DataType>) => {
     <Layout>
       <Head siteMetadata={data.site.siteMetadata} frontmatter={frontmatter} />
       <ResumePageTemplate
-        contentComponent={HTMLContent}
         title={frontmatter.title}
-        subtitle={frontmatter.subtitle}
         resumeimage={frontmatter.resumeimage}
+        job={frontmatter.job}
+        technicalSkills={frontmatter.technicalSkills}
+        softSkills={frontmatter.softSkills}
+        englishResumeJB={frontmatter.englishResumeJB}
+        frenchResumeJB={frontmatter.frenchResumeJB}
         content={html}
       />
     </Layout>
@@ -94,12 +100,16 @@ export const resumePageQuery = graphql`
       html
       frontmatter {
         title
-        subtitle
         resumeimage {
           childImageSharp {
             gatsbyImageData(layout: FULL_WIDTH)
           }
         }
+        job
+        technicalSkills
+        softSkills
+        englishResumeJB
+        frenchResumeJB
       }
     }
   }

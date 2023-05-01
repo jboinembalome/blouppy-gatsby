@@ -2,7 +2,6 @@ import React from 'react'
 import { PageProps, graphql } from 'gatsby'
 import { Layout } from '../components/layout';
 import { PortfolioPostTemplate } from './portfolio-post-template'
-import { HTMLContent } from '../components/Content'
 import { Seo } from "../components/Seo"
 import { IGatsbyImageData, getSrc } from "gatsby-plugin-image"
 
@@ -60,7 +59,6 @@ const PortfolioPost = ({ data }: PageProps<DataType>) => {
       <Head siteMetadata={data.site.siteMetadata} fields={post.fields} frontmatter={post.frontmatter}/>
       <PortfolioPostTemplate
         content={post.html}
-        contentComponent={HTMLContent}
         description={post.frontmatter.description}
         author={post.frontmatter.author}
         authorimage={post.frontmatter.authorimage}

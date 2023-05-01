@@ -18,7 +18,7 @@ export const ArticleImage = ({ image, alt }: ArticleImageProps) => {
     <div className="flex-shrink-0 rounded-lg shadow-lg overflow-hidden">
         {image ? (
           <PreviewCompatibleImage
-            className="rounded-lg relative z-0"
+            className="rounded-lg shadow-lg object-cover object-center aspect-w-12 aspect-h-7 z-0"
             imageInfo={imageInfo}
           />
         ) : (

@@ -3,6 +3,7 @@ import { Link } from 'gatsby';
 import { ImageDataLike } from 'gatsby-plugin-image';
 import { ArticleInformation } from '../article';
 import { Tag } from '../tag';
+import { ButtonInternalLink } from '../button';
 
 export interface CardContentProps {
     title?: string;
@@ -33,9 +34,7 @@ export const CardContent = ({ title, description, date, readingTime, link, sourc
                         </p>
                     </div>
                     <div className="flex justify-end">
-                        <Link className="btn-white-sm mt-6" to={link ?? ''}>
-                            Continue Reading
-                        </Link>
+                        <ButtonInternalLink link={link ?? ''} text="Continue Reading" className="mt-6" color={"basic"} size='sm' />
                     </div>
                 </div>
                 <ArticleInformation

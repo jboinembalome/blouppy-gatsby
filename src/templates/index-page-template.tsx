@@ -4,6 +4,7 @@ import BlogRoll from "../components/BlogRoll";
 import PreviewCompatibleImage from "../components/PreviewCompatibleImage";
 import { IGatsbyImageData } from "gatsby-plugin-image";
 import { SmoothTransition } from "../components/smooth-transition";
+import { ButtonInternalLink } from "../components/button";
 
 interface WelcomeProps {
   title: string;
@@ -66,9 +67,7 @@ const StayUpToDate = () => {
         Latest Articles
       </span>
       <BlogRoll />
-      <Link className="mx-auto text-center btn btn-outline-primary" to="/blog">
-        Read More Articles
-      </Link>
+      <ButtonInternalLink link="/blog" text="Read More Articles" className="mx-auto" />
     </SmoothTransition>
   )
 };

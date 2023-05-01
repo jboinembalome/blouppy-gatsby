@@ -6,7 +6,7 @@ import { ImageDataLike } from "gatsby-plugin-image";
 interface ArticleInformationProps {
   author: string;
   date: string;
-  readingTime: string;
+  readingTime?: string;
   link?: string;
   authorimage?: ImageDataLike;
   className?: string;
@@ -23,23 +23,29 @@ export const ArticleInformation = ({
   return (
     <div className={`flex items-center justify-between ${className}`}>
       <div className="flex items-center">
-        <div className="flex-shrink-0">
-          <PreviewCompatibleImage
-            className="h-10 w-10 rounded-full relative z-0"
-            imageInfo={{
-              image: authorimage,
-              alt: `featured image thumbnail for post ${author}`,
-            }}
-          />
-        </div>
-        <div className="ml-3">
+        {authorimage && (
+          <div className="flex-shrink-0">
+            <PreviewCompatibleImage
+              className="h-10 w-10 rounded-full relative z-0"
+              imageInfo={{
+                image: authorimage,
+                alt: `featured image thumbnail for post ${author}`,
+              }}
+            />
+          </div>
+        )}
+        <div className={`${authorimage ? "ml-3" : ""}`}>
           <p className="text-sm font-medium text-gray-900 dark:text-gray-100">
             {author}
           </p>
           <div className="flex space-x-1 text-sm text-gray-500 dark:text-gray-400">
             <time dateTime={date}>{date}</time>
-            <span aria-hidden="true">&middot;</span>
-            <span>{readingTime}</span>
+            {readingTime && (
+              <>
+                <span aria-hidden="true">&middot;</span>
+                <span>{readingTime}</span>
+              </>
+            )}
           </div>
         </div>
       </div>

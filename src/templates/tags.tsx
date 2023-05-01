@@ -3,6 +3,7 @@ import { Link, PageProps, graphql } from "gatsby";
 import { Layout } from '../components/layout';
 import { kebabCase } from "lodash";
 import { Seo } from "../components/Seo";
+import { ButtonInternalLink } from "../components/button";
 
 type SiteMetadataType = {
   siteUrl: string;
@@ -53,21 +54,18 @@ const TagRoute = ({ data, pageContext }: PageProps<DataType>) => {
     <Layout>
       <Head tag={tag} siteMetadata={data.site.siteMetadata} />
 
-            <div className="text-gray-500 dark:text-gray-400 mx-auto">
-              <div className="text-lg max-w-prose mx-auto">
-                <h1 className="block text-3xl leading-8 font-extrabold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl">
-                  {tagHeader}{" "}
-                  <span className="text-violet-600 dark:text-violet-400">
-                    {tag}
-                  </span>
-                </h1>
-                <ul className="mt-8 divide-y divide-gray-200">{postLinks}</ul>
-
-                <Link className="mt-2 mx-auto text-center btn btn-outline-primary" to="/tags/">
-                  Browse all tags
-                </Link>
-              </div>
-            </div>
+      <div className="text-gray-500 dark:text-gray-400 mx-auto">
+        <div className="text-lg max-w-prose mx-auto">
+          <h1 className="block text-3xl leading-8 font-extrabold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl">
+            {tagHeader}{" "}
+            <span className="text-violet-600 dark:text-violet-400">
+              {tag}
+            </span>
+          </h1>
+          <ul className="mt-8 divide-y divide-gray-200">{postLinks}</ul>
+          <ButtonInternalLink link="/tags/" text="Browse all tags" className="mt-2 mx-auto" />
+        </div>
+      </div>
     </Layout>
   );
 };

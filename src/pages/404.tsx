@@ -1,6 +1,7 @@
 import React from 'react';
 import { Layout } from '../components/layout';
 import { Link } from 'gatsby';
+import { ButtonInternalLink } from '../components/button';
 
 const NotFoundPage = () => (
   <Layout>
@@ -10,9 +11,7 @@ const NotFoundPage = () => (
         <h1 className="mt-2 text-4xl font-extrabold text-gray-900 dark:text-gray-100 tracking-tight sm:text-5xl">Page not found</h1>
         <p className="mt-2 text-base text-gray-500">Sorry, we couldn’t find the page you’re looking for.</p>
         <div className="mt-6">
-          <Link className="btn btn-outline-primary inline-flex items-center" to="/">
-            Go back home
-          </Link>
+          <ButtonInternalLink link="/" text="Go back home" />
         </div>
       </div>
     </div>

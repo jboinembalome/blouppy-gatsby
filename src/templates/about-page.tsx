@@ -2,7 +2,6 @@ import React from 'react'
 import { PageProps, graphql } from 'gatsby'
 import { Layout } from '../components/layout';
 import { AboutPageTemplate } from './about-page-template'
-import { HTMLContent } from '../components/Content'
 import { Seo } from "../components/Seo"
 import { IGatsbyImageData, getSrc } from "gatsby-plugin-image"
 
@@ -29,7 +28,7 @@ type DataType = {
     siteMetadata: SiteMetadataType;
   }
   markdownRemark: {
-    html: string | TrustedHTML;
+    html: string;
     frontmatter: FrontmatterType
   };
 };
@@ -41,7 +40,6 @@ const AboutPage = ({ data }: PageProps<DataType>) => {
     <Layout>
       <Head siteMetadata={data.site.siteMetadata} frontmatter={frontmatter}/>
       <AboutPageTemplate
-        contentComponent={HTMLContent}
         title={frontmatter.title}
         aboutimage={frontmatter.aboutimage}
         content={html}

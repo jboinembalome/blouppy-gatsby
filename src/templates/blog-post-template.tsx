@@ -23,11 +23,11 @@ export const BlogPostTemplate = (props: BlogPostTemplateProps) => {
       image={props.image}
       imageLink={props.imageLink}
       imageCreator={props.imageCreator}
+      imageSource="https://unsplash.com/"
       author={props.author} 
       authorimage={props.authorimage} 
       readingTime={props.readingTime} 
       content={props.content} 
-      contentComponent={props.contentComponent}
       disqusConfig={disqusConfig} />
   );
 };

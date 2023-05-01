@@ -2,7 +2,6 @@ import React from "react";
 import { PageProps, graphql } from "gatsby";
 import { Layout } from '../components/layout';
 import { BlogPostTemplate } from "./blog-post-template";
-import { HTMLContent } from "../components/Content";
 import { Seo } from "../components/Seo";
 import { IGatsbyImageData, getSrc } from "gatsby-plugin-image";
 
@@ -62,7 +61,6 @@ const BlogPost = ({ data }: PageProps<DataType>) => {
       />
       <BlogPostTemplate
         content={post.html}
-        contentComponent={HTMLContent}
         description={post.frontmatter.description}
         author={post.frontmatter.author}
         authorimage={post.frontmatter.authorimage}
