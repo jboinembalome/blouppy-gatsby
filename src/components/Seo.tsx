@@ -32,9 +32,12 @@ export const Seo = ({ description, title, url, children }: SeoProps) => {
       <meta property="og:url" content={metaUrl} />
       <meta property="og:site_name" content={siteName} />
       <meta name="twitter:creator" content={siteMetadata?.social?.twitter || ``} />
+      <meta name="twitter:url" content={siteMetadata?.social?.twitterUrl || ``} />
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:title" content={siteMetadata?.author?.name || ``} />
       <meta name="twitter:description" content={siteMetadata?.author?.summary || ``} />
+      <meta name="linkedin:url" content={siteMetadata?.social?.linkedinUrl || ``} />
+      <meta name="github:url" content={siteMetadata?.social?.githubUrl || ``} />
       <meta name="theme-color" content="#fff" />
       {children}
     </Helmet>

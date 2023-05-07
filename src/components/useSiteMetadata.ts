@@ -16,6 +16,9 @@ export const useSiteMetadata = () => {
             canonicalUrl
             social {
               twitter
+              twitterUrl
+              linkedinUrl
+              githubUrl
             }
           }
         }

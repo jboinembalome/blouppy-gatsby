@@ -24,6 +24,9 @@ interface ResumePageTemplateProps {
   englishResumeJB: string;
   frenchResumeJB: string;
   content: string | TrustedHTML;
+  twitterUrl: string;
+  linkedinUrl: string;
+  githubUrl: string;
 }
 
 interface SkillsProps {
@@ -59,22 +62,25 @@ export const ResumePageTemplate = ({
   englishResumeJB,
   frenchResumeJB,
   content,
+  twitterUrl,
+  linkedinUrl,
+  githubUrl
 }: ResumePageTemplateProps) => {
 
   const socials: SocialLink[] = [
     {
       name: "Twitter",
-      link: "https://twitter.com/JBoinembalome",
+      link: twitterUrl,
       icon: <TwitterIcon className="w-5 h-5" />
     },
     {
       name: "LinkedIn",
-      link: "https://fr.linkedin.com/in/jimmy-boinembalome-87281a189",
+      link: linkedinUrl,
       icon: <LinkedInIcon className="w-5 h-5" />
     },
     {
       name: "Github",
-      link: "https://github.com/jboinembalome",
+      link: githubUrl,
       icon: <GithubIcon className="w-5 h-5" />
     },
   ];
@@ -86,7 +92,6 @@ export const ResumePageTemplate = ({
           {title}
         </h1>
         <UserCard username="Jimmy Boinembalome" photo={resumeimage} altPhoto="resume image" job={job} socials={socials} socialsClassName="flex justify-center space-x-5" />
-
       </div>
 
       <HTMLContent className="unreset prose lg:prose-lg dark:prose-invert prose-indigo" content={content} />
@@ -95,7 +100,7 @@ export const ResumePageTemplate = ({
         <Skills title="Technical Skills" skills={technicalSkills} color="bg-violet-100 text-violet-800" isRoundedFull={true} />
         <Skills title="Soft Skills" skills={softSkills} color="bg-amber-100 text-amber-800" isRoundedFull={false} />
 
-        <div className="munreset prose lg:prose-lg dark:prose-invert prose-indigo">
+        <div className="unreset prose lg:prose-lg dark:prose-invert prose-indigo">
           <h1>Download</h1>
           <p>If you wish, you can download my resume: </p>
           <div className="mt-6 space-y-4 flex flex-col justify-between sm:space-y-0 sm:flex-row">

@@ -15,6 +15,8 @@ const Head = () => {
 
 const Index = () => {
   const [state, setState] = useState({});
+  const siteMetadata = useSiteMetadata();
+
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setState({ [e.target.name]: e.target.value })
@@ -66,13 +68,13 @@ const Index = () => {
               </dl>
               <ul role="list" className="mt-8 flex space-x-12">
                 <li>
-                  <a className="text-violet-200 dark:text-gray-800 hover:text-violet-100 dark:hover:text-gray-900" href="https://fr.linkedin.com/in/jimmy-boinembalome-87281a189" target="_blank">
+                  <a className="text-violet-200 dark:text-gray-800 hover:text-violet-100 dark:hover:text-gray-900" href={siteMetadata?.social?.linkedinUrl} target="_blank">
                     <span className="sr-only">LinkedIn</span>
                     <LinkedInIcon className="w-6 h-6" />
                   </a>
                 </li>
                 <li>
-                  <a className="text-violet-200 dark:text-gray-800 hover:text-violet-100 dark:hover:text-gray-900" href="https://twitter.com/JBoinembalome" target="_blank">
+                  <a className="text-violet-200 dark:text-gray-800 hover:text-violet-100 dark:hover:text-gray-900" href={siteMetadata?.social?.twitterUrl} target="_blank">
                     <span className="sr-only">Twitter</span>
                     <TwitterIcon className="w-6 h-6" />
                   </a>

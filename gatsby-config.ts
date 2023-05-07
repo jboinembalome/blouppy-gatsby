@@ -23,6 +23,9 @@ const config: GatsbyConfig = {
     canonicalUrl: siteUrl,
     social: {
       twitter: `@JBoinembalome`,
+      twitterUrl: `https://twitter.com/JBoinembalome`,
+      linkedinUrl: `https://fr.linkedin.com/in/jimmy-boinembalome-87281a189`,
+      githubUrl: `https://github.com/jboinembalome`
     },
   },
   plugins: [

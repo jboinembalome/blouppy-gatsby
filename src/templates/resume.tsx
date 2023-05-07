@@ -9,9 +9,16 @@ type AuthorType = {
   name: string;
 };
 
+type SocialType = {
+  twitterUrl: string;
+  linkedinUrl: string;
+  githubUrl: string;
+};
+
 type SiteMetadataType = {
   author: AuthorType;
   siteUrl: string;
+  social: SocialType;
 };
 
 type FrontmatterType = {
@@ -52,6 +59,9 @@ const ResumePage = ({ data }: PageProps<DataType>) => {
         englishResumeJB={frontmatter.englishResumeJB}
         frenchResumeJB={frontmatter.frenchResumeJB}
         content={html}
+        twitterUrl={data.site.siteMetadata.social.twitterUrl}
+        linkedinUrl={data.site.siteMetadata.social.linkedinUrl}
+        githubUrl={data.site.siteMetadata.social.githubUrl}
       />
     </Layout>
   );
@@ -94,6 +104,11 @@ export const resumePageQuery = graphql`
           name
         }
         siteUrl
+        social {
+          twitterUrl
+          linkedinUrl
+          githubUrl
+        }
       }
     }
     markdownRemark(id: { eq: $id }) {

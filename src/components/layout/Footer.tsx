@@ -5,33 +5,40 @@ import {
   TwitterIcon,
 } from "../icons/svg/social/Icons";
 import logo from '../../img/logo.png'
+import { useSiteMetadata } from "../useSiteMetadata";
 
 export const Footer = () => {
+  const siteMetadata = useSiteMetadata();
+  
+
   const navigation = {
     social: [
       {
         name: "LinkedIn",
-        href: "https://fr.linkedin.com/in/jimmy-boinembalome-87281a189",
+        href: siteMetadata?.social?.linkedinUrl,
         icon: (props: React.SVGProps<SVGSVGElement>) => (
           <LinkedInIcon {...props} />
         ),
       },
       {
         name: "Twitter",
-        href: "https://twitter.com/JBoinembalome",
+        href: siteMetadata?.social?.twitterUrl,
         icon: (props: React.SVGProps<SVGSVGElement>) => (
           <TwitterIcon {...props} />
         ),
       },
       {
         name: "GitHub",
-        href: "https://github.com/jboinembalome",
+        href: siteMetadata?.social?.githubUrl,
         icon: (props: React.SVGProps<SVGSVGElement>) => (
           <GithubIcon {...props} />
         ),
       },
     ],
   };
+
+  
+
 
   return (
     <footer className="bg-gray-800" aria-labelledby="footer-heading">
