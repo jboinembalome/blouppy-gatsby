@@ -7,7 +7,7 @@
 
 import React from "react";
 import { Helmet } from "react-helmet";
-import { useSiteMetadata } from './useSiteMetadata';
+import { useSiteMetadata } from '../hooks/useSiteMetadata';
 
 interface SeoProps {
   description?: string;
