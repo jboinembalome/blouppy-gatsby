@@ -77,7 +77,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
     items: blogPosts, // An array of objects to paginate
     itemsPerPage: 5, // How many items you want per page
     pathPrefix: pathPrefix, // Creates pages like `/blog`, `/blog/page/2`, etc
-    component: resolve("./src/templates/blog-list.tsx"),
+    component: resolve("./src/pages/blog/index.tsx"),
   });
 
   // Tag pages:
