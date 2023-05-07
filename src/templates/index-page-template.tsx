@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
-import BlogRoll from "../components/BlogRoll";
+import { BlogRoll } from "../components/BlogRoll";
 import PreviewCompatibleImage from "../components/PreviewCompatibleImage";
 import { IGatsbyImageData } from "gatsby-plugin-image";
 import { SmoothTransition } from "../components/smooth-transition";
