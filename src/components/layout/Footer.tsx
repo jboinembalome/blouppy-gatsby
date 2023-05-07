@@ -5,7 +5,7 @@ import {
   TwitterIcon,
 } from "../icons/svg/social/Icons";
 import logo from '../../img/logo.png'
-import { useSiteMetadata } from "../useSiteMetadata";
+import { useSiteMetadata } from "../../hooks/useSiteMetadata";
 
 export const Footer = () => {
   const siteMetadata = useSiteMetadata();
