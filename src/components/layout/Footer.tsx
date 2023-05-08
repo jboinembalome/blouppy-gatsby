@@ -4,8 +4,8 @@ import {
   LinkedInIcon,
   TwitterIcon,
 } from "../icons/svg/social/Icons";
-import logo from '../../img/logo.png'
 import { useSiteMetadata } from "../../hooks/useSiteMetadata";
+import { withPrefix } from "gatsby";
 
 export const Footer = () => {
   const siteMetadata = useSiteMetadata();
@@ -50,7 +50,7 @@ export const Footer = () => {
           <div className="space-y-8 xl:col-span-1">
             <img
               className="h-10 w-10"
-              src={logo}
+              src={`${withPrefix("/")}img/logo.png`}
               alt="Blouppy"
             />
             <p className="text-gray-300 text-base">
