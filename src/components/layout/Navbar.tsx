@@ -5,7 +5,7 @@ import { Disclosure } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Search from "../search";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
-import { ThemeToggle } from "../ThemeToggle";
+import { ThemeToggle } from "../theme-toggle/ThemeToggle";
 import { BlouppyIcon } from "../icons/svg/BlouppyIcon";
 import { BlouppyWithTextIcon } from "../icons/svg/BlouppyWithTextIcon";
 import { LinkGetProps } from "@reach/router";

@@ -14,8 +14,6 @@ interface ContentProps {
   className?: string;
 }
 
-const Content = ({ content, className }: ContentProps) => (
+export const Content = ({ content, className }: ContentProps) => (
   <div className={className}>{content}</div>
 );
-
-export default Content;

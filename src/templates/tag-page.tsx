@@ -2,7 +2,7 @@ import React from "react";
 import { Link, PageProps, graphql } from "gatsby";
 import { Layout } from '../components/layout';
 import { kebabCase } from "lodash";
-import { Seo } from "../components/Seo";
+import { Seo } from "../components/seo/Seo";
 import { ButtonInternalLink } from "../components/button";
 import { TagPageQuery } from "../types/graphql-queries";
 

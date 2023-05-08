@@ -1,7 +1,7 @@
 import React from 'react'
 import { Layout } from '../../components/layout';
 import { Link } from 'gatsby'
-import { Seo } from "../../components/Seo"
+import { Seo } from "../../components/seo/Seo"
 import { useSiteMetadata } from "../../hooks/useSiteMetadata"
 import { ButtonInternalLink } from '../../components/button';
 

@@ -2,7 +2,7 @@ import React from "react";
 import { PageProps, graphql } from "gatsby";
 import { Layout } from '../components/layout';
 import { ResumePageTemplate } from "./resume-template";
-import { Seo } from "../components/Seo";
+import { Seo } from "../components/seo/Seo";
 import { ImageDataLike, getSrc } from "gatsby-plugin-image";
 import { ResumePageQuery } from "../types/graphql-queries";
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { Layout } from '../../components/layout';
-import { Seo } from "../../components/Seo";
+import { Seo } from "../../components/seo/Seo";
 import { useSiteMetadata } from "../../hooks/useSiteMetadata";
 import { Banner } from "../../components/banner";
 import { Card, CardImage, CardContent } from "../../components/card";

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import { ImageDataLike } from 'gatsby-plugin-image';
-import PreviewCompatibleImage from '../PreviewCompatibleImage';
+import PreviewCompatibleImage from '../preview-compatible-image/PreviewCompatibleImage';
 
 export interface CardImageProps {
     link?: string;

@@ -1,6 +1,6 @@
 import React from "react";
-import { ThreeLastBlogs } from "../components/ThreeLastBlogs";
-import PreviewCompatibleImage from "../components/PreviewCompatibleImage";
+import { ThreeLastBlogs } from "../components/blog/ThreeLastBlogs";
+import PreviewCompatibleImage from "../components/preview-compatible-image/PreviewCompatibleImage";
 import { IGatsbyImageData } from "gatsby-plugin-image";
 import { SmoothTransition } from "../components/smooth-transition";
 import { ButtonInternalLink } from "../components/button";

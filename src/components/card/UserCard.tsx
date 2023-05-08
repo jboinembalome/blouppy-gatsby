@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card } from './Card';
-import PreviewCompatibleImage from '../PreviewCompatibleImage';
+import PreviewCompatibleImage from '../preview-compatible-image/PreviewCompatibleImage';
 import { ImageDataLike } from 'gatsby-plugin-image';
 import { SocialLink, SocialLinks } from '../social-link';
 

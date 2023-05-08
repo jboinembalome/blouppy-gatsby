@@ -2,7 +2,7 @@ import React from 'react'
 import { PageProps, graphql } from 'gatsby'
 import { Layout } from '../components/layout';
 import { AboutPageTemplate } from './about-page-template'
-import { Seo } from "../components/Seo"
+import { Seo } from "../components/seo/Seo"
 import { ImageDataLike, getSrc } from "gatsby-plugin-image"
 import { AboutPageQuery } from '../types/graphql-queries';
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { HTMLContent } from "../components/Content";
+import { HTMLContent } from "../components/layout/Content";
 import {
   GithubIcon,
   LinkedInIcon,

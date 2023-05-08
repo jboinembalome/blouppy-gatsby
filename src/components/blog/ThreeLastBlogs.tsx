@@ -1,6 +1,6 @@
 import React from "react";
-import { Card, CardImage, CardContent } from "./card";
-import { useThreeLastBlogs } from "../hooks/useThreeLastBlogs";
+import { Card, CardImage, CardContent } from "../card";
+import { useThreeLastBlogs } from "../../hooks/useThreeLastBlogs";
 
 export const ThreeLastBlogs = () => {
   const blogs = useThreeLastBlogs();

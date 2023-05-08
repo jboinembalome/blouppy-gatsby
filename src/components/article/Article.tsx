@@ -1,6 +1,6 @@
 import { IGatsbyImageData } from "gatsby-plugin-image";
 import React from "react";
-import Content, { HTMLContent } from "../Content";
+import { Content, HTMLContent } from "../layout/Content";
 import { ArticleInformation } from "./ArticleInformation";
 import { ArticleImage } from "./ArticleImage";
 import { ArticleTags } from "./ArticleTags";

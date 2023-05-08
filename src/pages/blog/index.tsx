@@ -1,7 +1,7 @@
 import React from 'react'
 import { PageProps, graphql } from 'gatsby'
 import { Layout } from '../../components/layout';
-import { Seo } from "../../components/Seo"
+import { Seo } from "../../components/seo/Seo"
 import { Banner } from '../../components/banner'
 import { Pagination } from '../../components/pagination'
 import { Card, CardImage, CardContent } from '../../components/card';
@@ -27,6 +27,7 @@ const BlogList = ({ data }: BlogListProps) => {
 };
 
 const BlogsPage = ({ data, pageContext }: PageProps<BlogsPageQuery>) => {
+  console.log(data)
   const bannerTitle = "Latest Articles";
   const bannerSubtitle = "On various topics such as C#, Asp.Net Core, WPF, Angular and many others! 😉";
   const previousPagePath = (pageContext as any).previousPagePath;
@@ -56,7 +57,7 @@ const Head = () => {
 export default BlogsPage
 
 export const pageQuery = graphql`
-  query BlogsPage($skip: Int!, $limit: Int!) {
+  query BlogsPage($skip: Int, $limit: Int) {
     allMarkdownRemark(
       sort: {frontmatter: {date: DESC}}
       skip: $skip

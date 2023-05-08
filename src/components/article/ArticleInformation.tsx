@@ -1,5 +1,5 @@
 import React from "react";
-import PreviewCompatibleImage from "../PreviewCompatibleImage";
+import PreviewCompatibleImage from "../preview-compatible-image/PreviewCompatibleImage";
 import { GithubIcon } from "../icons/svg/social/Icons";
 import { ImageDataLike } from "gatsby-plugin-image";
 

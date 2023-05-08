@@ -3,7 +3,7 @@ import { navigate } from 'gatsby-link'
 import { Layout } from '../../components/layout';
 import { EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline'
 import { LinkedInIcon, TwitterIcon } from '../../components/icons/svg/social/Icons'
-import { Seo } from "../../components/Seo"
+import { Seo } from "../../components/seo/Seo"
 import { useSiteMetadata } from "../../hooks/useSiteMetadata"
 
 const description = "Would you like to contact me? Send me a message via the form or send me an e-mail. I will be happy to answer you!";

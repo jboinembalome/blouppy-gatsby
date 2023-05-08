@@ -1,6 +1,6 @@
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 import React from 'react';
-import PreviewCompatibleImage from '../PreviewCompatibleImage';
+import PreviewCompatibleImage from '../preview-compatible-image/PreviewCompatibleImage';
 
 export interface ArticleImageProps {
   image: {
