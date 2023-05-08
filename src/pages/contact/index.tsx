@@ -45,23 +45,23 @@ const Index = () => {
           <h2 className="sr-only">Contact me</h2>
 
           <div className="grid grid-cols-1 lg:grid-cols-3">
-            <div className="relative overflow-hidden py-10 px-6 border border-transparent rounded-t-lg lg:rounded-t-none lg:rounded-l-lg shadow bg-violet-700 dark:bg-violet-400 sm:px-10 xl:p-12">
+            <div className="relative overflow-hidden py-10 px-6 border border-transparent rounded-t-lg lg:rounded-l-lg shadow bg-violet-700 dark:bg-violet-400 sm:px-10 xl:p-12">
               <h3 className="text-lg font-medium text-white dark:text-gray-800">Contact Me</h3>
-              <p className="mt-6 text-base text-violet-50 dark:text-gray-900 max-w-3xl">
+              <p className="mt-6 text-sm md:text-base text-violet-50 dark:text-gray-900 max-w-3xl">
                 {description}
               </p>
               <dl className="mt-8 space-y-6">
                 <dt>
                   <span className="sr-only">Phone number</span>
                 </dt>
-                <dd className="flex text-base text-violet-50 dark:text-gray-900">
+                <dd className="flex text-sm md:text-base text-violet-50 dark:text-gray-900">
                   <PhoneIcon className="flex-shrink-0 w-6 h-6 text-violet-200 dark:text-gray-800" aria-hidden="true" />
                   <span className="ml-3">+33 6 52 26 46 76</span>
                 </dd>
                 <dt>
                   <span className="sr-only">Email</span>
                 </dt>
-                <dd className="flex text-base text-violet-50 dark:text-gray-900">
+                <dd className="flex text-sm md:text-base text-violet-50 dark:text-gray-900">
                   <EnvelopeIcon className="flex-shrink-0 w-6 h-6 text-violet-200 dark:text-gray-800" aria-hidden="true" />
                   <span className="ml-3">jboinembalome@gmail.com</span>
                 </dd>
