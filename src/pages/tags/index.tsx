@@ -1,55 +1,16 @@
 import React from "react";
-import { kebabCase } from "lodash";
 import { Seo } from "../../components/Seo";
-import { Link, PageProps, graphql } from "gatsby";
+import { PageProps, graphql } from "gatsby";
 import { Layout } from '../../components/layout';
+import { TagsPageQuery } from "../../types/graphql-queries";
+import { TagWithCount } from "../../components/tag";
 
-type SiteMetadataType = {
-  siteUrl: string;
-};
-
-type GroupType = {
-  fieldValue: string;
-  totalCount: number;
-};
-
-type DataType = {
-  site: {
-    siteMetadata: SiteMetadataType;
-  };
-  allMarkdownRemark: {
-    group: GroupType[];
-  };
-};
-
-interface TagProps {
-  tag: GroupType;
-}
-
-const Tag = ({ tag }: TagProps) => (
-  <li key={tag.fieldValue}>
-    <span className="relative z-0 inline-flex shadow-sm rounded-md">
-      <Link
-        to={`/tags/${kebabCase(tag.fieldValue)}/`}
-        className="relative inline-flex items-center px-4 py-2 rounded-l-md border border-gray-300 bg-white dark:bg-gray-900 text-sm font-medium text-gray-700 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 focus:z-10 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-violet-500"
-      >
-        {tag.fieldValue}
-      </Link>
-      <span className="-ml-px relative inline-flex items-center px-3 py-2 rounded-r-md border border-gray-300 bg-white dark:bg-gray-900 text-sm font-medium text-gray-700 dark:text-gray-400">
-        {tag.totalCount}
-      </span>
-    </span>
-  </li>
-);
-
-const TagsPage = ({ data }: PageProps<DataType>) => {
-  const {
-    allMarkdownRemark: { group },
-  } = data;
+const TagsPage = ({ data }: PageProps<TagsPageQuery>) => {
+  const { allMarkdownRemark: { group } } = data;
 
   return (
     <Layout>
-      <Head siteMetadata={data.site.siteMetadata} />
+      <Head siteUrl={data.site.siteMetadata.siteUrl} />
       <div className="max-w-prose mx-auto">
         <div className="text-lg max-w-prose mx-auto">
           <h1 className="block text-3xl leading-8 font-extrabold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl">
@@ -58,7 +19,9 @@ const TagsPage = ({ data }: PageProps<DataType>) => {
 
           <ul className="mt-8 flex flex-wrap gap-2">
             {group.map((tag) => (
-              <Tag key={tag.fieldValue} tag={tag} />
+              <li key={tag.fieldValue}>
+                <TagWithCount tag={tag} />
+              </li>
             ))}
           </ul>
         </div>
@@ -68,21 +31,21 @@ const TagsPage = ({ data }: PageProps<DataType>) => {
 };
 
 interface HeadProps {
-  siteMetadata: SiteMetadataType;
+  siteUrl: string;
 }
 
-const Head = ({ siteMetadata }: HeadProps) => (
+const Head = ({ siteUrl }: HeadProps) => (
   <Seo
     title="Tags"
     description="List of tags for all articles."
-    url={`${siteMetadata.siteUrl}/tags`}
+    url={`${siteUrl}/tags`}
   />
 );
 
 export default TagsPage;
 
 export const tagPageQuery = graphql`
-  query TagsQuery {
+  query TagsPage {
     site {
       siteMetadata {
         siteUrl

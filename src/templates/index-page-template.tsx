@@ -1,6 +1,5 @@
 import React from "react";
-import { Link } from "gatsby";
-import { BlogRoll } from "../components/BlogRoll";
+import { ThreeLastBlogs } from "../components/ThreeLastBlogs";
 import PreviewCompatibleImage from "../components/PreviewCompatibleImage";
 import { IGatsbyImageData } from "gatsby-plugin-image";
 import { SmoothTransition } from "../components/smooth-transition";
@@ -66,7 +65,7 @@ const StayUpToDate = () => {
       <span className="text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl">
         Latest Articles
       </span>
-      <BlogRoll />
+      <ThreeLastBlogs />
       <ButtonInternalLink link="/blog" text="Read More Articles" className="mx-auto" />
     </SmoothTransition>
   )

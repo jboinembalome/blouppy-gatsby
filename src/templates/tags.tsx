@@ -4,37 +4,9 @@ import { Layout } from '../components/layout';
 import { kebabCase } from "lodash";
 import { Seo } from "../components/Seo";
 import { ButtonInternalLink } from "../components/button";
+import { TagPageQuery } from "../types/graphql-queries";
 
-type SiteMetadataType = {
-  siteUrl: string;
-};
-
-type FrontmatterType = {
-  title: string;
-};
-
-type NodeType = {
-  fields: {
-    slug: string;
-  };
-  frontmatter: FrontmatterType;
-};
-
-type EdgeType = {
-  node: NodeType;
-};
-
-type DataType = {
-  site: {
-    siteMetadata: SiteMetadataType;
-  };
-  allMarkdownRemark: {
-    totalCount: number;
-    edges: EdgeType[];
-  };
-};
-
-const TagRoute = ({ data, pageContext }: PageProps<DataType>) => {
+const TagPage = ({ data, pageContext }: PageProps<TagPageQuery>) => {
   const posts = data.allMarkdownRemark.edges;
   const postLinks = posts.map((post) => (
     <li key={post.node.fields.slug} className="px-4 py-4 sm:px-0">
@@ -47,12 +19,11 @@ const TagRoute = ({ data, pageContext }: PageProps<DataType>) => {
   ));
   const tag = (pageContext as any).tag;
   const totalCount = data.allMarkdownRemark.totalCount;
-  const tagHeader = `${totalCount} post${totalCount === 1 ? "" : "s"
-    } tagged with`;
+  const tagHeader = `${totalCount} post${totalCount === 1 ? "" : "s"} tagged with`;
 
   return (
     <Layout>
-      <Head tag={tag} siteMetadata={data.site.siteMetadata} />
+      <Head tag={tag} siteUrl={data.site.siteMetadata.siteUrl} />
 
       <div className="text-gray-500 dark:text-gray-400 mx-auto">
         <div className="text-lg max-w-prose mx-auto">
@@ -72,17 +43,17 @@ const TagRoute = ({ data, pageContext }: PageProps<DataType>) => {
 
 interface HeadProps {
   tag: string;
-  siteMetadata: SiteMetadataType;
+  siteUrl: string;
 }
 
-const Head = ({ tag, siteMetadata }: HeadProps) => {
+const Head = ({ tag, siteUrl }: HeadProps) => {
   const description = `Article(s) tagged with ${tag}`;
-  const url = `${siteMetadata.siteUrl}/tags/${kebabCase(tag)}`;
+  const url = `${siteUrl}/tags/${kebabCase(tag)}`;
 
   return <Seo title={tag} description={description} url={url} />;
 };
 
-export default TagRoute;
+export default TagPage;
 
 export const tagPageQuery = graphql`
   query TagPage($tag: String) {

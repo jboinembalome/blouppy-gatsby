@@ -3,54 +3,16 @@ import { Layout } from '../../components/layout';
 import { Seo } from "../../components/Seo";
 import { useSiteMetadata } from "../../hooks/useSiteMetadata";
 import { Banner } from "../../components/banner";
-import { IGatsbyImageData } from "gatsby-plugin-image";
 import { Card, CardImage, CardContent } from "../../components/card";
 import { PageProps, graphql } from "gatsby";
-
-type NodeType = {
-  timeToRead: number;
-  excerpt: string;
-  id: string;
-  fields: {
-    slug: string;
-  };
-  frontmatter: {
-    title: string;
-    templateKey: string;
-    date: string;
-    category: string;
-    categorycolor: string;
-    featuredpost: boolean;
-    featuredimage: {
-      childImageSharp: {
-        gatsbyImageData: IGatsbyImageData;
-      };
-    };
-    author: string;
-    authorimage: {
-      childImageSharp: {
-        gatsbyImageData: IGatsbyImageData;
-      };
-    };
-    link: string;
-  };
-};
-
-type EdgeType = {
-  node: NodeType;
-};
-
-type DataType = {
-  allMarkdownRemark: {
-    edges: EdgeType[];
-  };
-};
+import { PortfolioPageQuery } from "../../types/graphql-queries";
 
 interface ProjectListProps {
-  projects: EdgeType[];
+  data: PortfolioPageQuery;
 }
 
-const ProjectList = ({ projects }: ProjectListProps) => {
+const ProjectList = ({ data }: ProjectListProps) => {
+  const projects = data.allMarkdownRemark.edges;
   return (
     <section className="mt-8 mx-auto flex flex-col gap-y-8">
       {projects && projects.map(({ node: project }) => (
@@ -69,7 +31,7 @@ const Head = () => {
   return <Seo title="Portfolio" description={description} url={`${siteUrl}/portfolio`} />
 };
 
-const PortfolioPage = ({ data }: PageProps<DataType>) => {
+const PortfolioPage = ({ data }: PageProps<PortfolioPageQuery>) => {
   const bannerTitle = "Portfolio";
   const bannerSubtitle = "Some projects I am happy to share with you 👍";
 
@@ -77,7 +39,7 @@ const PortfolioPage = ({ data }: PageProps<DataType>) => {
     <Layout>
       <Head />
       <Banner title={bannerTitle} subtitle={bannerSubtitle} className="bg-rose-300 dark:bg-indigo-400 rounded-lg shadow-xl overflow-hidden" />
-      <ProjectList projects={data.allMarkdownRemark.edges} />
+      <ProjectList data={data} />
     </Layout>
   );
 };

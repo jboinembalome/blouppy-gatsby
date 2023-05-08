@@ -2,63 +2,18 @@ import React from 'react'
 import { PageProps, graphql } from 'gatsby'
 import { Layout } from '../../components/layout';
 import { Seo } from "../../components/Seo"
-import { IGatsbyImageData } from 'gatsby-plugin-image'
 import { Banner } from '../../components/banner'
 import { Pagination } from '../../components/pagination'
 import { Card, CardImage, CardContent } from '../../components/card';
-
-type SiteMetadataType = {
-  siteUrl: string;
-};
-
-type FrontmatterType = {
-  title: string;
-  templateKey: string;
-  date: string;
-  category: string;
-  categorycolor: string;
-  featuredpost: boolean;
-  featuredimage: {
-    childImageSharp: {
-      gatsbyImageData: IGatsbyImageData;
-    };
-  };
-  author: string;
-  authorimage: {
-    childImageSharp: {
-      gatsbyImageData: IGatsbyImageData;
-    };
-  };
-};
-
-type NodeType = {
-  timeToRead: number;
-  excerpt: string;
-  id: string;
-  fields: {
-    slug: string;
-  };
-  frontmatter: FrontmatterType;
-};
-
-type EdgeType = {
-  node: NodeType;
-};
-
-type DataType = {
-  site: {
-    siteMetadata: SiteMetadataType;
-  }
-  allMarkdownRemark: {
-    edges: EdgeType[];
-  };
-};
+import { BlogsPageQuery } from '../../types/graphql-queries';
+import { useSiteMetadata } from '../../hooks/useSiteMetadata';
 
 interface BlogListProps {
-  blogs: EdgeType[];
+  data: BlogsPageQuery;
 }
 
-const BlogList = ({ blogs }: BlogListProps) => {
+const BlogList = ({ data }: BlogListProps) => {
+  const blogs = data.allMarkdownRemark.edges;
   return (
      <section className="mt-8 mx-auto flex flex-col gap-y-8">
       {blogs && blogs.map(({ node: blog }) => (
@@ -71,7 +26,7 @@ const BlogList = ({ blogs }: BlogListProps) => {
   )
 };
 
-const BlogListPage = ({ data, pageContext }: PageProps<DataType>) => {
+const BlogsPage = ({ data, pageContext }: PageProps<BlogsPageQuery>) => {
   const bannerTitle = "Latest Articles";
   const bannerSubtitle = "On various topics such as C#, Asp.Net Core, WPF, Angular and many others! 😉";
   const previousPagePath = (pageContext as any).previousPagePath;
@@ -83,33 +38,25 @@ const BlogListPage = ({ data, pageContext }: PageProps<DataType>) => {
 
   return (
     <Layout>
-      <Head siteMetadata={data.site.siteMetadata} />
+      <Head />
       <Banner title={bannerTitle} subtitle={bannerSubtitle} className="bg-violet-700 dark:bg-violet-400 rounded-lg shadow-xl overflow-hidden" />
-      <BlogList blogs={data.allMarkdownRemark.edges} />
+      <BlogList data={data} />
       <Pagination previousPagePath={previousPagePath} nextPagePath={nextPagePath} humanPageNumber={humanPageNumber} numberOfPages={numberOfPages} previousPageButtonText={previousPageButtonText} nextPageButtonText={nextPageButtonText} className="py-4 flex items-center justify-between" />
     </Layout>
   )
 }
 
-interface HeadProps {
-  siteMetadata: SiteMetadataType;
-}
-
-const Head = ({ siteMetadata }: HeadProps) => {
+const Head = () => {
+  const { siteUrl } = useSiteMetadata();
   const description = "Blog of technology articles";
 
-  return <Seo title="Blog" description={description} url={`${siteMetadata.siteUrl}/blog`} />
+  return <Seo title="Blog" description={description} url={`${siteUrl}/blog`} />
 };
 
-export default BlogListPage
+export default BlogsPage
 
 export const pageQuery = graphql`
-  query BlogListPage($skip: Int!, $limit: Int!) {
-    site {
-      siteMetadata {
-        siteUrl
-      }
-    }
+  query BlogsPage($skip: Int!, $limit: Int!) {
     allMarkdownRemark(
       sort: {frontmatter: {date: DESC}}
       skip: $skip

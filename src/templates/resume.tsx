@@ -3,53 +3,14 @@ import { PageProps, graphql } from "gatsby";
 import { Layout } from '../components/layout';
 import { ResumePageTemplate } from "./resume-template";
 import { Seo } from "../components/Seo";
-import { IGatsbyImageData, getSrc } from "gatsby-plugin-image";
+import { ImageDataLike, getSrc } from "gatsby-plugin-image";
+import { ResumePageQuery } from "../types/graphql-queries";
 
-type AuthorType = {
-  name: string;
-};
-
-type SocialType = {
-  twitterUrl: string;
-  linkedinUrl: string;
-  githubUrl: string;
-};
-
-type SiteMetadataType = {
-  author: AuthorType;
-  siteUrl: string;
-  social: SocialType;
-};
-
-type FrontmatterType = {
-  title: string;
-  resumeimage: {
-    childImageSharp: {
-      gatsbyImageData: IGatsbyImageData;
-    };
-  };
-  job: string;
-  technicalSkills: string[];
-  softSkills: string[];
-  englishResumeJB: string;
-  frenchResumeJB: string;
-};
-
-type DataType = {
-  site: {
-    siteMetadata: SiteMetadataType;
-  };
-  markdownRemark: {
-    html: string | TrustedHTML;
-    frontmatter: FrontmatterType;
-  };
-};
-
-const ResumePage = ({ data }: PageProps<DataType>) => {
+const ResumePage = ({ data }: PageProps<ResumePageQuery>) => {
   const { frontmatter, html } = data.markdownRemark;
   return (
     <Layout>
-      <Head siteMetadata={data.site.siteMetadata} frontmatter={frontmatter} />
+      <Head title={frontmatter.title} siteUrl={data.site.siteMetadata.siteUrl} authorName={data.site.siteMetadata.author.name} resumeimage={frontmatter.resumeimage} />
       <ResumePageTemplate
         title={frontmatter.title}
         resumeimage={frontmatter.resumeimage}
@@ -68,27 +29,29 @@ const ResumePage = ({ data }: PageProps<DataType>) => {
 };
 
 interface HeadProps {
-  siteMetadata: SiteMetadataType;
-  frontmatter: FrontmatterType;
+  title: string;
+  siteUrl: string;
+  authorName: string;
+  resumeimage: ImageDataLike;
 }
 
-const Head = ({ siteMetadata, frontmatter }: HeadProps) => {
+const Head = ({ title, siteUrl, authorName, resumeimage }: HeadProps) => {
   const description = "Resume of Jimmy Boinembalome";
 
   return (
     <Seo
-      title={frontmatter.title}
+      title={title}
       description={description}
-      url={`${siteMetadata.siteUrl}/resume`}
+      url={`${siteUrl}/resume`}
     >
       <meta
         name="image"
-        content={`${siteMetadata.siteUrl}${getSrc(frontmatter.resumeimage)}`}
+        content={`${siteUrl}${getSrc(resumeimage)}`}
       />
-      <meta property="og:image:alt" content={siteMetadata.author.name} />
+      <meta property="og:image:alt" content={authorName} />
       <meta
         property="og:image"
-        content={`${siteMetadata.siteUrl}${getSrc(frontmatter.resumeimage)}`}
+        content={`${siteUrl}${getSrc(resumeimage)}`}
       />
     </Seo>
   );

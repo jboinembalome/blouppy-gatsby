@@ -1,6 +1,7 @@
 ---
 templateKey: 'about-page'
 title: About
+description: About Jimmy Boinembalome
 aboutimage: /img/jimmy2.jpg
 ---
 ## Beginning of Programmation
