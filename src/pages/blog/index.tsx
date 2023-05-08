@@ -27,7 +27,6 @@ const BlogList = ({ data }: BlogListProps) => {
 };
 
 const BlogsPage = ({ data, pageContext }: PageProps<BlogsPageQuery>) => {
-  console.log(data)
   const bannerTitle = "Latest Articles";
   const bannerSubtitle = "On various topics such as C#, Asp.Net Core, WPF, Angular and many others! 😉";
   const previousPagePath = (pageContext as any).previousPagePath;
