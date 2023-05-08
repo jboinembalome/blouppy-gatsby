@@ -70,22 +70,16 @@ const config: GatsbyConfig = {
       },
     },
     {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        path: `${__dirname}/src/img`,
-        name: 'images',
-      },
-    },
-    {
       resolve: `gatsby-plugin-sharp`,
       options: {
         defaults: {
-          placeholder: `dominantColor`,
+          placeholder: `none`,
           backgroundColor: `transparent`         
         },
       },
     },
-    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-image',
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -97,10 +91,9 @@ const config: GatsbyConfig = {
         background_color: `#ffffff`,
         theme_color: `#7c3aed`,
         display: `standalone`,
-        icon: 'src/img/logo.png', // This path is relative to the root of the site.
+        icon: 'static/img/logo.png', // This path is relative to the root of the site.
       },
     },
-    'gatsby-transformer-sharp',
     {
       resolve: `gatsby-plugin-disqus`,
       options: {
