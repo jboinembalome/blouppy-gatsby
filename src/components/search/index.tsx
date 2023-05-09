@@ -57,8 +57,8 @@ export default function Search({ indices, openModal, modalClosed }: SearchProps)
                                 leaveTo="opacity-0 scale-95"
                             >
                                 <div className="mx-auto max-w-xl transform divide-y divide-gray-100 overflow-hidden rounded-xl shadow-2xl transition-all">
-                                    <CustomSearchBox className="dark:bg-gray-700 dark:text-gray-100 relative" />
-                                    <SearchResult className="dark:bg-gray-700 dark:text-gray-100 p-4 max-h-72 scroll-py-2 overflow-y-auto py-2 text-sm text-gray-800"
+                                    <CustomSearchBox className="bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 relative" />
+                                    <SearchResult className="bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 p-4 max-h-72 scroll-py-2 overflow-y-auto py-2 text-sm"
                                         indices={indices} query={query}
                                     />
 

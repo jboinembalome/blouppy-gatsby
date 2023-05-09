@@ -19,7 +19,7 @@ export const Banner = ({ title, subtitle, className }: BannerProps) => {
               </p>
               {/* <a
             href="#"
-            className="mt-8 bg-white border border-transparent rounded-md shadow px-5 py-3 inline-flex items-center text-base font-medium text-violet-600 dark:text-violet-400 hover:bg-violet-50"
+            className="mt-8 bg-white border border-transparent rounded-md shadow px-5 py-3 inline-flex items-center text-base font-medium text-primary-500 dark:text-primary-300 hover:bg-primary-50"
           >
             Subscribe to newsletter
           </a> */}

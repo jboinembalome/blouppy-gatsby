@@ -12,7 +12,7 @@ export const Pc = ({ selected, ...props }: SvgSelectedProps) => (
       strokeLinejoin="round"
       className={
         selected
-          ? "stroke-violet-500 fill-violet-400/20"
+          ? "stroke-primary-400 fill-primary-300/20"
           : "stroke-gray-400 dark:stroke-gray-500"
       }
     />
@@ -22,7 +22,7 @@ export const Pc = ({ selected, ...props }: SvgSelectedProps) => (
       strokeLinecap="round"
       strokeLinejoin="round"
       className={
-        selected ? "stroke-violet-500" : "stroke-gray-400 dark:stroke-gray-500"
+        selected ? "stroke-primary-400" : "stroke-gray-400 dark:stroke-gray-500"
       }
     />
   </svg>

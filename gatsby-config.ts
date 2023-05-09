@@ -89,7 +89,7 @@ const config: GatsbyConfig = {
         description:
           'The personal website of Jimmy Boinembalome. Blouppy is a place where you can get information about tips, best practices, technologies around Microsoft such as .NET Core, WPF, ASP.NET Core but also about other topics. You can also find information about the creator of Blouppy if you wish.',
         background_color: `#ffffff`,
-        theme_color: `#7c3aed`,
+        theme_color: `#b5bfeb`,
         display: `standalone`,
         icon: 'static/img/logo.png', // This path is relative to the root of the site.
       },

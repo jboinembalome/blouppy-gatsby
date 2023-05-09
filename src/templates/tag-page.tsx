@@ -11,7 +11,7 @@ const TagPage = ({ data, pageContext }: PageProps<TagPageQuery>) => {
   const postLinks = posts.map((post) => (
     <li key={post.node.fields.slug} className="px-4 py-4 sm:px-0">
       <Link to={post.node.fields.slug}>
-        <h2 className="is-size-2 text-2xl leading-9 font-medium text-gray-900 dark:text-gray-100 hover:text-violet-600 dark:hover:text-violet-400">
+        <h2 className="is-size-2 text-2xl leading-9 font-medium text-gray-900 dark:text-gray-100 hover:text-primary-500 dark:hover:text-primary-300">
           {post.node.frontmatter.title}
         </h2>
       </Link>
@@ -29,7 +29,7 @@ const TagPage = ({ data, pageContext }: PageProps<TagPageQuery>) => {
         <div className="text-lg max-w-prose mx-auto">
           <h1 className="block text-3xl leading-8 font-extrabold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl">
             {tagHeader}{" "}
-            <span className="text-violet-600 dark:text-violet-400">
+            <span className="text-primary-500 dark:text-primary-300">
               {tag}
             </span>
           </h1>

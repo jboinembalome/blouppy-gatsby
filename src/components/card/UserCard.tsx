@@ -28,7 +28,7 @@ export const UserCard = ({ username, photo, altPhoto, job, socials, socialsClass
                     <div className="font-medium text-lg leading-6 space-y-1">
                         <p className="text-white">{username}</p>
                         {job && (
-                            <p className="text-violet-400 text-base">
+                            <p className="text-primary-400 dark:text-primary-300 text-base">
                                 {job}
                             </p>
                         )}

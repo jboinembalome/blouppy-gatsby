@@ -4,11 +4,11 @@
 }
 
 .btn {
-  @apply inline-flex gap-x-2 items-center justify-center px-4 py-2 border border-transparent text-center font-medium rounded-md shadow-sm text-white dark:text-gray-900 bg-violet-600 hover:bg-violet-700 dark:bg-violet-400 hover:dark:bg-violet-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-violet-500;
+  @apply inline-flex gap-x-2 items-center justify-center px-4 py-2 border border-transparent text-center font-medium rounded-md shadow-sm text-white dark:text-gray-900 bg-primary-500 hover:bg-primary-600 dark:bg-primary-300 hover:dark:bg-primary-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-400;
 }
 
 .btn-white-sm {
-  @apply inline-flex items-center justify-center px-3 py-2 border border-gray-300 shadow-sm text-center font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-violet-500;
+  @apply inline-flex items-center justify-center px-3 py-2 border border-gray-300 shadow-sm text-center font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-400;
 }
 
 // override style for prismjs
@@ -42,7 +42,7 @@
 }
 
 .gatsby-highlight-code-line {
-  @apply block pl-3 -ml-6 bg-violet-50/25 border-l-violet-500 dark:border-l-violet-400 border-solid border-l-4;
+  @apply block pl-3 -ml-6 bg-primary-50/25 border-l-primary-400 dark:border-l-primary-300 border-solid border-l-4;
 }
 
 // override style for gatsby-remark-code-buttons
@@ -53,7 +53,7 @@
 }
 
 .gatsby-code-button {
-  @apply flex gap-x-2 pl-1 border border-transparent text-sm font-medium rounded-md rounded-b-none shadow-sm text-white bg-violet-600 hover:bg-violet-700 dark:bg-violet-400 dark:hover:bg-violet-500;
+  @apply flex gap-x-2 pl-1 border border-transparent text-sm font-medium rounded-md rounded-b-none shadow-sm text-white bg-primary-500 hover:bg-primary-600 dark:bg-primary-300 dark:hover:bg-primary-400;
 
   &:after {
     @apply absolute whitespace-nowrap hidden rounded-md text-xs pl-1 text-white bg-gray-900 dark:bg-gray-700;
@@ -73,7 +73,7 @@
 }
 
 .gatsby-code-button-toaster-text {
-  @apply w-auto rounded-md text-white bg-violet-600 dark:bg-violet-400;
+  @apply w-auto rounded-md text-white bg-primary-500 dark:bg-primary-300;
 }
 
 // unreset class is used to define a default style for pages with markdown
@@ -98,15 +98,15 @@
   }
 
   h1:not(.not-unreset) {
-    @apply text-2xl font-bold my-2 text-violet-600 dark:text-violet-400;
+    @apply text-2xl font-bold my-2 text-primary-500 dark:text-primary-300;
   }
 
   h2:not(.not-unreset) {
-    @apply text-xl dark:text-gray-100 font-bold my-4 border-b-2 border-violet-600 dark:border-violet-400;
+    @apply text-xl dark:text-gray-100 font-bold my-4 border-b-2 border-primary-500 dark:border-primary-300;
   }
 
   h3:not(.not-unreset) {
-    @apply text-lg font-bold text-violet-600 dark:text-violet-400 my-4;
+    @apply text-lg font-bold text-primary-500 dark:text-primary-300 my-4;
   }
 
   h4:not(.not-unreset) {

@@ -5,7 +5,7 @@ date: 2021-10-20T18:04:10.000Z
 author: Jimmy Boinembalome
 authorimage: /img/jimmy.jpg
 category: Development
-categorycolor: bg-violet-100 text-violet-800
+categorycolor: bg-primary-100 text-primary-800
 featuredpost: true
 featuredimage: /img/csharp-editor.jpg
 description: >-

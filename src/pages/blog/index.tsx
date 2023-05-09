@@ -39,7 +39,7 @@ const BlogsPage = ({ data, pageContext }: PageProps<BlogsPageQuery>) => {
   return (
     <Layout>
       <Head />
-      <Banner title={bannerTitle} subtitle={bannerSubtitle} className="bg-violet-700 dark:bg-violet-400 rounded-lg shadow-xl overflow-hidden" />
+      <Banner title={bannerTitle} subtitle={bannerSubtitle} className="bg-primary-500 dark:bg-primary-300 rounded-lg shadow-xl overflow-hidden" />
       <BlogList data={data} />
       <Pagination previousPagePath={previousPagePath} nextPagePath={nextPagePath} humanPageNumber={humanPageNumber} numberOfPages={numberOfPages} previousPageButtonText={previousPageButtonText} nextPageButtonText={nextPageButtonText} className="py-4 flex items-center justify-between" />
     </Layout>

@@ -97,7 +97,7 @@ export const ResumePageTemplate = ({
       <HTMLContent className="unreset prose lg:prose-lg dark:prose-invert prose-indigo" content={content} />
       <div className="unreset prose lg:prose-lg dark:prose-invert prose-indigo">
         <h1>Skills</h1>
-        <Skills title="Technical Skills" skills={technicalSkills} color="bg-violet-100 text-violet-800" isRoundedFull={true} />
+        <Skills title="Technical Skills" skills={technicalSkills} color="bg-primary-100 text-primary-800" isRoundedFull={true} />
         <Skills title="Soft Skills" skills={softSkills} color="bg-amber-100 text-amber-800" isRoundedFull={false} />
 
         <div className="unreset prose lg:prose-lg dark:prose-invert prose-indigo">

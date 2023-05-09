@@ -122,7 +122,7 @@ export function ThemeToggle({ panelClassName }: ThemeToggleProps) {
                 {settings.map(({ value, label, icon: Icon }) => (
                     <Listbox.Option key={value} value={value} as={Fragment}>
                         {({ active, selected }) => (
-                            <li className={`${selected && 'text-violet-500'} ${active && 'bg-gray-50 dark:bg-gray-600/30'} py-1 px-2 flex items-center cursor-pointer`}>
+                            <li className={`${selected && 'text-primary-400'} ${active && 'bg-gray-50 dark:bg-gray-600/30'} py-1 px-2 flex items-center cursor-pointer`}>
                                 <Icon selected={selected} className="w-6 h-6 mr-2" />
                                 {label}
                             </li>

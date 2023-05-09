@@ -24,7 +24,7 @@ const Welcome = ({ image, title, subheading }: WelcomeProps) => {
         <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 dark:text-gray-100 sm:text-5xl md:text-6xl">
           {title}
         </h1>
-        <h2 className="text-base text-violet-600 dark:text-violet-400 sm:text-lg sm:max-w-xl md:text-xl">
+        <h2 className="text-base text-primary-500 dark:text-primary-300 sm:text-lg sm:max-w-xl md:text-xl">
           {subheading}
         </h2>
       </SmoothTransition>
@@ -47,7 +47,7 @@ interface IntroducingProps {
 const Introducing = ({ mainpitch }: IntroducingProps) => {
   return (
     <SmoothTransition className="flex flex-col gap-4">
-      <h1 className="text-base text-center text-violet-600 dark:text-violet-400 font-semibold tracking-wide uppercase">Introducing</h1>
+      <h1 className="text-base text-center text-primary-500 dark:text-primary-300 font-semibold tracking-wide uppercase">Introducing</h1>
       <span className="text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl">
         {mainpitch.title}
       </span>
@@ -61,7 +61,7 @@ const Introducing = ({ mainpitch }: IntroducingProps) => {
 const StayUpToDate = () => {
   return (
     <SmoothTransition className="flex flex-col gap-4">
-      <h1 className="text-base text-center text-violet-600 dark:text-violet-400 font-semibold tracking-wide uppercase">Stay up to date</h1>
+      <h1 className="text-base text-center text-primary-500 dark:text-primary-300 font-semibold tracking-wide uppercase">Stay up to date</h1>
       <span className="text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl">
         Latest Articles
       </span>
