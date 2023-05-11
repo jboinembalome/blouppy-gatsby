@@ -1,12 +1,12 @@
 import React from 'react'
 import { PageProps, graphql } from 'gatsby'
-import { Layout } from '../../components/layout';
-import { Seo } from "../../components/seo/Seo"
-import { Banner } from '../../components/banner'
-import { Pagination } from '../../components/pagination'
-import { Card, CardImage, CardContent } from '../../components/card';
-import { BlogsPageQuery } from '../../types/graphql-queries';
-import { useSiteMetadata } from '../../hooks/useSiteMetadata';
+import { Layout } from '../components/layout';
+import { Seo } from "../components/seo/Seo"
+import { Banner } from '../components/banner'
+import { Pagination } from '../components/pagination'
+import { Card, CardImage, CardContent } from '../components/card';
+import { BlogsPageQuery } from '../types/graphql-queries';
+import { useSiteMetadata } from '../hooks/useSiteMetadata';
 
 interface BlogListProps {
   data: BlogsPageQuery;
