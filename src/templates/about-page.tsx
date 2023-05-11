@@ -1,47 +1,24 @@
 import React from 'react'
 import { PageProps, graphql } from 'gatsby'
-import Layout from '../components/Layout'
+import { Layout } from '../components/layout';
 import { AboutPageTemplate } from './about-page-template'
-import { HTMLContent } from '../components/Content'
-import { Seo } from "../components/Seo"
-import { IGatsbyImageData, getSrc } from "gatsby-plugin-image"
+import { Seo } from "../components/seo/Seo"
+import { ImageDataLike, getSrc } from "gatsby-plugin-image"
+import { AboutPageQuery } from '../types/graphql-queries';
 
-type AuthorType = {
-  name: string;
-};
-
-type SiteMetadataType = {
-  author: AuthorType;
-  siteUrl: string;
-};
-
-type FrontmatterType = {
-  title: string;
-  aboutimage: {
-    childImageSharp: {
-      gatsbyImageData: IGatsbyImageData;
-    };
-  };
-};
-
-type DataType = {
-  site: {
-    siteMetadata: SiteMetadataType;
-  }
-  markdownRemark: {
-    html: string | TrustedHTML;
-    frontmatter: FrontmatterType
-  };
-};
-
-const AboutPage = ({ data }: PageProps<DataType>) => {
+const AboutPage = ({ data }: PageProps<AboutPageQuery>) => {
   const { frontmatter, html } = data.markdownRemark
 
   return (
     <Layout>
-      <Head siteMetadata={data.site.siteMetadata} frontmatter={frontmatter}/>
+      <Head 
+        title={frontmatter.title}
+        description={frontmatter.description}
+        siteUrl={data.site.siteMetadata.siteUrl}
+        authorName={data.site.siteMetadata.author.name}
+        aboutimage={frontmatter.aboutimage} 
+      />
       <AboutPageTemplate
-        contentComponent={HTMLContent}
         title={frontmatter.title}
         aboutimage={frontmatter.aboutimage}
         content={html}
@@ -51,18 +28,19 @@ const AboutPage = ({ data }: PageProps<DataType>) => {
 }
 
 interface HeadProps {
-  siteMetadata: SiteMetadataType;
-  frontmatter: FrontmatterType;
+  title: string;
+  description: string;
+  siteUrl: string;
+  authorName: string;
+  aboutimage: ImageDataLike;
 }
 
-const Head = ({ siteMetadata, frontmatter }: HeadProps) => {
-  const description = "About Jimmy Boinembalome";
-
+const Head = ({ title, description, siteUrl, authorName, aboutimage }: HeadProps) => {
   return (
-    <Seo title={frontmatter.title} description={description} url={`${siteMetadata.siteUrl}/about`}>
-      <meta name="image" content={`${siteMetadata.siteUrl}${getSrc(frontmatter.aboutimage)}`} />
-      <meta property="og:image:alt" content={siteMetadata.author.name} />
-      <meta property="og:image" content={`${siteMetadata.siteUrl}${getSrc(frontmatter.aboutimage)}`} />
+    <Seo title={title} description={description} url={`${siteUrl}/about`}>
+      <meta name="image" content={`${siteUrl}${getSrc(aboutimage)}`} />
+      <meta property="og:image:alt" content={authorName} />
+      <meta property="og:image" content={`${siteUrl}${getSrc(aboutimage)}`} />
     </Seo>);
 };
 
@@ -82,6 +60,7 @@ export const aboutPageQuery = graphql`
       html
       frontmatter {
         title
+        description
         aboutimage {
           childImageSharp {
             gatsbyImageData(layout: FULL_WIDTH)

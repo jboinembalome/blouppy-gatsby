@@ -1,35 +1,14 @@
 import React from "react";
 import { graphql, PageProps } from "gatsby";
-import Layout from "../components/Layout";
+import { Layout } from '../components/layout';
 import { IndexPageTemplate } from "./index-page-template";
-import { Seo } from "../components/Seo";
-import { IGatsbyImageData } from "gatsby-plugin-image";
+import { Seo } from "../components/seo/Seo";
+import { HomePageQuery } from "../types/graphql-queries";
 
-type FrontmatterType = {
-  title: string;
-  image: {
-    childImageSharp: {
-      gatsbyImageData: IGatsbyImageData;
-    };
-  };
-  heading: string;
-  subheading: string;
-  mainpitch: {
-    title: string;
-    description: string;
-  };
-};
-
-type DataType = {
-  markdownRemark: {
-    frontmatter: FrontmatterType
-  };
-};
-
-const IndexPage = ({ data: { markdownRemark: { frontmatter } } }: PageProps<DataType>) => {
+const IndexPage = ({ data: { markdownRemark: { frontmatter } } }: PageProps<HomePageQuery>) => {
   return (
     <Layout>
-      <Head frontmatter={frontmatter} />
+      <Head description={frontmatter.mainpitch.description} />
       <IndexPageTemplate
         image={frontmatter.image}
         title={frontmatter.title}
@@ -42,19 +21,19 @@ const IndexPage = ({ data: { markdownRemark: { frontmatter } } }: PageProps<Data
 };
 
 interface HeadProps {
-  frontmatter: FrontmatterType;
+  description: string;
 }
 
-const Head = ({frontmatter}:  HeadProps) => {
-  const description = `The personal website of Jimmy Boinembalome. ${frontmatter.mainpitch.description}`;
+const Head = ({ description }: HeadProps) => {
+  const headDescription = `The personal website of Jimmy Boinembalome. ${description}`;
 
-  return <Seo description={description} />;
+  return <Seo description={headDescription} />;
 };
 
 export default IndexPage;
 
 export const pageQuery = graphql`
-  query IndexPageTemplate {
+  query IndexPage {
     markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
       frontmatter {
         title

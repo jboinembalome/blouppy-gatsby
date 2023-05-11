@@ -1,17 +1,34 @@
 ---
 templateKey: 'resume'
 title: Resume
-subtitle: Are you interested by my career history? You are in the right place.
 resumeimage: /img/jimmy.jpg
+job: .NET Design and Development Engineer
+technicalSkills: 
+- C#
+- .NET
+- .NET Core
+- Angular
+- Angular Material
+- TailwindCSS
+- WPF
+- WinForms
+- Git/Github
+- SQL
+- Entity Framework Core
+softSkills:
+- Listening
+- Curiosity
+- Calmness
+- Analysis
+- Teamwork
+- Open-mindedness
+englishResumeJB: /downloads/CV_EN_Boinembalome_Jimmy.pdf
+frenchResumeJB: /downloads/CV_FR_Boinembalome_Jimmy.pdf
 ---
-
-</br>
 
 # Profile
 My name is Jimmy Boinembalome and I have been a .NET design and development engineer for 6 years now.
 Over the years, I have helped various companies in the development and maintenance of business applications.
-
-</br>
 
 # Recent Experience
 
@@ -51,16 +68,12 @@ During these two years, I created my first .NET applications. Starting with VB.N
 - Create a console application that runs SQL procedures to generate statistics and import them into an Excel file.
 
 
-</br>
-
 # Education
 ## BAC+5 Information Systems Manager Option: Software Engineer
 ### CESI, Châteauroux (2017 - 2020)
 ## BAC+2 IT Services for Organisations Option: Software Solutions and Business Applications
 ### AFTEC, Orléans (2015 - 2017)
 
-
-</br>
 
 # Hobbies
 ## Watching
@@ -76,6 +89,4 @@ I love contributing to open source projects. In general, I help folks when I can
 
 I am also working on some personal projects in Angular, ASP.NET Core or WPF which you can find in the [Portfolio](/portfolio) tab if you wish! 🙂
 
-</br>
-
-<!-- Skills are in resume.js (because there is a specific style)-->
+<!-- Skills and Resume sections are in resume-template.tsx (because there is a specific style)-->

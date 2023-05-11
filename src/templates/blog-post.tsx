@@ -1,75 +1,33 @@
 import React from "react";
 import { PageProps, graphql } from "gatsby";
-import Layout from "../components/Layout";
+import { Layout } from '../components/layout';
 import { BlogPostTemplate } from "./blog-post-template";
-import { HTMLContent } from "../components/Content";
-import { Seo } from "../components/Seo";
-import { IGatsbyImageData, getSrc } from "gatsby-plugin-image";
+import { Seo } from "../components/seo/Seo";
+import { ImageDataLike, getSrc } from "gatsby-plugin-image";
+import { BlogPostQuery } from "../types/graphql-queries";
 
-type SiteMetadataType = {
-  siteUrl: string;
-};
-
-type FieldsType = {
-  slug: string;
-};
-
-type FrontmatterType = {
-  title: string;
-  date: string;
-  description: string;
-  tags: string[];
-  featuredpost: boolean;
-  featuredlink: string;
-  featuredauthor:string;
-  featuredimage: {
-    childImageSharp: {
-      gatsbyImageData: IGatsbyImageData;
-    };
-  };
-  author: string;
-  authorimage: {
-    childImageSharp: {
-      gatsbyImageData: IGatsbyImageData;
-    };
-  };
-};
-
-type DataType = {
-  site: {
-    siteMetadata: SiteMetadataType;
-  };
-  markdownRemark: {
-    html: string | TrustedHTML;
-    timeToRead: number;
-    excerpt: string;
-    id: string;
-    fields: FieldsType;
-    frontmatter: FrontmatterType;
-  };
-};
-
-const BlogPost = ({ data }: PageProps<DataType>) => {
+const BlogPost = ({ data }: PageProps<BlogPostQuery>) => {
   const { markdownRemark: post } = data;
   const readingTime = `${post.timeToRead} min read`;
 
   return (
     <Layout>
       <Head
-        siteMetadata={data.site.siteMetadata}
-        fields={post.fields}
-        frontmatter={post.frontmatter}
+        title={post.frontmatter.title}
+        description={post.frontmatter.description}
+        slug={post.fields.slug}
+        siteUrl={data.site.siteMetadata.siteUrl}
+        featuredimage={post.frontmatter.featuredimage}
       />
       <BlogPostTemplate
         content={post.html}
-        contentComponent={HTMLContent}
         description={post.frontmatter.description}
         author={post.frontmatter.author}
         authorimage={post.frontmatter.authorimage}
         date={post.frontmatter.date}
-        featuredauthor={post.frontmatter.featuredauthor}
-        featuredlink={post.frontmatter.featuredlink}
-        featuredimage={post.frontmatter.featuredimage}
+        imageCreator={post.frontmatter.featuredauthor}
+        imageLink={post.frontmatter.featuredlink}
+        image={post.frontmatter.featuredimage}
         slug={post.fields.slug}
         readingTime={readingTime}
         tags={post.frontmatter.tags}
@@ -80,26 +38,28 @@ const BlogPost = ({ data }: PageProps<DataType>) => {
 };
 
 interface HeadProps {
-  siteMetadata: SiteMetadataType;
-  fields: FieldsType;
-  frontmatter: FrontmatterType;
+  title: string;
+  description: string;
+  slug: string;
+  siteUrl: string;
+  featuredimage: ImageDataLike;
 }
 
-const Head = ({ siteMetadata, fields, frontmatter }: HeadProps) => {
+const Head = ({ title, description, slug, siteUrl, featuredimage }: HeadProps) => {
   return (
     <Seo
-      title={frontmatter.title}
-      description={frontmatter.description}
-      url={`${siteMetadata.siteUrl}${fields.slug}`}
+      title={title}
+      description={description}
+      url={`${siteUrl}${slug}`}
     >
       <meta
         name="image"
-        content={`${siteMetadata.siteUrl}${getSrc(frontmatter.featuredimage)}`}
+        content={`${siteUrl}${getSrc(featuredimage)}`}
       />
-      <meta property="og:image:alt" content={frontmatter.title} />
+      <meta property="og:image:alt" content={title} />
       <meta
         property="og:image"
-        content={`${siteMetadata.siteUrl}${getSrc(frontmatter.featuredimage)}`}
+        content={`${siteUrl}${getSrc(featuredimage)}`}
       />
     </Seo>
   );
@@ -108,7 +68,7 @@ const Head = ({ siteMetadata, fields, frontmatter }: HeadProps) => {
 export default BlogPost;
 
 export const pageQuery = graphql`
-  query BlogPostByID($id: String!) {
+  query BlogPost($id: String!) {
     site {
       siteMetadata {
         siteUrl

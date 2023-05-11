@@ -12,7 +12,7 @@ const addBuyMeACoffee = () => {
   script.setAttribute("data-id", "blouppy");
   script.setAttribute("data-description", "Support me on Buy me a coffee!");
   script.setAttribute("data-message", "");
-  script.setAttribute("data-color", "#BD5FFF");
+  script.setAttribute("data-color", "#ffcfb3");
   script.setAttribute("data-position", "Right");
   script.setAttribute("data-x_margin", "18");
   script.setAttribute("data-y_margin", "18");

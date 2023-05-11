@@ -1,8 +1,29 @@
 import React from "react";
-import Layout from "../../components/Layout";
-import PortfolioRollHorizontal from "../../components/PortfolioRollHorizontal";
-import { Seo } from "../../components/Seo";
-import { useSiteMetadata } from "../../components/useSiteMetadata";
+import { Layout } from '../../components/layout';
+import { Seo } from "../../components/seo/Seo";
+import { useSiteMetadata } from "../../hooks/useSiteMetadata";
+import { Banner } from "../../components/banner";
+import { Card, CardImage, CardContent } from "../../components/card";
+import { PageProps, graphql } from "gatsby";
+import { PortfolioPageQuery } from "../../types/graphql-queries";
+
+interface ProjectListProps {
+  data: PortfolioPageQuery;
+}
+
+const ProjectList = ({ data }: ProjectListProps) => {
+  const projects = data.allMarkdownRemark.edges;
+  return (
+    <section className="mt-8 mx-auto flex flex-col gap-y-8">
+      {projects && projects.map(({ node: project }) => (
+        <Card key={project.id} className="rounded-2xl bg-white dark:bg-gray-800 shadow md:mx-auto md:max-w-7xl md:grid md:grid-cols-2 md:gap-12 md:items-start">
+          <CardImage link={project.fields.slug} image={project.frontmatter.featuredimage} alt={`project image thumbnail for post ${project.frontmatter.title}`} containerClassName="relative h-full" className="inset-0 h-full w-full rounded-t-lg md:rounded-none md:rounded-l-lg object-cover z-0" />
+          <CardContent title={project.frontmatter.title} description={project.excerpt} date={project.frontmatter.date} readingTime={`${project.timeToRead} min read`} link={project.fields.slug} sourceCodeLink={project.frontmatter.link} category={project.frontmatter.category} categoryColor={project.frontmatter.categorycolor} author={project.frontmatter.author} authorimage={project.frontmatter.authorimage} className="relative mx-auto max-w-md p-6 sm:max-w-3xl" />
+        </Card>
+      ))}
+    </section>
+  )
+};
 
 const Head = () => {
   const { siteUrl } = useSiteMetadata();
@@ -10,35 +31,57 @@ const Head = () => {
   return <Seo title="Portfolio" description={description} url={`${siteUrl}/portfolio`} />
 };
 
-const PortfolioIndexPage = () => {
+const PortfolioPage = ({ data }: PageProps<PortfolioPageQuery>) => {
+  const bannerTitle = "Portfolio";
+  const bannerSubtitle = "Some projects I am happy to share with you 💻";
+
   return (
     <Layout>
       <Head />
-      <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
-        <div className="bg-rose-300 dark:bg-indigo-400 rounded-lg shadow-xl overflow-hidden">
-          <div className="pt-10 pb-12 px-6 sm:pt-16 sm:px-16 lg:py-16 lg:pr-0 xl:py-20 xl:px-20">
-            <div className="lg:self-center">
-              <h2 className="text-3xl font-extrabold text-gray-800 sm:text-4xl">
-                <span className="block">Portfolio</span>
-              </h2>
-              <p className="mt-4 text-lg leading-6 text-gray-900">
-                Some projects I am happy to share with you 👍
-              </p>
-              {/* <a
-            href="#"
-            className="mt-8 bg-white border border-transparent rounded-md shadow px-5 py-3 inline-flex items-center text-base font-medium text-violet-600 dark:text-violet-400 hover:bg-violet-50"
-          >
-            Subscribe to newsletter
-          </a> */}
-            </div>
-          </div>
-        </div>
-        <section className="mt-8">
-          <PortfolioRollHorizontal />
-        </section>
-      </div>
+      <Banner title={bannerTitle} subtitle={bannerSubtitle} className="bg-accent-500 dark:bg-accent-300 rounded-lg shadow-xl overflow-hidden" />
+      <ProjectList data={data} />
     </Layout>
   );
 };
 
-export default PortfolioIndexPage;
+export default PortfolioPage;
+
+export const pageQuery = graphql`
+  query PortfolioPage {
+    allMarkdownRemark(
+      sort: { frontmatter: { date: DESC } }
+      filter: { frontmatter: { templateKey: { eq: "portfolio-post" } } }
+    ) {
+      edges {
+        node {
+          timeToRead
+          excerpt(pruneLength: 200)
+          id
+          fields {
+            slug
+          }
+          frontmatter {
+            title
+            templateKey
+            date(formatString: "MMMM DD, YYYY")
+            category
+            categorycolor
+            featuredpost
+            featuredimage {
+              childImageSharp {
+                gatsbyImageData(layout: FULL_WIDTH)
+              }
+            }
+            author
+            authorimage {
+              childImageSharp {
+                gatsbyImageData(layout: FULL_WIDTH)
+              }
+            }
+            link
+          }
+        }
+      }
+    }
+  }
+`

@@ -23,6 +23,9 @@ const config: GatsbyConfig = {
     canonicalUrl: siteUrl,
     social: {
       twitter: `@JBoinembalome`,
+      twitterUrl: `https://twitter.com/JBoinembalome`,
+      linkedinUrl: `https://fr.linkedin.com/in/jimmy-boinembalome-87281a189`,
+      githubUrl: `https://github.com/jboinembalome`
     },
   },
   plugins: [
@@ -67,22 +70,16 @@ const config: GatsbyConfig = {
       },
     },
     {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        path: `${__dirname}/src/img`,
-        name: 'images',
-      },
-    },
-    {
       resolve: `gatsby-plugin-sharp`,
       options: {
         defaults: {
-          placeholder: `dominantColor`,
+          placeholder: `none`,
           backgroundColor: `transparent`         
         },
       },
     },
-    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-image',
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -92,12 +89,11 @@ const config: GatsbyConfig = {
         description:
           'The personal website of Jimmy Boinembalome. Blouppy is a place where you can get information about tips, best practices, technologies around Microsoft such as .NET Core, WPF, ASP.NET Core but also about other topics. You can also find information about the creator of Blouppy if you wish.',
         background_color: `#ffffff`,
-        theme_color: `#7c3aed`,
+        theme_color: `#b5bfeb`,
         display: `standalone`,
-        icon: 'src/img/logo.png', // This path is relative to the root of the site.
+        icon: 'static/img/logo.png', // This path is relative to the root of the site.
       },
     },
-    'gatsby-transformer-sharp',
     {
       resolve: `gatsby-plugin-disqus`,
       options: {

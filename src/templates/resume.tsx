@@ -1,78 +1,57 @@
 import React from "react";
 import { PageProps, graphql } from "gatsby";
-import Layout from "../components/Layout";
+import { Layout } from '../components/layout';
 import { ResumePageTemplate } from "./resume-template";
-import { HTMLContent } from "../components/Content";
-import { Seo } from "../components/Seo";
-import { IGatsbyImageData, getSrc } from "gatsby-plugin-image";
+import { Seo } from "../components/seo/Seo";
+import { ImageDataLike, getSrc } from "gatsby-plugin-image";
+import { ResumePageQuery } from "../types/graphql-queries";
 
-type AuthorType = {
-  name: string;
-};
-
-type SiteMetadataType = {
-  author: AuthorType;
-  siteUrl: string;
-};
-
-type FrontmatterType = {
-  title: string;
-  subtitle: string;
-  resumeimage: {
-    childImageSharp: {
-      gatsbyImageData: IGatsbyImageData;
-    };
-  };
-};
-
-type DataType = {
-  site: {
-    siteMetadata: SiteMetadataType;
-  };
-  markdownRemark: {
-    html: string | TrustedHTML;
-    frontmatter: FrontmatterType;
-  };
-};
-
-const ResumePage = ({ data }: PageProps<DataType>) => {
+const ResumePage = ({ data }: PageProps<ResumePageQuery>) => {
   const { frontmatter, html } = data.markdownRemark;
   return (
     <Layout>
-      <Head siteMetadata={data.site.siteMetadata} frontmatter={frontmatter} />
+      <Head title={frontmatter.title} siteUrl={data.site.siteMetadata.siteUrl} authorName={data.site.siteMetadata.author.name} resumeimage={frontmatter.resumeimage} />
       <ResumePageTemplate
-        contentComponent={HTMLContent}
         title={frontmatter.title}
-        subtitle={frontmatter.subtitle}
         resumeimage={frontmatter.resumeimage}
+        job={frontmatter.job}
+        technicalSkills={frontmatter.technicalSkills}
+        softSkills={frontmatter.softSkills}
+        englishResumeJB={frontmatter.englishResumeJB}
+        frenchResumeJB={frontmatter.frenchResumeJB}
         content={html}
+        twitterUrl={data.site.siteMetadata.social.twitterUrl}
+        linkedinUrl={data.site.siteMetadata.social.linkedinUrl}
+        githubUrl={data.site.siteMetadata.social.githubUrl}
       />
     </Layout>
   );
 };
 
 interface HeadProps {
-  siteMetadata: SiteMetadataType;
-  frontmatter: FrontmatterType;
+  title: string;
+  siteUrl: string;
+  authorName: string;
+  resumeimage: ImageDataLike;
 }
 
-const Head = ({ siteMetadata, frontmatter }: HeadProps) => {
+const Head = ({ title, siteUrl, authorName, resumeimage }: HeadProps) => {
   const description = "Resume of Jimmy Boinembalome";
 
   return (
     <Seo
-      title={frontmatter.title}
+      title={title}
       description={description}
-      url={`${siteMetadata.siteUrl}/resume`}
+      url={`${siteUrl}/resume`}
     >
       <meta
         name="image"
-        content={`${siteMetadata.siteUrl}${getSrc(frontmatter.resumeimage)}`}
+        content={`${siteUrl}${getSrc(resumeimage)}`}
       />
-      <meta property="og:image:alt" content={siteMetadata.author.name} />
+      <meta property="og:image:alt" content={authorName} />
       <meta
         property="og:image"
-        content={`${siteMetadata.siteUrl}${getSrc(frontmatter.resumeimage)}`}
+        content={`${siteUrl}${getSrc(resumeimage)}`}
       />
     </Seo>
   );
@@ -88,18 +67,27 @@ export const resumePageQuery = graphql`
           name
         }
         siteUrl
+        social {
+          twitterUrl
+          linkedinUrl
+          githubUrl
+        }
       }
     }
     markdownRemark(id: { eq: $id }) {
       html
       frontmatter {
         title
-        subtitle
         resumeimage {
           childImageSharp {
             gatsbyImageData(layout: FULL_WIDTH)
           }
         }
+        job
+        technicalSkills
+        softSkills
+        englishResumeJB
+        frenchResumeJB
       }
     }
   }
