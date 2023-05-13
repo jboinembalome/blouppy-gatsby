@@ -9,5 +9,6 @@ static/admin/*.bundle.*
 .env
 # Visual Studio
 .vs/
+.vs/slnx.sqlite
 
 
