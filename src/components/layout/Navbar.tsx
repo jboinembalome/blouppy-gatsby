@@ -85,7 +85,7 @@ export const Navbar = () => {
   const searchIndices = [{ name: `Pages`, title: `Pages` }];
 
   return (
-    <Disclosure as="nav" className="shadow">
+    <Disclosure as="nav" className="sticky top-0 z-40 w-full backdrop-blur flex-none transition-colors duration-500 bg-white/75 dark:bg-gray-900/75 shadow">
       {({ open }) => (
         <>
           {/* lg and more Menu */}

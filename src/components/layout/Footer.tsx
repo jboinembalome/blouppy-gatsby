@@ -41,7 +41,7 @@ export const Footer = () => {
 
 
   return (
-    <footer className="bg-gray-800" aria-labelledby="footer-heading">
+    <footer className="backdrop-blur flex-none transition-colors bg-white/75 dark:bg-gray-900/75 shadow" aria-labelledby="footer-heading">
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>
@@ -53,7 +53,7 @@ export const Footer = () => {
               src={`${withPrefix("/")}img/logo.png`}
               alt="Blouppy"
             />
-            <p className="text-gray-300 text-base">
+            <p className="text-gray-500 dark:text-gray-300 text-base">
               Making the world a better place by sharing information for all.
             </p>
           </div>
@@ -64,7 +64,7 @@ export const Footer = () => {
               key={item.name}
               href={item.href}
               target="_blank"
-              className="text-gray-400 hover:text-gray-300"
+              className="text-gray-600 dark:text-gray-400 hover:text-gray-500 dark:hover:text-gray-300"
             >
               <span className="sr-only">{item.name}</span>
               <item.icon className="h-6 w-6" aria-hidden="true" />
@@ -73,10 +73,10 @@ export const Footer = () => {
         </div>
         {/* <div className="border-t border-gray-700 mt-12 pt-8 lg:flex lg:items-center lg:justify-between">
           <div>
-            <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+            <h3 className="text-sm font-semibold text-gray-600 dark:text-gray-400 tracking-wider uppercase">
               Subscribe to the newsletter
             </h3>
-            <p className="mt-2 text-base text-gray-300">
+            <p className="mt-2 text-base text-gray-500 dark:text-gray-300">
               The latest articles, sent to your inbox weekly.
             </p>
           </div>
@@ -104,7 +104,7 @@ export const Footer = () => {
           </form>
         </div> */}
         <div className="mt-8 border-t border-gray-700 pt-8 md:flex md:items-center md:justify-between">
-          <p className="mt-8 text-base text-gray-400 md:mt-0 md:order-1">
+          <p className="mt-8 text-base text-gray-600 dark:text-gray-400 md:mt-0 md:order-1">
             &copy; {new Date().getFullYear()} Blouppy, Inc. All rights reserved.
           </p>
         </div>

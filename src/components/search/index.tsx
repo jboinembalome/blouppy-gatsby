@@ -34,7 +34,7 @@ export default function Search({ indices, openModal, modalClosed }: SearchProps)
                 onSearchStateChange={({ query }) => setQuery(query)}>
                 <div className="relative">
                     <Transition.Root show={openModal} as={Fragment} afterLeave={() => modalClosed(false)}>
-                        <Dialog as="div" className="fixed inset-0 z-10 overflow-y-auto p-4 sm:p-6 md:p-20" onClose={modalClosed}>
+                        <Dialog as="div" className="fixed inset-0 z-50 overflow-y-auto p-4 sm:p-6 md:p-20" onClose={modalClosed}>
                             <Transition.Child
                                 as={Fragment}
                                 enter="ease-out duration-300"
