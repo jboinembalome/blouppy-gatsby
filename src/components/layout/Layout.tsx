@@ -6,7 +6,7 @@ import { withPrefix } from "gatsby";
 import "../../styles/site.scss";
 
 interface LayoutProps {
-  children: JSX.Element |  JSX.Element[];
+  children: JSX.Element | JSX.Element[];
 }
 
 export const Layout = ({ children }: LayoutProps) => {
@@ -42,7 +42,8 @@ export const Layout = ({ children }: LayoutProps) => {
         <body />
       </Helmet>
       <Navbar />
-        <div className="relative max-w-7xl mx-auto p-8">{children}</div>
+      <div className="fixed left-1/2 top-1/2 h-96 w-96 -translate-x-64 -translate-y-64 scale-125 rounded-full bg-primary-500/30 blur-[100px]"></div>
+      <div className="relative max-w-7xl mx-auto p-8">{children}</div>
       <Footer />
     </div>
   );
