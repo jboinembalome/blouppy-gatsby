@@ -11,10 +11,10 @@ export const Banner = ({ title, subtitle, className }: BannerProps) => {
         <div className={className}>
           <div className="pt-10 pb-12 px-6 sm:pt-16 sm:px-16 lg:py-16 lg:pr-0 xl:py-20 xl:px-20">
             <div className="lg:self-center">
-              <h2 className="text-3xl font-extrabold text-gray-100 dark:text-gray-800 sm:text-4xl">
+              <h2 className="text-3xl font-extrabold sm:text-4xl">
                 <span className="block">{title}</span>
               </h2>
-              <p className="mt-4 text-lg leading-6 text-white dark:text-gray-900">
+              <p className="mt-4 text-lg leading-6">
                 {subtitle}
               </p>
               {/* <a
