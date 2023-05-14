@@ -98,7 +98,7 @@ Now let's add our Git hook with Husky:
 npx husky add .husky/commit-msg  'npx --no -- commitlint --edit ${1}'
 ```
 
-The command will create a new commit-msg hook in our project's .husky directory, which runs commitlint to validate the commit message according to the configured rules, and opens the default editor for the user to edit the commit message before validation.
+The command will create a new commit-msg hook in our project's .husky directory, which runs commitlint to validate the commit message according to the configured rules.
 
 Let's test to make sure it works:
 ![Commit message error](/img/angular-husky-commit-message-error.png)
@@ -133,24 +133,28 @@ After installing lint-staged, we will configure it to run the linters on staged 
 }
 ``` 
 
-
-## Configure Husky
 Finally, we can configure Husky to run lint-staged:
 
 ```powershell
 npx husky add .husky/pre-commit  'npx lint-staged'
 ```
 
-This will create a new pre-commit hook in our project's .husky directory, which runs lint-staged to format files and check for linting errors.
+This command will create a new pre-commit hook in our project's .husky directory, which runs lint-staged to format files and check for linting errors.
+
+Now, if we commit one or more files, **Husky will first run the pre-commit hook**, which will **execute lint-staged**. If there are any issues found, the commit will be **aborted**.
+
+Assuming lint-staged passes, **Husky will then run the commit-msg hook**. **The commit message will then be validated by commitlint**. If the commit message fails validation, the commit will be **aborted**.
+
+If both hooks pass, **the commit will be created and the changes will be added to the Git repository**.
 
 That's it! We have successfully configured Husky with commitlint and lint-staged for your Angular project. 🙂
 
 ## Conclusion
-In this article, we have learned how to set up Husky with commitlint and lint-staged for an Angular project. By using Husky, we can enforce code quality and commit message conventions in our project.
+In this article, we have learned how to set up Husky with commitlint and lint-staged for an Angular project. By using Husky, we can run the pre-commit and commit-msg hooks to enforce our code quality and commit message conventions in our project.
 
-We started by installing the necessary packages, including husky, commitlint, and lint-staged. We then configured commitlint to enforce commit message conventions using the commitlint.config.js file. Next, we configured lint-staged to run linting and formatting commands on files staged.
+In addition, Husky can be used for a variety of use cases beyond those mentioned here. For example, it is also possible to use Husky to run tests before committing your changes or to run a script in a pre-push hook.
 
-Finally, we used the npx husky add command to configure the pre-commit and commit-msg Git hooks with lint-staged and commitlint, respectively. This ensures that every time we commit changes to our project, Husky will run the pre-commit and commit-msg hooks and enforce our code quality and commit message conventions.
+I hope you found this article useful! 👍
 
 Source code of the article: [Github source code](https://github.com/jboinembalome/angular-husky)
 
