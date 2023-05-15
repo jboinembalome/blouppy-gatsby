@@ -38,7 +38,7 @@ const PortfolioPage = ({ data }: PageProps<PortfolioPageQuery>) => {
   return (
     <Layout>
       <Head />
-      <Banner title={bannerTitle} subtitle={bannerSubtitle} className="bg-accent-500/40 dark:bg-accent-300 text-gray-100 dark:text-gray-800  rounded-lg shadow-xl overflow-hidden" />
+      <Banner title={bannerTitle} subtitle={bannerSubtitle} className="bg-accent-500/60 dark:bg-accent-300 text-gray-100 dark:text-gray-800  rounded-lg shadow-xl overflow-hidden" />
       <ProjectList data={data} />
     </Layout>
   );
