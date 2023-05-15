@@ -98,7 +98,7 @@ Now let's add our Git hook with Husky:
 npx husky add .husky/commit-msg  'npx --no -- commitlint --edit ${1}'
 ```
 
-The command will create a new commit-msg hook in our project's .husky directory, which runs commitlint to validate the commit message according to the configured rules.
+This command will create a new commit-msg hook in our project's .husky directory, which runs commitlint to validate the commit message according to the configured rules.
 
 Let's test to make sure it works:
 ![Commit message error](/img/angular-husky-commit-message-error.png)
@@ -114,7 +114,7 @@ To install lint-staged, run the following command:
 npm install lint-staged --save-dev
 ``` 
 
-> **_Note:_**  If you don't know how to install ESLint and Prettier in an Angular project, you can take a look to these articles: 
+> **_Note:_**  If you don't know how to install ESLint and Prettier in an Angular project, you can take a look to these articles
 > 
 > - [Configure ESLint with Angular](https://www.blouppy.com/blog/2023-04-03-configure-eslint-with-angular/)
 > - [Configure Prettier with Angular](https://www.blouppy.com/blog/2023-01-29-configure-prettier-with-angular/)
@@ -139,15 +139,12 @@ Finally, we can configure Husky to run lint-staged:
 npx husky add .husky/pre-commit  'npx lint-staged'
 ```
 
-This command will create a new pre-commit hook in our project's .husky directory, which runs lint-staged to format files and check for linting errors.
-
-Now, if we commit one or more files, **Husky will first run the pre-commit hook**, which will **execute lint-staged**. If there are any issues found, the commit will be **aborted**.
+Now, if we commit one or more files, **Husky will first run the pre-commit hook**, which will **execute lint-staged** to format files and check for linting errors. If there are any issues found, the commit will be **aborted**.
 
 Assuming lint-staged passes, **Husky will then run the commit-msg hook**. **The commit message will then be validated by commitlint**. If the commit message fails validation, the commit will be **aborted**.
 
-If both hooks pass, **the commit will be created and the changes will be added to the Git repository**.
+If both hooks pass, **the commit will be created and the changes will be added to the Git repository**. 🙂
 
-That's it! We have successfully configured Husky with commitlint and lint-staged for your Angular project. 🙂
 
 ## Conclusion
 In this article, we have learned how to set up Husky with commitlint and lint-staged for an Angular project. By using Husky, we can run the pre-commit and commit-msg hooks to enforce our code quality and commit message conventions in our project.
