@@ -49,7 +49,7 @@
 .gatsby-code-button-container {
   max-width: 88vw;
   min-width: 300px;
-  @apply touch-none flex justify-end top-0 z-[100] pointer-events-none;
+  @apply touch-none flex justify-end top-0 z-30 pointer-events-none;
 }
 
 .gatsby-code-button {
