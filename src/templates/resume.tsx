@@ -1,6 +1,5 @@
 import React from "react";
 import { PageProps, graphql } from "gatsby";
-import { Layout } from '../components/layout';
 import { ResumePageTemplate } from "./resume-template";
 import { Seo } from "../components/seo/Seo";
 import { ImageDataLike, getSrc } from "gatsby-plugin-image";
@@ -9,7 +8,7 @@ import { ResumePageQuery } from "../types/graphql-queries";
 const ResumePage = ({ data }: PageProps<ResumePageQuery>) => {
   const { frontmatter, html } = data.markdownRemark;
   return (
-    <Layout>
+    <>
       <Head title={frontmatter.title} siteUrl={data.site.siteMetadata.siteUrl} authorName={data.site.siteMetadata.author.name} resumeimage={frontmatter.resumeimage} />
       <ResumePageTemplate
         title={frontmatter.title}
@@ -24,7 +23,7 @@ const ResumePage = ({ data }: PageProps<ResumePageQuery>) => {
         linkedinUrl={data.site.siteMetadata.social.linkedinUrl}
         githubUrl={data.site.siteMetadata.social.githubUrl}
       />
-    </Layout>
+    </>
   );
 };
 

@@ -1,6 +1,5 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react'
 import { navigate } from 'gatsby-link'
-import { Layout } from '../../components/layout';
 import { EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline'
 import { LinkedInIcon, TwitterIcon } from '../../components/icons/svg/social/Icons'
 import { Seo } from "../../components/seo/Seo"
@@ -38,7 +37,7 @@ const Index = () => {
   }
 
   return (
-    <Layout>
+    <>
       <Head />
       <div className="bg-gray-100 dark:bg-gray-900">
         <div className="relative bg-white dark:bg-gray-800 border border-transparent rounded-lg shadow">
@@ -216,7 +215,7 @@ const Index = () => {
           </div>
         </div>
       </div>
-    </Layout>
+    </>
   )
 }
 

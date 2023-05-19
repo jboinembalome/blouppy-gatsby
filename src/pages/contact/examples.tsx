@@ -1,10 +1,8 @@
 import React from "react";
 import { Link } from "gatsby-link";
-import { Layout } from '../../components/layout';
 
 const Index = () => {
   return (
-    <Layout>
       <section className="section">
         <div className="container">
           <div className="content">
@@ -43,7 +41,6 @@ const Index = () => {
           </div>
         </div>
       </section>
-    </Layout>
   );
 };
 

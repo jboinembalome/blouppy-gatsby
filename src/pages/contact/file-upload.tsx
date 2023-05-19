@@ -1,6 +1,5 @@
 import React, { ChangeEvent, FormEvent, useState } from "react";
 import { navigate } from "gatsby-link";
-import { Layout } from '../../components/layout';
 
 const Contact = () => {
   const [state, setState] = useState({});
@@ -28,7 +27,6 @@ const Contact = () => {
   };
 
   return (
-    <Layout>
       <section className="section">
         <div className="container">
           <div className="content">
@@ -88,7 +86,6 @@ const Contact = () => {
           </div>
         </div>
       </section>
-    </Layout>
   );
 };
 

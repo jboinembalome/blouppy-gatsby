@@ -1,6 +1,5 @@
 import React from "react";
 import { Link, PageProps, graphql } from "gatsby";
-import { Layout } from '../components/layout';
 import { kebabCase } from "lodash";
 import { Seo } from "../components/seo/Seo";
 import { ButtonInternalLink } from "../components/button";
@@ -22,7 +21,7 @@ const TagPage = ({ data, pageContext }: PageProps<TagPageQuery>) => {
   const tagHeader = `${totalCount} post${totalCount === 1 ? "" : "s"} tagged with`;
 
   return (
-    <Layout>
+    <>
       <Head tag={tag} siteUrl={data.site.siteMetadata.siteUrl} />
 
       <div className="text-gray-500 dark:text-gray-400 mx-auto">
@@ -37,7 +36,7 @@ const TagPage = ({ data, pageContext }: PageProps<TagPageQuery>) => {
           <ButtonInternalLink link="/tags/" text="Browse all tags" className="mt-2 mx-auto" />
         </div>
       </div>
-    </Layout>
+    </>
   );
 };
 

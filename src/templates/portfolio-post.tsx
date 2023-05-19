@@ -1,6 +1,5 @@
 import React from 'react'
 import { PageProps, graphql } from 'gatsby'
-import { Layout } from '../components/layout';
 import { PortfolioPostTemplate } from './portfolio-post-template'
 import { Seo } from "../components/seo/Seo"
 import { ImageDataLike, getSrc } from "gatsby-plugin-image"
@@ -11,7 +10,7 @@ const PortfolioPost = ({ data }: PageProps<PortfolioPostQuery>) => {
   const readingTime = `${post.timeToRead} min read`
 
   return (
-    <Layout>
+    <>
       <Head slug={post.fields.slug} title={post.frontmatter.title} description={post.frontmatter.description} siteUrl={data.site.siteMetadata.siteUrl} featuredimage={post.frontmatter.featuredimage} />
       <PortfolioPostTemplate
         content={post.html}
@@ -25,7 +24,7 @@ const PortfolioPost = ({ data }: PageProps<PortfolioPostQuery>) => {
         title={post.frontmatter.title}
         link={post.frontmatter.link}
       />
-    </Layout>
+    </>
   )
 }
 

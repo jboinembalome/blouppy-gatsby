@@ -1,6 +1,5 @@
 import React from "react";
 import { PageProps, graphql } from "gatsby";
-import { Layout } from '../components/layout';
 import { BlogPostTemplate } from "./blog-post-template";
 import { Seo } from "../components/seo/Seo";
 import { ImageDataLike, getSrc } from "gatsby-plugin-image";
@@ -11,7 +10,7 @@ const BlogPost = ({ data }: PageProps<BlogPostQuery>) => {
   const readingTime = `${post.timeToRead} min read`;
 
   return (
-    <Layout>
+    <>
       <Head
         title={post.frontmatter.title}
         description={post.frontmatter.description}
@@ -33,7 +32,7 @@ const BlogPost = ({ data }: PageProps<BlogPostQuery>) => {
         tags={post.frontmatter.tags}
         title={post.frontmatter.title}
       />
-    </Layout>
+    </>
   );
 };
 

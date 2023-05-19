@@ -1,6 +1,5 @@
 import React from 'react'
 import { PageProps, graphql } from 'gatsby'
-import { Layout } from '../components/layout';
 import { Seo } from "../components/seo/Seo"
 import { Banner } from '../components/banner'
 import { Pagination } from '../components/pagination'
@@ -37,12 +36,12 @@ const BlogsPage = ({ data, pageContext }: PageProps<BlogsPageQuery>) => {
   const nextPageButtonText = "Next";
 
   return (
-    <Layout>
+    <>
       <Head />
       <Banner title={bannerTitle} subtitle={bannerSubtitle} className="bg-primary-500 dark:bg-primary-300 text-gray-100 dark:text-gray-800 rounded-lg shadow-xl overflow-hidden" />
       <BlogList data={data} />
       <Pagination previousPagePath={previousPagePath} nextPagePath={nextPagePath} humanPageNumber={humanPageNumber} numberOfPages={numberOfPages} previousPageButtonText={previousPageButtonText} nextPageButtonText={nextPageButtonText} className="py-4 flex items-center justify-between" />
-    </Layout>
+    </>
   )
 }
 

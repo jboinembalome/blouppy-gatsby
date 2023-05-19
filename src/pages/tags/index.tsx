@@ -1,7 +1,6 @@
 import React from "react";
 import { Seo } from "../../components/seo/Seo";
 import { PageProps, graphql } from "gatsby";
-import { Layout } from '../../components/layout';
 import { TagsPageQuery } from "../../types/graphql-queries";
 import { TagWithCount } from "../../components/tag";
 
@@ -9,7 +8,7 @@ const TagsPage = ({ data }: PageProps<TagsPageQuery>) => {
   const { allMarkdownRemark: { group } } = data;
 
   return (
-    <Layout>
+    <>
       <Head siteUrl={data.site.siteMetadata.siteUrl} />
       <div className="max-w-prose mx-auto">
         <div className="text-lg max-w-prose mx-auto">
@@ -26,7 +25,7 @@ const TagsPage = ({ data }: PageProps<TagsPageQuery>) => {
           </ul>
         </div>
       </div>
-    </Layout>
+    </>
   );
 };
 

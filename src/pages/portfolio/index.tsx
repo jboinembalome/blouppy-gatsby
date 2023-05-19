@@ -1,5 +1,4 @@
 import React from "react";
-import { Layout } from '../../components/layout';
 import { Seo } from "../../components/seo/Seo";
 import { useSiteMetadata } from "../../hooks/useSiteMetadata";
 import { Banner } from "../../components/banner";
@@ -36,11 +35,11 @@ const PortfolioPage = ({ data }: PageProps<PortfolioPageQuery>) => {
   const bannerSubtitle = "Some projects I am happy to share with you 💻";
 
   return (
-    <Layout>
+    <>
       <Head />
       <Banner title={bannerTitle} subtitle={bannerSubtitle} className="bg-accent-500/60 dark:bg-accent-300 text-gray-100 dark:text-gray-800  rounded-lg shadow-xl overflow-hidden" />
       <ProjectList data={data} />
-    </Layout>
+    </>
   );
 };
 

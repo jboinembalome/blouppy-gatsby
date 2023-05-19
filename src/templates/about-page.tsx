@@ -1,6 +1,5 @@
 import React from 'react'
 import { PageProps, graphql } from 'gatsby'
-import { Layout } from '../components/layout';
 import { AboutPageTemplate } from './about-page-template'
 import { Seo } from "../components/seo/Seo"
 import { ImageDataLike, getSrc } from "gatsby-plugin-image"
@@ -10,7 +9,7 @@ const AboutPage = ({ data }: PageProps<AboutPageQuery>) => {
   const { frontmatter, html } = data.markdownRemark
 
   return (
-    <Layout>
+    <>
       <Head 
         title={frontmatter.title}
         description={frontmatter.description}
@@ -23,7 +22,7 @@ const AboutPage = ({ data }: PageProps<AboutPageQuery>) => {
         aboutimage={frontmatter.aboutimage}
         content={html}
       />
-    </Layout>
+    </>
   )
 }
 

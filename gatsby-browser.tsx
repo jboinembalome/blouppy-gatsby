@@ -1,6 +1,7 @@
 import React from 'react';
 import type { GatsbyBrowser } from "gatsby"
 import './src/styles/site.scss';
+import { Layout } from './src/components/layout';
 
 const addBuyMeACoffee = () => {
   const script = document.createElement("script");
@@ -29,7 +30,7 @@ require("prismjs/plugins/command-line/prism-command-line.css")
 require("prismjs/themes/prism-tomorrow.css")
 
 export const wrapPageElement: GatsbyBrowser["wrapPageElement"] = ({ element }) => {
-    return <div>{element}</div>;
+    return <Layout>{element}</Layout>;
 }
 
 export const onInitialClientRender: GatsbyBrowser["onInitialClientRender"] = () => {

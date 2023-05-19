@@ -1,9 +1,7 @@
 import React from 'react';
-import { Layout } from '../components/layout';
 import { ButtonInternalLink } from '../components/button';
 
 const NotFoundPage = () => (
-  <Layout>
     <div className="flex-grow mx-auto max-w-7xl w-full flex flex-col">
       <div className="flex-shrink-0 my-auto py-16 sm:py-32">
         <p className="text-sm font-semibold text-indigo-600 dark:text-indigo-400 uppercase tracking-wide">404 error</p>
@@ -14,7 +12,6 @@ const NotFoundPage = () => (
         </div>
       </div>
     </div>
-  </Layout>
 )
 
 export default NotFoundPage

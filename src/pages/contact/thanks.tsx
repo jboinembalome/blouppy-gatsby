@@ -1,12 +1,10 @@
 import React from 'react'
-import { Layout } from '../../components/layout';
-import { Link } from 'gatsby'
 import { Seo } from "../../components/seo/Seo"
 import { useSiteMetadata } from "../../hooks/useSiteMetadata"
 import { ButtonInternalLink } from '../../components/button';
 
 const Thanks = () => (
-  <Layout>
+  <>
     <Head />
     <section className="min-h-full px-4 py-16 sm:px-6 sm:py-24 md:grid md:place-items-center lg:px-8">
       <main className="sm:flex">
@@ -24,7 +22,7 @@ const Thanks = () => (
         </div>
       </main>
     </section>
-  </Layout>
+  </>
 )
 
 const Head = () => {
