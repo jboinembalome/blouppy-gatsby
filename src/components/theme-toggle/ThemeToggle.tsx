@@ -117,7 +117,7 @@ export function ThemeToggle({ panelClassName }: ThemeToggleProps) {
                 </span>
             </Listbox.Button>
             <Listbox.Options
-                className={`absolute z-50 top-full right-0 bg-white rounded-lg ring-1 ring-gray-900/10 shadow-lg overflow-hidden w-36 py-1 text-sm text-gray-700 font-semibold dark:bg-gray-800 dark:ring-0 dark:highlight-white/5 dark:text-gray-300 ${panelClassName}`}
+                className={`absolute z-50 top-full right-0 bg-white rounded-lg ring-1 ring-gray-900/10 shadow-lg overflow-hidden w-36 py-1 text-sm text-gray-700 font-semibold dark:bg-gray-900 dark:ring-0 dark:highlight-white/5 dark:text-gray-300 ${panelClassName}`}
             >
                 {settings.map(({ value, label, icon: Icon }) => (
                     <Listbox.Option key={value} value={value} as={Fragment}>

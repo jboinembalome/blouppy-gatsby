@@ -15,7 +15,7 @@ const ProjectList = ({ data }: ProjectListProps) => {
   return (
     <section className="mt-8 mx-auto flex flex-col gap-y-8">
       {projects && projects.map(({ node: project }) => (
-        <Card key={project.id} className="rounded-2xl bg-white dark:bg-gray-800 shadow md:mx-auto md:max-w-7xl md:grid md:grid-cols-2 md:gap-12 md:items-start">
+        <Card key={project.id} className="rounded-2xl bg-white dark:bg-gray-900 shadow md:mx-auto md:max-w-7xl md:grid md:grid-cols-2 md:gap-12 md:items-start">
           <CardImage link={project.fields.slug} image={project.frontmatter.featuredimage} alt={`project image thumbnail for post ${project.frontmatter.title}`} containerClassName="relative h-full" className="inset-0 h-full w-full rounded-t-lg md:rounded-none md:rounded-l-lg object-cover z-0" />
           <CardContent title={project.frontmatter.title} description={project.excerpt} date={project.frontmatter.date} readingTime={`${project.timeToRead} min read`} link={project.fields.slug} sourceCodeLink={project.frontmatter.link} category={project.frontmatter.category} categoryColor={project.frontmatter.categorycolor} author={project.frontmatter.author} authorimage={project.frontmatter.authorimage} className="relative mx-auto max-w-md p-6 sm:max-w-3xl" />
         </Card>
@@ -37,7 +37,7 @@ const PortfolioPage = ({ data }: PageProps<PortfolioPageQuery>) => {
   return (
     <>
       <Head />
-      <Banner title={bannerTitle} subtitle={bannerSubtitle} className="bg-accent-500/60 dark:bg-accent-300 text-gray-100 dark:text-gray-800  rounded-lg shadow-xl overflow-hidden" />
+      <Banner title={bannerTitle} subtitle={bannerSubtitle} className="bg-accent-500/60 dark:bg-accent-300 text-gray-100 dark:text-gray-900  rounded-lg shadow-xl overflow-hidden" />
       <ProjectList data={data} />
     </>
   );

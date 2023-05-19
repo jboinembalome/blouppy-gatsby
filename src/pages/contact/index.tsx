@@ -40,12 +40,12 @@ const Index = () => {
     <>
       <Head />
       <div className="bg-gray-100 dark:bg-gray-900">
-        <div className="relative bg-white dark:bg-gray-800 border border-transparent rounded-lg shadow">
+        <div className="relative bg-white dark:bg-gray-900 border border-transparent rounded-lg shadow">
           <h2 className="sr-only">Contact me</h2>
 
           <div className="grid grid-cols-1 lg:grid-cols-3">
             <div className="relative overflow-hidden py-10 px-6 border border-transparent rounded-t-lg lg:rounded-l-lg shadow bg-primary-600 dark:bg-primary-300 sm:px-10 xl:p-12">
-              <h3 className="text-lg font-medium text-white dark:text-gray-800">Contact Me</h3>
+              <h3 className="text-lg font-medium text-white dark:text-gray-900">Contact Me</h3>
               <p className="mt-6 text-sm md:text-base text-primary-50 dark:text-gray-900 max-w-3xl">
                 {description}
               </p>
@@ -54,26 +54,26 @@ const Index = () => {
                   <span className="sr-only">Phone number</span>
                 </dt>
                 <dd className="flex text-sm md:text-base text-primary-50 dark:text-gray-900">
-                  <PhoneIcon className="flex-shrink-0 w-6 h-6 text-primary-200 dark:text-gray-800" aria-hidden="true" />
+                  <PhoneIcon className="flex-shrink-0 w-6 h-6 text-primary-200 dark:text-gray-900" aria-hidden="true" />
                   <span className="ml-3">+33 6 52 26 46 76</span>
                 </dd>
                 <dt>
                   <span className="sr-only">Email</span>
                 </dt>
                 <dd className="flex text-sm md:text-base text-primary-50 dark:text-gray-900">
-                  <EnvelopeIcon className="flex-shrink-0 w-6 h-6 text-primary-200 dark:text-gray-800" aria-hidden="true" />
+                  <EnvelopeIcon className="flex-shrink-0 w-6 h-6 text-primary-200 dark:text-gray-900" aria-hidden="true" />
                   <span className="ml-3">jboinembalome@gmail.com</span>
                 </dd>
               </dl>
               <ul role="list" className="mt-8 flex space-x-12">
                 <li>
-                  <a className="text-primary-200 dark:text-gray-800 hover:text-primary-100 dark:hover:text-gray-900" href={siteMetadata?.social?.linkedinUrl} target="_blank">
+                  <a className="text-primary-200 dark:text-gray-900 hover:text-primary-100 dark:hover:text-gray-900" href={siteMetadata?.social?.linkedinUrl} target="_blank">
                     <span className="sr-only">LinkedIn</span>
                     <LinkedInIcon className="w-6 h-6" />
                   </a>
                 </li>
                 <li>
-                  <a className="text-primary-200 dark:text-gray-800 hover:text-primary-100 dark:hover:text-gray-900" href={siteMetadata?.social?.twitterUrl} target="_blank">
+                  <a className="text-primary-200 dark:text-gray-900 hover:text-primary-100 dark:hover:text-gray-900" href={siteMetadata?.social?.twitterUrl} target="_blank">
                     <span className="sr-only">Twitter</span>
                     <TwitterIcon className="w-6 h-6" />
                   </a>
@@ -106,7 +106,7 @@ const Index = () => {
                       autoComplete="given-name"
                       onChange={handleChange}
                       required={true}
-                      className="py-3 px-4 block w-full shadow-sm dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-indigo-500 focus:border-primary-400 border-gray-300 rounded-md"
+                      className="py-3 px-4 block w-full shadow-sm dark:bg-gray-900 text-gray-900 dark:text-gray-100 focus:ring-indigo-500 focus:border-primary-400 border-gray-300 rounded-md"
                     />
                   </div>
                 </div>
@@ -122,7 +122,7 @@ const Index = () => {
                       autoComplete="family-name"
                       onChange={handleChange}
                       required={true}
-                      className="py-3 px-4 block w-full shadow-sm dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-indigo-500 focus:border-primary-400 border-gray-300 rounded-md"
+                      className="py-3 px-4 block w-full shadow-sm dark:bg-gray-900 text-gray-900 dark:text-gray-100 focus:ring-indigo-500 focus:border-primary-400 border-gray-300 rounded-md"
                     />
                   </div>
                 </div>
@@ -138,7 +138,7 @@ const Index = () => {
                       autoComplete="email"
                       onChange={handleChange}
                       required={true}
-                      className="py-3 px-4 block w-full shadow-sm dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-indigo-500 focus:border-primary-400 border-gray-300 rounded-md"
+                      className="py-3 px-4 block w-full shadow-sm dark:bg-gray-900 text-gray-900 dark:text-gray-100 focus:ring-indigo-500 focus:border-primary-400 border-gray-300 rounded-md"
                     />
                   </div>
                 </div>
@@ -159,7 +159,7 @@ const Index = () => {
                       autoComplete="tel"
                       onChange={handleChange}
                       required={false}
-                      className="py-3 px-4 block w-full shadow-sm dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-indigo-500 focus:border-primary-400 border-gray-300 rounded-md"
+                      className="py-3 px-4 block w-full shadow-sm dark:bg-gray-900 text-gray-900 dark:text-gray-100 focus:ring-indigo-500 focus:border-primary-400 border-gray-300 rounded-md"
                       aria-describedby="phone-optional"
                     />
                   </div>
@@ -176,7 +176,7 @@ const Index = () => {
                       onChange={handleChange}
                       required={true}
                       // autocomplete="off"
-                      className="py-3 px-4 block w-full shadow-sm dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-indigo-500 focus:border-primary-400 border-gray-300 rounded-md"
+                      className="py-3 px-4 block w-full shadow-sm dark:bg-gray-900 text-gray-900 dark:text-gray-100 focus:ring-indigo-500 focus:border-primary-400 border-gray-300 rounded-md"
                     />
                   </div>
                 </div>
@@ -195,7 +195,7 @@ const Index = () => {
                       name={'message'}
                       onChange={handleChange}
                       required={true}
-                      className="py-3 px-4 block w-full shadow-sm dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-indigo-500 focus:border-primary-400 border border-gray-300 rounded-md"
+                      className="py-3 px-4 block w-full shadow-sm dark:bg-gray-900 text-gray-900 dark:text-gray-100 focus:ring-indigo-500 focus:border-primary-400 border border-gray-300 rounded-md"
                       aria-describedby="message-max"
                       maxLength={500}
                       defaultValue={''}

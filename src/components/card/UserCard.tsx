@@ -18,7 +18,7 @@ export const UserCard = ({ username, photo, altPhoto, job, socials, socialsClass
     const imageInfo = { image: photo, alt: altPhoto ?? `User card ${username}` };
 
     return (
-        <Card className={`py-8 px-6 bg-gray-800 text-center rounded-lg ${className}`}>
+        <Card className={`py-8 px-6 bg-gray-900 text-center rounded-lg ${className}`}>
             <div className="space-y-6">
                 <PreviewCompatibleImage
                     className="mx-auto h-24 w-24 rounded-full relative z-0"

@@ -41,7 +41,7 @@ export const Footer = () => {
 
 
   return (
-    <footer className="backdrop-blur flex-none transition-colors bg-white/75 dark:bg-gray-900/75 shadow" aria-labelledby="footer-heading">
+    <footer className="backdrop-blur flex-none transition-colors bg-white/75 dark:bg-gray-950/75 shadow" aria-labelledby="footer-heading">
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>
@@ -90,13 +90,13 @@ export const Footer = () => {
               id="email-address"
               autoComplete="email"
               required
-              className="appearance-none min-w-0 w-full bg-white border border-transparent rounded-md py-2 px-4 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white focus:border-white focus:placeholder-gray-400 sm:max-w-xs"
+              className="appearance-none min-w-0 w-full bg-white border border-transparent rounded-md py-2 px-4 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-white focus:border-white focus:placeholder-gray-400 sm:max-w-xs"
               placeholder="Enter your email"
             />
             <div className="mt-3 rounded-md sm:mt-0 sm:ml-3 sm:flex-shrink-0">
               <button
                 type="submit"
-                className="w-full bg-primary-500 dark:bg-primary-300 border border-transparent rounded-md py-2 px-4 flex items-center justify-center text-base font-medium text-white hover:bg-primary-500 dark:hover:bg-primary-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-indigo-500"
+                className="w-full bg-primary-500 dark:bg-primary-300 border border-transparent rounded-md py-2 px-4 flex items-center justify-center text-base font-medium text-white hover:bg-primary-500 dark:hover:bg-primary-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-indigo-500"
               >
                 Subscribe
               </button>
