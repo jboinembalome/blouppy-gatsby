@@ -10,7 +10,6 @@ export interface CardContentProps {
     description?: string;
     date: string;
     readingTime?: string;
-    link?: string;
     sourceCodeLink?: string;
     category?: string;
     categoryColor?: string;
@@ -19,33 +18,28 @@ export interface CardContentProps {
     className?: string;
 }
 
-export const CardContent = ({ title, description, date, readingTime, link, sourceCodeLink, category, categoryColor, author, authorimage, className }: CardContentProps) => {
+export const CardContent = ({ title, description, date, readingTime, sourceCodeLink, category, categoryColor, author, authorimage, className }: CardContentProps) => {
     return (
         <div className={className}>
-            <div className="flex-1 flex flex-col justify-between">
-                <div className="flex-1">
-                    <Tag text={category} color={categoryColor}/>
-                    <div className="block mt-2">
-                        <p className="text-xl font-semibold text-gray-900 dark:text-gray-100">
-                            {title}
-                        </p>
-                        <p className="mt-3 text-base text-gray-500 dark:text-gray-400">
-                            {description}
-                        </p>
-                    </div>
-                    <div className="flex justify-end">
-                        <ButtonInternalLink link={link ?? ''} text="Continue Reading" className="mt-6" color={"basic"} size='sm' />
-                    </div>
+            <div className="flex-1">
+                <Tag text={category} color={categoryColor}/>
+                <div className="block mt-2">
+                    <p className="text-xl font-semibold text-gray-900 dark:text-gray-100">
+                        {title}
+                    </p>
+                    <p className="mt-3 text-base text-gray-500 dark:text-gray-400">
+                        {description}
+                    </p>
                 </div>
-                <ArticleInformation
-                    author={author}
-                    authorimage={authorimage}
-                    date={date}
-                    readingTime={readingTime ?? ''}
-                    link={sourceCodeLink}
-                    className="mt-6"
-                />
             </div>
+            <ArticleInformation
+                author={author}
+                authorimage={authorimage}
+                date={date}
+                readingTime={readingTime ?? ''}
+                link={sourceCodeLink}
+                className="mt-6"
+            />
         </div>
     );
 };
