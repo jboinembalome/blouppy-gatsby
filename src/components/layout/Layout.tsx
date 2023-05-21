@@ -42,11 +42,8 @@ export const Layout = ({ children }: LayoutProps) => {
         <body />
       </Helmet>
       <Navbar />
-      <div className="stars"></div>
-      <div className="fixed left-1/2 top-1/2 h-96 w-96 -translate-x-64 -translate-y-64 scale-125 rounded-full bg-primary-500/30 blur-[150px] dark:blur-[100px]"></div>
-      <div className="fixed left-1/2 top-1/2 h-96 w-96 scale-125 rounded-full bg-primary-200/20 blur-[50px] dark:blur-[100px]"></div>
-      <div className="fixed left-1/2 top-1/2 h-96 w-96 -translate-x-96 scale-125 rounded-full bg-primary-200/20 blur-[50px] dark:blur-[100px]"></div>
-
+      <div className="fixed top-1/2 left-1/2 h-px w-px stars"></div>
+      <div className="fixed left-1/2 top-1/2 h-96 w-96 -translate-x-64 -translate-y-64 scale-125 rounded-full bg-indigo-800/30 blur-[150px] dark:blur-[100px]"></div>
       <div className="relative max-w-7xl mx-auto p-8 main">{children}</div>
       <Footer />
     </div>
