@@ -107,9 +107,6 @@ export const Navbar = () => {
                   <Link to="/" title="Logo">
                     <span className="sr-only">Home</span>
                     <BlouppyIcon className="block lg:hidden p-2 h-14 w-14" />
-                  </Link>
-                  <Link to="/" title="Logo">
-                    <span className="sr-only">Home</span>
                     <BlouppyWithTextIcon className="text-gray-900 dark:text-gray-100 hidden lg:block p-2 w-32" />
                   </Link>
                 </div>
