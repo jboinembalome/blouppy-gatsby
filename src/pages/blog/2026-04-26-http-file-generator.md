@@ -4,7 +4,7 @@ title: 'Introducing HTTP File Generator: Generate .http Files from OpenAPI Speci
 date: 2026-04-26T09:00:00.000Z
 author: Jimmy Boinembalome
 authorimage: /img/jimmy.jpg
-category: TypeScript
+category: Next.js
 categorycolor: bg-blue-100 text-blue-800
 featuredpost: true
 featuredimage: /img/http-file-generator.jpg
