@@ -7,7 +7,7 @@ authorimage: /img/jimmy.jpg
 category: Development
 categorycolor: bg-primary-100 text-primary-800
 featuredpost: true
-featuredimage: /img/http-file-generator-project.jpg
+featuredimage: /img/http-file-generator.png
 description: >-
   A privacy-first browser tool that generates ready-to-use .http files from OpenAPI specifications.
 tags:
