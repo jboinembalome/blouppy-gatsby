@@ -1,7 +1,7 @@
 ---
 templateKey: 'blog-post'
 title: 'Introducing HTTP File Generator: Generate .http Files from OpenAPI Specifications'
-date: 2024-01-20T09:00:00.000Z
+date: 2026-04-26T09:00:00.000Z
 author: Jimmy Boinembalome
 authorimage: /img/jimmy.jpg
 category: TypeScript
@@ -18,7 +18,7 @@ tags:
   - REST API
 ---
 
-Testing and exploring REST APIs is a daily task for most developers. While tools like Postman and Insomnia are popular choices, the lightweight `.http` file format — natively supported by Visual Studio and the REST Client extension for VS Code — offers a frictionless alternative that lives right alongside your source code.
+Testing and exploring REST APIs is a daily task for most developers. While tools like Postman and Insomnia are popular choices, the lightweight `.http` file format — natively supported by Visual Studio, Rider, and the REST Client extension for VS Code — offers a frictionless alternative that lives right alongside your source code.
 
 **HTTP File Generator** is a web application I built to automate this workflow: upload your OpenAPI specification, browse and select the endpoints you care about, preview the generated `.http` content, and download a ZIP archive — all in your browser, with no data ever leaving your machine.
 
@@ -42,15 +42,14 @@ Content-Type: application/json
 }
 ```
 
-These files can be executed directly inside **Visual Studio** (via the built-in HTTP editor) or in **Visual Studio Code** with the [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) extension. No extra tooling is needed — just open the file and click **Send Request**.
+These files can be executed directly inside **Visual Studio** (via the built-in HTTP editor), **Rider**, or in **Visual Studio Code** with the [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) extension. No extra tooling is needed — just open the file and click **Send Request**.
 
 
 ## Why HTTP File Generator?
 
-OpenAPI (formerly Swagger) specifications can contain dozens or even hundreds of endpoints. Writing `.http` files by hand for each endpoint is tedious and error-prone. HTTP File Generator solves this by:
+OpenAPI specifications can contain dozens or even hundreds of endpoints. Writing `.http` files by hand for each endpoint is tedious and error-prone. HTTP File Generator solves this by:
 
 - **Parsing your spec automatically** — supports `.json`, `.yaml`, and `.yml` OpenAPI 3.x files.
-- **Letting you select only what you need** — browse endpoints by tag or HTTP method, filter with a real-time search, and check only the endpoints you want to test.
 - **Giving you a live preview** — the generated `.http` content updates instantly as you make selections.
 - **Generating a well-organised ZIP** — the downloaded archive contains one `.http` file per tag or path group, mirroring the structure of your API.
 
@@ -59,7 +58,7 @@ OpenAPI (formerly Swagger) specifications can contain dozens or even hundreds of
 
 ### Step 1 – Upload Your Spec
 
-Navigate to [HTTP File Generator](https://github.com/Blouppy/http-file-generator) and drag-and-drop your OpenAPI specification file (`.json`, `.yaml`, or `.yml`) onto the upload area, or click to browse your file system.
+Navigate to [HTTP File Generator](https://http-file-generator.blouppy.com/) and drag-and-drop your OpenAPI specification file (`.json`, `.yaml`, or `.yml`) onto the upload area, or click to browse your file system.
 
 The file is parsed entirely in the browser using [`@apidevtools/swagger-parser`](https://www.npmjs.com/package/@apidevtools/swagger-parser). **Your spec is never sent to any server.**
 
@@ -79,7 +78,7 @@ The **live preview panel** on the right updates every time you toggle an endpoin
 
 ### Step 3 – Download
 
-Click **Download** to receive a ZIP archive. Inside, you will find one `.http` file per tag or path group, ready to open in Visual Studio or VS Code.
+Click **Download** to receive a ZIP archive. Inside, you will find one `.http` file per tag or path group, ready to open in Visual Studio, Rider, or VS Code.
 
 If you only need a quick copy-paste, the **Copy** button copies the entire preview to your clipboard.
 
